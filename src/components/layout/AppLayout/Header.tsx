@@ -33,13 +33,8 @@ import {
   Dashboard,
   Person,
 } from '@mui/icons-material'
-
-// TODO: Replace with actual auth hook when implemented
-const useAuth = () => ({
-  user: null as { name: string; email: string; avatar?: string } | null, // Will be replaced with actual user data
-  isAuthenticated: false,
-  logout: () => console.log('Logout clicked'),
-})
+import { useAuth } from '@/hooks/auth/useAuth'
+import { Link } from 'react-router-dom'
 
 const Header: FC = () => {
   const theme = useTheme()
@@ -63,16 +58,15 @@ const Header: FC = () => {
   }
   
   const navigationItems = [
-    { label: 'Home', path: '/' },
-    { label: 'Projects', path: '/projects' },
-    { label: 'About', path: '/about' },
+    { label: 'Portfolio', path: '/portfolio' },
+    { label: 'Blog', path: '/blog' },
     { label: 'Contact', path: '/contact' },
   ]
   
   const userMenuItems = [
-    { label: 'Dashboard', icon: <Dashboard />, path: '/user/dashboard' },
-    { label: 'Profile', icon: <Person />, path: '/user/profile' },
-    { label: 'Settings', icon: <Settings />, path: '/user/settings' },
+    { label: 'Dashboard', icon: <Dashboard />, path: '/app/dashboard' },
+    { label: 'Profile', icon: <Person />, path: '/app/profile' },
+    { label: 'Settings', icon: <Settings />, path: '/app/settings' },
   ]
 
   return (
@@ -104,12 +98,16 @@ const Header: FC = () => {
           {/* Logo */}
           <Typography
             variant="h6"
-            component="div"
+            component={Link}
+            to="/"
             sx={{
               fontWeight: 700,
               color: 'primary.main',
               textDecoration: 'none',
               cursor: 'pointer',
+              '&:hover': {
+                color: 'primary.dark',
+              },
             }}
           >
             NestLancer
@@ -121,9 +119,12 @@ const Header: FC = () => {
               {navigationItems.map((item) => (
                 <Button
                   key={item.label}
+                  component={Link}
+                  to={item.path}
                   sx={{
                     color: 'text.primary',
                     mx: 1,
+                    textDecoration: 'none',
                     '&:hover': {
                       bgcolor: 'action.hover',
                     },
@@ -168,15 +169,23 @@ const Header: FC = () => {
                 {/* Login/Register Buttons */}
                 <Button
                   variant="text"
-                  sx={{ color: 'text.primary' }}
+                  component={Link}
+                  to="/auth/login"
+                  sx={{ 
+                    color: 'text.primary',
+                    textDecoration: 'none',
+                  }}
                 >
                   Login
                 </Button>
                 <Button
                   variant="contained"
+                  component={Link}
+                  to="/auth/register"
                   sx={{
                     ml: 1,
                     bgcolor: 'primary.main',
+                    textDecoration: 'none',
                     '&:hover': {
                       bgcolor: 'primary.dark',
                     },
@@ -225,8 +234,14 @@ const Header: FC = () => {
         {userMenuItems.map((item) => (
           <MenuItem
             key={item.label}
+            component={Link}
+            to={item.path}
             onClick={handleUserMenuClose}
-            sx={{ gap: 1.5 }}
+            sx={{ 
+              gap: 1.5,
+              textDecoration: 'none',
+              color: 'inherit',
+            }}
           >
             {item.icon}
             {item.label}
@@ -269,7 +284,13 @@ const Header: FC = () => {
           {navigationItems.map((item) => (
             <ListItem key={item.label} disablePadding>
               <ListItemButton
+                component={Link}
+                to={item.path}
                 onClick={handleMobileMenuToggle}
+                sx={{
+                  textDecoration: 'none',
+                  color: 'inherit',
+                }}
               >
                 <ListItemText primary={item.label} />
               </ListItemButton>

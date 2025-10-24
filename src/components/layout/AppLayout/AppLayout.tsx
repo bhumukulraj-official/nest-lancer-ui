@@ -12,13 +12,14 @@ import {
   useMediaQuery,
   CssBaseline,
 } from '@mui/material'
+import { Outlet } from 'react-router-dom'
 
 import Header from './Header'
 import Footer from './Footer'
 import Sidebar from './Sidebar'
 
 interface AppLayoutProps {
-  children: ReactNode
+  children?: ReactNode
   showSidebar?: boolean
   maxWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | false
   disableGutters?: boolean
@@ -82,7 +83,7 @@ const AppLayout: FC<AppLayoutProps> = ({
               px: disableGutters ? 0 : { xs: 2, sm: 3 },
             }}
           >
-            {children}
+            {children || <Outlet />}
           </Container>
         </Box>
       </Box>

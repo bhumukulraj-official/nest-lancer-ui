@@ -27,25 +27,14 @@ import {
   RequestPage,
   Receipt,
   Payment,
-  TrendingUp,
-  Folder,
-  Message,
-  Notifications,
   AdminPanelSettings,
-  Analytics,
-  People,
-  Settings,
   ExpandLess,
   ExpandMore,
   ChevronLeft,
   ChevronRight,
 } from '@mui/icons-material'
-
-// TODO: Replace with actual auth hook when implemented
-const useAuth = () => ({
-  user: { name: 'John Doe', email: 'john@example.com', role: 'user', avatar: '' },
-  isAuthenticated: true,
-})
+import { useAuth } from '@/hooks/auth/useAuth'
+import { useNavigate } from 'react-router-dom'
 
 interface SidebarProps {
   width?: number
@@ -67,6 +56,7 @@ const Sidebar: FC<SidebarProps> = ({
   onToggleCollapse,
 }) => {
   const theme = useTheme()
+  const navigate = useNavigate()
   const { user, isAuthenticated } = useAuth()
   
   const [expandedItems, setExpandedItems] = useState<string[]>([])
@@ -85,67 +75,37 @@ const Sidebar: FC<SidebarProps> = ({
     {
       label: 'Dashboard',
       icon: <Dashboard />,
-      path: '/user/dashboard',
+      path: '/app/dashboard',
       role: ['user', 'admin'],
     },
     {
       label: 'Profile',
       icon: <Person />,
-      path: '/user/profile',
+      path: '/app/profile',
       role: ['user', 'admin'],
     },
     {
       label: 'Projects',
       icon: <Work />,
-      path: '/user/projects',
+      path: '/app/projects',
       role: ['user', 'admin'],
-      children: [
-        { label: 'All Projects', icon: <Work />, path: '/user/projects' },
-        { label: 'Project Gallery', icon: <Folder />, path: '/user/projects/gallery' },
-      ],
     },
     {
       label: 'Requests',
       icon: <RequestPage />,
-      path: '/user/requests',
+      path: '/app/requests',
       role: ['user', 'admin'],
-      children: [
-        { label: 'My Requests', icon: <RequestPage />, path: '/user/requests' },
-        { label: 'Create Request', icon: <RequestPage />, path: '/user/requests/create' },
-      ],
     },
     {
       label: 'Quotes',
       icon: <Receipt />,
-      path: '/user/quotes',
+      path: '/app/quotes',
       role: ['user', 'admin'],
     },
     {
       label: 'Payments',
       icon: <Payment />,
-      path: '/user/payments',
-      role: ['user', 'admin'],
-      children: [
-        { label: 'Payment History', icon: <Payment />, path: '/user/payments/history' },
-        { label: 'Payment Methods', icon: <Payment />, path: '/user/payments/methods' },
-      ],
-    },
-    {
-      label: 'Portfolio',
-      icon: <TrendingUp />,
-      path: '/user/portfolio',
-      role: ['user', 'admin'],
-    },
-    {
-      label: 'Messages',
-      icon: <Message />,
-      path: '/user/messaging',
-      role: ['user', 'admin'],
-    },
-    {
-      label: 'Notifications',
-      icon: <Notifications />,
-      path: '/user/notifications',
+      path: '/app/payments',
       role: ['user', 'admin'],
     },
     
@@ -155,12 +115,6 @@ const Sidebar: FC<SidebarProps> = ({
       icon: <AdminPanelSettings />,
       path: '/admin',
       role: ['admin'],
-      children: [
-        { label: 'Admin Dashboard', icon: <Dashboard />, path: '/admin/dashboard' },
-        { label: 'Analytics', icon: <Analytics />, path: '/admin/analytics' },
-        { label: 'User Management', icon: <People />, path: '/admin/users' },
-        { label: 'System Settings', icon: <Settings />, path: '/admin/system' },
-      ],
     },
   ]
   
@@ -181,8 +135,7 @@ const Sidebar: FC<SidebarProps> = ({
               if (hasChildren) {
                 handleExpandToggle(item.label)
               } else {
-                // TODO: Navigate to route when router is implemented
-                console.log('Navigate to:', item.path)
+                navigate(item.path)
               }
             }}
             sx={{
