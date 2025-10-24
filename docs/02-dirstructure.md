@@ -420,77 +420,70 @@ nest-lancer-frontend/
 │   │       ├── useCopyToClipboard.ts
 │   │       └── useDocumentTitle.ts
 │   │
-│   ├── services/                           # API services and external integrations
-│   │   ├── core/                            # Core infrastructure services
-│   │   │   ├── routerService.ts             # Router service for navigation
-│   │   │   ├── errorService.ts              # Error handling service
-│   │   │   ├── permissionsService.ts        # Permissions and access control service
+│   ├── services/                           # UI-only API services (no business logic)
+│   │   ├── api/                            # Core API communication
+│   │   │   ├── client.ts                   # Axios HTTP client configuration
+│   │   │   ├── interceptors.ts             # Request/response interceptors (token, errors)
+│   │   │   ├── endpoints.ts                # API endpoint URL constants
 │   │   │   └── index.ts
-│   │   ├── api/
-│   │   │   ├── client.ts                   # Axios instance configuration
-│   │   │   ├── interceptors.ts             # Request/response interceptors
-│   │   │   ├── endpoints.ts                # API endpoint constants
+│   │   ├── auth/                           # Authentication API calls only
+│   │   │   ├── authApiService.ts           # Login/logout/register API calls only
+│   │   │   ├── tokenService.ts             # JWT token storage/retrieval only
 │   │   │   └── index.ts
-│   │   ├── auth/
-│   │   │   ├── authService.ts
-│   │   │   ├── tokenService.ts
+│   │   ├── user/                           # User data API calls
+│   │   │   ├── userApiService.ts           # User CRUD API calls only
+│   │   │   ├── profileApiService.ts        # Profile API calls only
 │   │   │   └── index.ts
-│   │   ├── user/
-│   │   │   ├── userService.ts
-│   │   │   ├── profileService.ts
+│   │   ├── project/                        # Project data API calls
+│   │   │   ├── projectApiService.ts        # Project API calls only
 │   │   │   └── index.ts
-│   │   ├── project/
-│   │   │   ├── projectService.ts
+│   │   ├── request/                        # Request data API calls
+│   │   │   ├── requestApiService.ts        # Request API calls only
 │   │   │   └── index.ts
-│   │   ├── request/
-│   │   │   ├── requestService.ts
+│   │   ├── quote/                          # Quote data API calls
+│   │   │   ├── quoteApiService.ts          # Quote API calls only
 │   │   │   └── index.ts
-│   │   ├── quote/
-│   │   │   ├── quoteService.ts
+│   │   ├── payment/                        # Payment UI integration
+│   │   │   ├── paymentApiService.ts        # Payment API calls only
+│   │   │   ├── razorpayUIService.ts        # Razorpay UI integration only
 │   │   │   └── index.ts
-│   │   ├── payment/
-│   │   │   ├── paymentService.ts
-│   │   │   ├── razorpayService.ts
+│   │   ├── media/                          # Media upload UI integration
+│   │   │   ├── mediaApiService.ts          # Media API calls only
+│   │   │   ├── cloudinaryUIService.ts      # Cloudinary UI widget integration only
 │   │   │   └── index.ts
-│   │   ├── media/
-│   │   │   ├── mediaService.ts
-│   │   │   ├── cloudinaryService.ts
+│   │   ├── messaging/                      # Messaging API calls
+│   │   │   ├── messagingApiService.ts      # Messaging API calls only
 │   │   │   └── index.ts
-│   │   ├── messaging/
-│   │   │   ├── messagingService.ts
+│   │   ├── notification/                   # Notification API calls
+│   │   │   ├── notificationApiService.ts   # Notification API calls only
 │   │   │   └── index.ts
-│   │   ├── notification/
-│   │   │   ├── notificationService.ts
+│   │   ├── blog/                           # Blog API calls
+│   │   │   ├── blogApiService.ts           # Blog API calls only
 │   │   │   └── index.ts
-│   │   ├── blog/
-│   │   │   ├── blogService.ts
+│   │   ├── contact/                        # Contact API calls
+│   │   │   ├── contactApiService.ts        # Contact form API calls only
 │   │   │   └── index.ts
-│   │   ├── contact/
-│   │   │   ├── contactService.ts
+│   │   ├── progress/                       # Progress data API calls
+│   │   │   ├── progressApiService.ts       # Progress API calls only
 │   │   │   └── index.ts
-│   │   ├── progress/
-│   │   │   ├── progressService.ts
+│   │   ├── portfolio/                      # Portfolio data API calls
+│   │   │   ├── portfolioApiService.ts      # Portfolio API calls only
 │   │   │   └── index.ts
-│   │   ├── portfolio/
-│   │   │   ├── portfolioService.ts
+│   │   ├── admin/                          # Admin API calls (display backend data)
+│   │   │   ├── adminApiService.ts          # Admin API calls only
+│   │   │   ├── analyticsApiService.ts      # Analytics data fetching only
+│   │   │   ├── auditApiService.ts          # Audit logs API calls only
+│   │   │   ├── webhookApiService.ts        # Webhook data API calls only
 │   │   │   └── index.ts
-│   │   ├── admin/
-│   │   │   ├── adminService.ts
-│   │   │   ├── analyticsService.ts
-│   │   │   ├── auditService.ts
-│   │   │   ├── webhookService.ts
+│   │   ├── websocket/                      # Real-time UI updates only
+│   │   │   ├── socketClient.ts             # WebSocket connection only
+│   │   │   ├── socketEventHandlers.ts      # UI update handlers only
 │   │   │   └── index.ts
-│   │   ├── websocket/
-│   │   │   ├── socketService.ts
-│   │   │   ├── socketHandlers.ts
-│   │   │   └── index.ts
-│   │   ├── storage/
-│   │   │   ├── localStorageService.ts
-│   │   │   ├── sessionStorageService.ts
-│   │   │   └── index.ts
-│   │   └── analytics/
-│   │       ├── googleAnalyticsService.ts
-│   │       ├── sentryService.ts
+│   │   └── ui/                             # UI-only services
+│   │       ├── storageService.ts           # Browser storage wrapper only
+│   │       ├── routerService.ts            # Navigation helpers only
+│   │       ├── errorUIService.ts           # Error display helpers only
+│   │       ├── analyticsUIService.ts       # UI analytics tracking only
 │   │       └── index.ts
 │   │
 │   ├── stores/                             # Zustand state management stores
@@ -539,38 +532,39 @@ nest-lancer-frontend/
 │   │   │   └── payment.form.types.ts
 │   │   └── index.ts
 │   │
-│   ├── utils/                              # Utility functions
-│   │   ├── validation/
-│   │   │   ├── authValidation.ts
-│   │   │   ├── projectValidation.ts
-│   │   │   ├── requestValidation.ts
-│   │   │   ├── quoteValidation.ts
-│   │   │   ├── paymentValidation.ts
+│   ├── utils/                              # UI utility functions only
+│   │   ├── validation/                     # UI form validation only (UX feedback)
+│   │   │   ├── formValidation.ts           # Basic form field validation for UX
+│   │   │   ├── inputFormatting.ts          # Input formatting and masking
 │   │   │   └── index.ts
-│   │   ├── formatters/
-│   │   │   ├── dateFormatter.ts
-│   │   │   ├── currencyFormatter.ts
-│   │   │   ├── textFormatter.ts
+│   │   ├── formatters/                     # Data display formatting
+│   │   │   ├── dateFormatter.ts            # Date display formatting
+│   │   │   ├── currencyFormatter.ts        # Currency display formatting
+│   │   │   ├── textFormatter.ts            # Text display formatting
+│   │   │   ├── numberFormatter.ts          # Number display formatting
 │   │   │   └── index.ts
-│   │   ├── helpers/
-│   │   │   ├── errorHelper.ts
-│   │   │   ├── routeHelper.ts
-│   │   │   ├── permissionHelper.ts
-│   │   │   ├── fileHelper.ts
+│   │   ├── helpers/                        # UI helper functions
+│   │   │   ├── errorDisplayHelper.ts       # Error message display helpers
+│   │   │   ├── routeHelper.ts              # Route generation helpers
+│   │   │   ├── uiStateHelper.ts            # UI state management helpers
+│   │   │   ├── fileDisplayHelper.ts        # File display helpers (icons, names)
+│   │   │   ├── urlHelper.ts                # URL manipulation helpers
 │   │   │   └── index.ts
-│   │   ├── security/
-│   │   │   ├── encryption.ts
-│   │   │   ├── sanitization.ts
+│   │   ├── ui/                             # UI-specific utilities
+│   │   │   ├── domHelper.ts                # DOM manipulation helpers
+│   │   │   ├── animationHelper.ts          # Animation utilities
+│   │   │   ├── responsiveHelper.ts         # Responsive design helpers
+│   │   │   ├── accessibilityHelper.ts      # A11y helper functions
 │   │   │   └── index.ts
 │   │   └── index.ts
 │   │
-│   ├── constants/                          # Application constants
-│   │   ├── api.constants.ts                # API URLs and endpoints
-│   │   ├── routes.constants.ts             # Route paths
-│   │   ├── validation.constants.ts         # Validation rules
-│   │   ├── config.constants.ts             # App configuration
-│   │   ├── messages.constants.ts           # User-facing messages
-│   │   ├── theme.constants.ts              # Theme configuration
+│   ├── constants/                          # UI application constants
+│   │   ├── api.constants.ts                # API endpoint URLs only
+│   │   ├── routes.constants.ts             # Frontend route paths
+│   │   ├── ui.constants.ts                 # UI constants (colors, sizes, etc.)
+│   │   ├── messages.constants.ts           # User-facing display messages
+│   │   ├── theme.constants.ts              # Theme and styling constants
+│   │   ├── status.constants.ts             # Status display constants
 │   │   └── index.ts
 │   │
 │   ├── styles/                             # Global styles and theme
@@ -676,10 +670,10 @@ nest-lancer-frontend/
 - Organized by domain (auth, api, ui, form, admin, features)
 
 ### **src/services/**
-- **core/**: Core infrastructure services (router, error handling, permissions)
-- **api/**: API service layer for backend communication
-- External service integrations (Razorpay, Cloudinary, Analytics)
-- WebSocket connection management
+- **api/**: Core API communication layer (HTTP requests only)
+- **UI-only services**: Services that only handle API calls and UI integrations
+- **No business logic**: All business logic remains in backend
+- **External UI integrations**: Razorpay UI, Cloudinary widgets, WebSocket client
 
 ### **src/stores/**
 - Zustand stores for global state management
@@ -693,14 +687,14 @@ nest-lancer-frontend/
 - **forms/**: Form data types
 
 ### **src/utils/**
-- **validation/**: Validation schemas and functions
-- **formatters/**: Data formatting utilities
-- **helpers/**: General helper functions
-- **security/**: Security-related utilities
+- **validation/**: UI form validation for user experience only
+- **formatters/**: Data display formatting utilities
+- **helpers/**: UI helper functions for display and navigation
+- **ui/**: UI-specific utilities (DOM, animations, responsive design)
 
 ### **src/constants/**
-- Application-wide constants
-- API endpoints, routes, validation rules, messages
+- UI application constants
+- API endpoint URLs, frontend routes, display messages, theme constants
 
 ### **src/styles/**
 - Global styles and theme configuration
@@ -725,34 +719,37 @@ nest-lancer-frontend/
 
 ## 🎯 Key Features
 
-1. **Modular Structure**: Organized by feature and domain
-2. **Separation of Concerns**: Clear separation between UI, logic, and data
-3. **Type Safety**: Comprehensive TypeScript types
-4. **Scalability**: Easy to add new features and modules
-5. **Maintainability**: Consistent patterns and organization
-6. **Reusability**: Shared components and utilities
+1. **UI-Only Architecture**: Frontend focuses exclusively on user interface
+2. **API-First Design**: All data operations through backend APIs
+3. **Modular Structure**: Organized by feature and UI domain
+4. **Type Safety**: Comprehensive TypeScript types for UI components
+5. **Scalability**: Easy to add new UI features and display components
+6. **Maintainability**: Consistent UI patterns and display-only logic
+7. **Reusability**: Shared UI components and display utilities
+8. **No Business Logic**: All business logic handled by backend services
 
 ## 📝 Naming Conventions
 
 - **Components**: PascalCase (e.g., `UserProfile.tsx`)
 - **Hooks**: camelCase with `use` prefix (e.g., `useAuth.ts`)
-- **Services**: camelCase with `Service` suffix (e.g., `authService.ts`)
+- **Services**: camelCase with `ApiService` or `UIService` suffix (e.g., `authApiService.ts`, `razorpayUIService.ts`)
 - **Stores**: camelCase with `Store` suffix (e.g., `authStore.ts`)
 - **Types**: PascalCase with `.types.ts` suffix
 - **Constants**: UPPER_SNAKE_CASE in `.constants.ts` files
 - **Utils**: camelCase with descriptive names
 
-## 🚀 Development Workflow
+## 🚀 Development Workflow (UI-First Approach)
 
-1. Start with route definitions in `src/routes/`
-2. Create page components in `src/pages/`
-3. Build feature-specific components in `src/components/features/`
-4. Implement services in `src/services/`
-5. Add state management in `src/stores/`
-6. Create custom hooks in `src/hooks/`
-7. Define types in `src/types/`
+1. Start with route definitions in `src/routes/` for UI navigation
+2. Create page components in `src/pages/` that display backend data
+3. Build feature-specific UI components in `src/components/features/`
+4. Implement API services in `src/services/` for backend communication only
+5. Add UI state management in `src/stores/` (no business logic)
+6. Create custom hooks in `src/hooks/` for UI logic only
+7. Define types in `src/types/` for API responses and UI props
+8. Focus on displaying backend data, not processing it
 
 ---
 
-*This directory structure is designed to support a scalable, maintainable, and well-organized frontend application that integrates seamlessly with the NestLancer backend API.*
+*This directory structure is designed to support a UI-only frontend application that displays backend data through APIs, with no business logic duplication and complete separation of concerns between frontend and backend.*
 

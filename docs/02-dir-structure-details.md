@@ -2,46 +2,46 @@
 
 ## 🎯 Project Overview
 
-NestLancer is a comprehensive freelancing platform frontend built with React 18, TypeScript, and Material-UI (MUI v5). The application provides a complete ecosystem for freelancers and clients to connect, manage projects, handle payments, and track progress. The frontend integrates with a NestJS backend API and includes real-time features, payment processing, media management, and comprehensive admin capabilities.
+NestLancer is a UI-only freelancing platform frontend built with React 18, TypeScript, and Material-UI (MUI v5). The application provides a user interface for freelancers and clients to interact with the NestJS backend through APIs only. The frontend displays backend data, handles UI interactions, and integrates with external UI services (Razorpay, Cloudinary) without any business logic processing.
 
-### Key Application Features:
-- **User Management**: Authentication, profiles, role-based access control with JWT tokens
-- **Project Management**: Project creation, portfolio display, project tracking with milestones
-- **Request System**: Service requests, quotes, and project proposals with real-time updates
-- **Payment Processing**: Razorpay integration for secure payments with receipt generation
-- **Real-time Communication**: WebSocket-based messaging and notifications using Socket.io
-- **Media Management**: Cloudinary integration for file uploads and management with transformations
-- **Analytics & Reporting**: Comprehensive analytics for users and admins using Recharts
-- **Admin Panel**: Complete system administration and monitoring with audit trails
-- **Progressive Web App**: PWA capabilities with offline support and service workers
-- **Internationalization**: Multi-language support with React i18next
-- **Performance Monitoring**: Web Vitals tracking and Sentry error monitoring
-- **Component Documentation**: Storybook integration for component library documentation
-- **Testing Framework**: Comprehensive testing with Jest, React Testing Library, and MSW
-- **Development Tools**: ESLint, Prettier, Husky for code quality and consistency
+### Key UI Features (Display Backend Data Only):
+- **User Interface**: Authentication forms, profile displays (backend handles all auth logic)
+- **Project Display**: Project galleries, portfolio views (backend manages all project data)
+- **Request UI**: Service request forms, quote displays (backend processes all business logic)
+- **Payment UI**: Razorpay checkout interface (backend handles payment processing)
+- **Real-time Updates**: WebSocket UI updates (backend manages all message processing)
+- **Media Display**: Cloudinary upload widgets, image galleries (backend handles file processing)
+- **Analytics Display**: Charts showing backend-calculated data (no frontend calculations)
+- **Admin UI**: System administration interfaces displaying backend data
+- **Progressive Web App**: PWA capabilities for better user experience
+- **Internationalization**: Multi-language UI support
+- **Performance Monitoring**: Frontend performance tracking
+- **Component Documentation**: UI component library documentation
+- **Testing Framework**: UI component and integration testing
+- **Development Tools**: Code quality tools for frontend development
 
-## 🏗️ Architecture Overview
+## 🏗️ UI-Only Architecture Overview
 
-The NestLancer frontend follows a modular, feature-based architecture with clear separation of concerns:
+The NestLancer frontend follows a UI-only architecture with complete separation from business logic:
 
-### Core Infrastructure
-- **State Management**: Zustand for client state, React Query for server state
-- **Routing**: React Router v6 with protected routes and role-based access
+### Core UI Infrastructure
+- **State Management**: Zustand for UI state only, React Query for API data caching
+- **Routing**: React Router v6 with UI-based route protection (backend enforces security)
 - **UI Framework**: Material-UI v5 with custom theme and component library
-- **API Layer**: Axios with interceptors, error handling, and request/response transformation
-- **Real-time**: Socket.io for WebSocket communication and live updates
+- **API Layer**: Axios for HTTP requests only (no business logic processing)
+- **Real-time**: Socket.io client for UI updates only (backend handles all message logic)
 
-### Feature Organization
-- **Shared Components**: Reusable UI components used across the application
-- **Layout Components**: Application layouts for different user types and contexts
-- **Feature Components**: Domain-specific components organized by business logic
-- **Pages**: Route-level components that compose features and layouts
-- **Hooks**: Custom React hooks for reusable logic and state management
-- **Services**: API services and external integrations
-- **Stores**: Zustand stores for global state management
-- **Types**: TypeScript type definitions for type safety
-- **Utils**: Utility functions for validation, formatting, and helpers
-- **Constants**: Application-wide constants and configuration
+### UI-Only Feature Organization
+- **Shared Components**: Reusable UI display components
+- **Layout Components**: UI layouts for different user types and contexts
+- **Feature Components**: UI components that display backend data
+- **Pages**: Route-level components that render UI and fetch backend data
+- **Hooks**: Custom React hooks for UI logic and API data fetching only
+- **Services**: API communication services only (no business logic)
+- **Stores**: Zustand stores for UI state management only
+- **Types**: TypeScript types for API responses and UI props
+- **Utils**: UI utility functions for display formatting and helpers only
+- **Constants**: Frontend constants for routes, messages, and UI settings
 
 ## 📋 Complete File List
 
@@ -64,7 +64,6 @@ The NestLancer frontend follows a modular, feature-based architecture with clear
 - `nginx.conf`
 - `.dockerignore`
 - `01-frontend-architecture.md` - Frontend architecture overview
-- `01-frontend-architecture.md`
 - `technology-stack.md`
 
 ### Public Directory
@@ -515,95 +514,86 @@ The NestLancer frontend follows a modular, feature-based architecture with clear
 - `src/hooks/common/useCopyToClipboard.ts`
 - `src/hooks/common/useDocumentTitle.ts`
 
-#### Services - Core
-- `src/services/core/routerService.ts`
-- `src/services/core/errorService.ts`
-- `src/services/core/permissionsService.ts`
-- `src/services/core/index.ts`
-
-#### Services - API
+#### Services - API (Core Communication)
 - `src/services/api/client.ts`
 - `src/services/api/interceptors.ts`
 - `src/services/api/endpoints.ts`
 - `src/services/api/index.ts`
 
-#### Services - Auth
-- `src/services/auth/authService.ts`
+#### Services - Auth (API Calls Only)
+- `src/services/auth/authApiService.ts`
 - `src/services/auth/tokenService.ts`
 - `src/services/auth/index.ts`
 
-#### Services - User
-- `src/services/user/userService.ts`
-- `src/services/user/profileService.ts`
+#### Services - User (API Calls Only)
+- `src/services/user/userApiService.ts`
+- `src/services/user/profileApiService.ts`
 - `src/services/user/index.ts`
 
-#### Services - Project
-- `src/services/project/projectService.ts`
+#### Services - Project (API Calls Only)
+- `src/services/project/projectApiService.ts`
 - `src/services/project/index.ts`
 
-#### Services - Request
-- `src/services/request/requestService.ts`
+#### Services - Request (API Calls Only)
+- `src/services/request/requestApiService.ts`
 - `src/services/request/index.ts`
 
-#### Services - Quote
-- `src/services/quote/quoteService.ts`
+#### Services - Quote (API Calls Only)
+- `src/services/quote/quoteApiService.ts`
 - `src/services/quote/index.ts`
 
-#### Services - Payment
-- `src/services/payment/paymentService.ts`
-- `src/services/payment/razorpayService.ts`
+#### Services - Payment (UI Integration Only)
+- `src/services/payment/paymentApiService.ts`
+- `src/services/payment/razorpayUIService.ts`
 - `src/services/payment/index.ts`
 
-#### Services - Media
-- `src/services/media/mediaService.ts`
-- `src/services/media/cloudinaryService.ts`
+#### Services - Media (UI Integration Only)
+- `src/services/media/mediaApiService.ts`
+- `src/services/media/cloudinaryUIService.ts`
 - `src/services/media/index.ts`
 
-#### Services - Messaging
-- `src/services/messaging/messagingService.ts`
+#### Services - Messaging (API Calls Only)
+- `src/services/messaging/messagingApiService.ts`
 - `src/services/messaging/index.ts`
 
-#### Services - Notification
-- `src/services/notification/notificationService.ts`
+#### Services - Notification (API Calls Only)
+- `src/services/notification/notificationApiService.ts`
 - `src/services/notification/index.ts`
 
-#### Services - Blog
-- `src/services/blog/blogService.ts`
+#### Services - Blog (API Calls Only)
+- `src/services/blog/blogApiService.ts`
 - `src/services/blog/index.ts`
 
-#### Services - Contact
-- `src/services/contact/contactService.ts`
+#### Services - Contact (API Calls Only)
+- `src/services/contact/contactApiService.ts`
 - `src/services/contact/index.ts`
 
-#### Services - Progress
-- `src/services/progress/progressService.ts`
+#### Services - Progress (API Calls Only)
+- `src/services/progress/progressApiService.ts`
 - `src/services/progress/index.ts`
 
-#### Services - Portfolio
-- `src/services/portfolio/portfolioService.ts`
+#### Services - Portfolio (API Calls Only)
+- `src/services/portfolio/portfolioApiService.ts`
 - `src/services/portfolio/index.ts`
 
-#### Services - Admin
-- `src/services/admin/adminService.ts`
-- `src/services/admin/analyticsService.ts`
-- `src/services/admin/auditService.ts`
-- `src/services/admin/webhookService.ts`
+#### Services - Admin (Display Backend Data Only)
+- `src/services/admin/adminApiService.ts`
+- `src/services/admin/analyticsApiService.ts`
+- `src/services/admin/auditApiService.ts`
+- `src/services/admin/webhookApiService.ts`
 - `src/services/admin/index.ts`
 
-#### Services - WebSocket
-- `src/services/websocket/socketService.ts`
-- `src/services/websocket/socketHandlers.ts`
+#### Services - WebSocket (UI Updates Only)
+- `src/services/websocket/socketClient.ts`
+- `src/services/websocket/socketEventHandlers.ts`
 - `src/services/websocket/index.ts`
 
-#### Services - Storage
-- `src/services/storage/localStorageService.ts`
-- `src/services/storage/sessionStorageService.ts`
-- `src/services/storage/index.ts`
-
-#### Services - Analytics
-- `src/services/analytics/googleAnalyticsService.ts`
-- `src/services/analytics/sentryService.ts`
-- `src/services/analytics/index.ts`
+#### Services - UI Only
+- `src/services/ui/storageService.ts`
+- `src/services/ui/routerService.ts`
+- `src/services/ui/errorUIService.ts`
+- `src/services/ui/analyticsUIService.ts`
+- `src/services/ui/index.ts`
 
 #### Stores
 - `src/stores/authStore.ts`
@@ -655,42 +645,43 @@ The NestLancer frontend follows a modular, feature-based architecture with clear
 #### Types - Index
 - `src/types/index.ts`
 
-#### Utils - Validation
-- `src/utils/validation/authValidation.ts`
-- `src/utils/validation/projectValidation.ts`
-- `src/utils/validation/requestValidation.ts`
-- `src/utils/validation/quoteValidation.ts`
-- `src/utils/validation/paymentValidation.ts`
+#### Utils - Validation (UI Form Validation Only)
+- `src/utils/validation/formValidation.ts`
+- `src/utils/validation/inputFormatting.ts`
 - `src/utils/validation/index.ts`
 
-#### Utils - Formatters
+#### Utils - Formatters (Display Formatting Only)
 - `src/utils/formatters/dateFormatter.ts`
 - `src/utils/formatters/currencyFormatter.ts`
 - `src/utils/formatters/textFormatter.ts`
+- `src/utils/formatters/numberFormatter.ts`
 - `src/utils/formatters/index.ts`
 
-#### Utils - Helpers
-- `src/utils/helpers/errorHelper.ts`
+#### Utils - Helpers (UI Helpers Only)
+- `src/utils/helpers/errorDisplayHelper.ts`
 - `src/utils/helpers/routeHelper.ts`
-- `src/utils/helpers/permissionHelper.ts`
-- `src/utils/helpers/fileHelper.ts`
+- `src/utils/helpers/uiStateHelper.ts`
+- `src/utils/helpers/fileDisplayHelper.ts`
+- `src/utils/helpers/urlHelper.ts`
 - `src/utils/helpers/index.ts`
 
-#### Utils - Security
-- `src/utils/security/encryption.ts`
-- `src/utils/security/sanitization.ts`
-- `src/utils/security/index.ts`
+#### Utils - UI Specific
+- `src/utils/ui/domHelper.ts`
+- `src/utils/ui/animationHelper.ts`
+- `src/utils/ui/responsiveHelper.ts`
+- `src/utils/ui/accessibilityHelper.ts`
+- `src/utils/ui/index.ts`
 
 #### Utils - Index
 - `src/utils/index.ts`
 
-#### Constants
+#### Constants (UI Constants Only)
 - `src/constants/api.constants.ts`
 - `src/constants/routes.constants.ts`
-- `src/constants/validation.constants.ts`
-- `src/constants/config.constants.ts`
+- `src/constants/ui.constants.ts`
 - `src/constants/messages.constants.ts`
 - `src/constants/theme.constants.ts`
+- `src/constants/status.constants.ts`
 - `src/constants/index.ts`
 
 #### Styles - Theme
@@ -789,33 +780,31 @@ Below are detailed instructions for what should be implemented in each file. The
 ### Root Level Configuration Files
 
 #### `.env.development`
-- Define environment variables for development environment with Vite environment variable loading
-- Include NestJS backend API URL (e.g., VITE_API_BASE_URL=http://localhost:3000/api)
-- Configure Razorpay test keys (VITE_RAZORPAY_KEY_ID, VITE_RAZORPAY_KEY_SECRET) and Cloudinary development settings (VITE_CLOUDINARY_CLOUD_NAME, VITE_CLOUDINARY_UPLOAD_PRESET)
-- Set up WebSocket connection URLs for real-time features (VITE_WS_URL=ws://localhost:3000)
-- Include Google Analytics tracking ID for development (VITE_GA_TRACKING_ID)
-- Configure Sentry DSN for error monitoring in development (VITE_SENTRY_DSN)
-- Set feature flags for development-specific functionality (VITE_ENABLE_DEV_TOOLS=true)
-- Define JWT secret keys and token expiration settings (VITE_JWT_SECRET, VITE_TOKEN_EXPIRY)
-- Configure PWA settings for development (VITE_PWA_ENABLED=false)
-- Set up i18n configuration (VITE_DEFAULT_LOCALE=en, VITE_FALLBACK_LOCALE=en)
+- Define client-safe environment variables (Vite only exposes variables prefixed with VITE_); do not include secrets
+- Backend API base URL (e.g., VITE_API_BASE_URL=http://localhost:3000/api)
+- Razorpay public key only (VITE_RAZORPAY_KEY_ID). Do not include any secret keys
+- Cloudinary public config (VITE_CLOUDINARY_CLOUD_NAME, VITE_CLOUDINARY_UPLOAD_PRESET)
+- WebSocket URL for UI updates (VITE_WS_URL=ws://localhost:3000)
+- Google Analytics tracking ID (VITE_GA_TRACKING_ID)
+- Sentry public DSN (VITE_SENTRY_DSN)
+- UI feature flags (e.g., VITE_ENABLE_DEV_TOOLS=true)
+- PWA toggle (VITE_PWA_ENABLED=false)
+- i18n defaults (VITE_DEFAULT_LOCALE, VITE_FALLBACK_LOCALE)
 
 #### `.env.production`
-- Define environment variables for production environment
-- Include production NestJS backend API URL
-- Configure Razorpay live keys and Cloudinary production settings
-- Set up production WebSocket connection URLs
-- Include production Google Analytics tracking ID
-- Configure production Sentry DSN for error monitoring
-- Set production feature flags and performance settings
-- Define production JWT secret keys and security configurations
+- Define client-safe environment variables for production (no secrets in frontend)
+- Backend API base URL
+- Razorpay public key only (no secret in frontend)
+- Cloudinary public config
+- WebSocket URL for UI updates
+- Google Analytics tracking ID
+- Sentry public DSN
+- UI feature flags and performance toggles
 
 #### `.env.example`
-- Provide template for environment variables
-- Include all required and optional environment variables with examples
-- Add detailed comments explaining each variable's purpose and format
-- Include placeholder values for sensitive information
-- Document environment-specific configurations and requirements
+- Provide template for client-safe variables only with examples and comments
+- Explicitly document that sensitive secrets (JWT secrets, Razorpay secret, API keys) must live in backend only
+- Document environment-specific notes relevant to the UI
 
 #### `.gitignore`
 - Specify files and directories to exclude from version control
@@ -905,9 +894,9 @@ Below are detailed instructions for what should be implemented in each file. The
 - Configure build process and production-ready image
 
 #### `docker-compose.yml`
-- Define multi-container setup for development and testing
-- Include database, cache, and other required services
-- Configure networking and volume mounting
+- Define frontend container and optional reverse-proxy for local dev
+- Do not include database or cache services for a UI-only app
+- Configure networking and static asset serving as needed
 
 #### `nginx.conf`
 - Configure Nginx as reverse proxy and static file server
@@ -989,9 +978,9 @@ Below are detailed instructions for what should be implemented in each file. The
 - **Pagination.tsx**: Create pagination component for data tables (projects, users, payments) using MUI Pagination with page size selection, total count display, and accessibility features
 
 ##### Guards
-- **RoleGuard.tsx**: Implement role-based access control component for different user types (freelancer, client, admin) using Zustand auth store, role checking logic, and fallback UI for unauthorized access
-- **AdminGuard.tsx**: Create admin-only access guard for administrative features and system management with admin role validation and redirect to appropriate page
-- **AuthGuard.tsx**: Build authentication requirement guard for protected routes and user-specific content with JWT token validation, automatic redirect to login, and loading states
+- **RoleGuard.tsx**: UI-only gating that shows/hides components based on role received from backend via auth store; provide fallback UI for unauthorized access
+- **AdminGuard.tsx**: UI-only gating for admin features based on backend-provided role; perform UI redirects only
+- **AuthGuard.tsx**: Check client auth state (e.g., token presence/UI flag) and handle redirects; do not perform token validation in frontend
 
 ##### Modal System
 - **Modal.tsx**: Create base modal component with overlay for project details and user interactions using MUI Modal with custom backdrop, focus management, and accessibility features
@@ -1050,7 +1039,7 @@ Below are detailed instructions for what should be implemented in each file. The
 - **LoginForm.tsx**: Build login form with validation for freelancers and clients using React Hook Form with Yup validation, MUI TextField components, role-based form fields, and integration with auth service for JWT token handling
 - **RegisterForm.tsx**: Create user registration form with role selection, profile setup, and multi-step form process using MUI Stepper with form validation, file upload for avatar, and terms acceptance using MUI Checkbox
 - **ForgotPasswordForm.tsx**: Implement forgot password form with email validation using MUI TextField with email validation, loading states, and success/error feedback using toast notifications
-- **ResetPasswordForm.tsx**: Build password reset form with token validation, password strength indicator, and confirmation field using MUI TextField with password visibility toggle and validation rules
+- **ResetPasswordForm.tsx**: Build password reset form with password strength indicator and confirmation field using MUI TextField with password visibility toggle; backend validates the reset token
 - **EmailVerificationForm.tsx**: Create email verification component for account activation with resend functionality, countdown timer, and verification status display using MUI components with real-time updates
 
 ##### Dashboard Components
@@ -1085,15 +1074,15 @@ Below are detailed instructions for what should be implemented in each file. The
 - **QuoteCard.tsx**: Build quote display card with pricing information, timeline, and status using MUI Card with pricing breakdown, status badges, and action buttons for quote management
 - **QuoteList.tsx**: Create quote list component with filtering, sorting, and status management using MUI DataGrid with quote status filters, pricing sorting, and bulk actions for quote processing
 - **QuoteDetail.tsx**: Implement quote detail view with full pricing breakdown, terms, and acceptance workflow using MUI Tabs with quote details, terms and conditions, and acceptance interface
-- **QuoteForm.tsx**: Build quote creation form with pricing calculator, timeline estimation, and terms configuration using MUI Stepper with pricing breakdown, timeline selection, and terms editor
+- **QuoteForm.tsx**: Build quote creation form UI that captures inputs for pricing and terms; backend performs all calculations and validation
 - **QuoteAcceptance.tsx**: Create quote acceptance component with terms review, payment integration, and contract generation using MUI Dialog with terms display, acceptance workflow, and payment gateway integration
 
 ##### Payment Components
-- **PaymentForm.tsx**: Build payment form with Razorpay integration, payment method selection, and secure processing using MUI Stepper with payment method selection, billing information, and payment confirmation
+- **PaymentForm.tsx**: Build payment form UI with Razorpay integration and method selection; backend creates orders and processes payments
 - **PaymentMethods.tsx**: Create payment method selection with saved methods, new method addition, and payment method management using MUI List with payment method cards, add new method dialog, and method validation
 - **PaymentHistory.tsx**: Implement payment history display with filtering, search, and detailed transaction information using MUI DataGrid with transaction details, status indicators, and export functionality
 - **PaymentReceipt.tsx**: Build payment receipt component with transaction details, invoice generation, and download functionality using MUI Card with receipt layout, QR codes, and print-friendly design
-- **RazorpayCheckout.tsx**: Create Razorpay checkout integration with payment gateway, order processing, and payment verification using Razorpay SDK with custom UI, payment status handling, and error management
+- **RazorpayCheckout.tsx**: Integrate Razorpay SDK to open the checkout UI using order details received from backend; backend handles order creation and payment verification
 
 ##### Progress Components
 - **ProgressTimeline.tsx**: Build project progress timeline with milestone tracking, status updates, and interactive timeline using MUI Timeline with milestone cards, progress indicators, and real-time updates
@@ -1184,7 +1173,7 @@ Below are detailed instructions for what should be implemented in each file. The
 ##### Admin Components - Payments
 - **PaymentListAdmin.tsx**: Build admin payment list with payment management, filtering, and bulk operations using MUI DataGrid with payment data, status management, and admin actions
 - **PaymentDetailAdmin.tsx**: Create payment detail view with payment information, transaction details, and admin controls using MUI Tabs with payment details, transaction history, and admin actions
-- **RefundManager.tsx**: Implement refund management with refund processing, refund tracking, and refund history using MUI Card with refund controls, refund processing, and refund tracking
+- **RefundManager.tsx**: Implement refund request UI that submits to backend, with refund tracking and history display using MUI components
 - **PaymentAnalyticsAdmin.tsx**: Build payment analytics for admin with payment trends, revenue analysis, and financial reporting using Recharts with payment analytics, revenue charts, and financial metrics
 
 ##### Admin Components - Progress
@@ -1425,67 +1414,64 @@ Below are detailed instructions for what should be implemented in each file. The
 
 #### Services Implementation
 
-##### Core Services
-- **routerService.ts**: Implement routing utilities and navigation helpers with route management, navigation logic, and routing state using React Router, navigation utilities, and route state management
-- **errorService.ts**: Create centralized error handling service with error processing, error logging, and error management using error handling logic, error logging, and error state management
-- **permissionsService.ts**: Build role-based permission checking service with permission validation, access control, and role management using authentication state, role checking logic, and permission validation
+##### UI Services (No Business Logic)
+- **routerService.ts**: UI navigation helpers only - route generation, navigation utilities (no route validation)
+- **errorUIService.ts**: Error display helpers only - format backend errors for UI display (no error processing)
+- **storageService.ts**: Browser storage wrapper only - localStorage/sessionStorage utilities for UI state
 
 ##### API Services
 - **client.ts**: Configure Axios instance with interceptors, base URL configuration, and HTTP client setup using Axios configuration, request/response interceptors, and API client management
-- **interceptors.ts**: Implement request/response interceptors with authentication handling, error processing, and request/response transformation using Axios interceptors, token management, and error handling
+- **interceptors.ts**: Implement request/response interceptors with authentication headers, error normalization for UI display, and minimal transformation (no business logic)
 - **endpoints.ts**: Define all API endpoint constants with endpoint URLs, API routes, and endpoint configuration using endpoint constants, API route definitions, and endpoint management
 
-##### Auth Services
-- **authService.ts**: Create authentication API calls with login, register, logout, and authentication management using API client, authentication endpoints, and authentication state management
-- **tokenService.ts**: Implement JWT token management with token storage, token validation, and token lifecycle management using JWT decode, token storage, and token validation logic
+##### Auth Services (API Calls Only)
+- **authApiService.ts**: Authentication API calls only - login, register, logout HTTP requests (backend handles all auth logic)
+- **tokenService.ts**: JWT token storage/retrieval only - localStorage/sessionStorage operations (backend validates tokens)
 
-##### User Services
-- **userService.ts**: Build user-related API calls with user data management, user operations, and user state management using API client, user endpoints, and user data handling
-- **profileService.ts**: Implement profile management API with profile data management, profile operations, and profile state management using API client, profile endpoints, and profile data handling
+##### User Services (API Calls Only)
+- **userApiService.ts**: User CRUD API calls only - HTTP requests to backend user endpoints (backend handles all user logic)
+- **profileApiService.ts**: Profile API calls only - HTTP requests to backend profile endpoints (backend handles all profile logic)
 
-##### Domain Services
-- **projectService.ts**: Create project API service with project data management, project operations, and project state management using API client, project endpoints, and project data handling
-- **requestService.ts**: Build request API service with request data management, request operations, and request state management using API client, request endpoints, and request data handling
-- **quoteService.ts**: Implement quote API service with quote data management, quote operations, and quote state management using API client, quote endpoints, and quote data handling
-- **paymentService.ts**: Create payment API service with Razorpay integration, payment processing, and payment state management using API client, payment endpoints, and Razorpay integration
-- **razorpayService.ts**: Implement Razorpay payment processing with payment gateway integration, payment processing, and payment verification using Razorpay SDK, payment processing, and payment verification
-- **mediaService.ts**: Build media upload and management API with media data management, media operations, and media state management using API client, media endpoints, and media data handling
-- **cloudinaryService.ts**: Implement Cloudinary integration with media upload, media management, and media transformations using Cloudinary SDK, media upload, and media management
-- **messagingService.ts**: Create messaging API service with messaging data management, messaging operations, and messaging state management using API client, messaging endpoints, and messaging data handling
-- **notificationService.ts**: Build notification API service with notification data management, notification operations, and notification state management using API client, notification endpoints, and notification data handling
-- **blogService.ts**: Implement blog API service with blog data management, blog operations, and blog state management using API client, blog endpoints, and blog data handling
-- **contactService.ts**: Create contact form API service with contact data management, contact operations, and contact state management using API client, contact endpoints, and contact data handling
-- **progressService.ts**: Build progress tracking API service with progress data management, progress operations, and progress state management using API client, progress endpoints, and progress data handling
-- **portfolioService.ts**: Implement portfolio API service with portfolio data management, portfolio operations, and portfolio state management using API client, portfolio endpoints, and portfolio data handling
+##### Domain Services (API Calls Only - No Business Logic)
+- **projectApiService.ts**: Project API calls only - HTTP requests to backend project endpoints
+- **requestApiService.ts**: Request API calls only - HTTP requests to backend request endpoints  
+- **quoteApiService.ts**: Quote API calls only - HTTP requests to backend quote endpoints
+- **paymentApiService.ts**: Payment API calls only - HTTP requests to backend payment endpoints
+- **razorpayUIService.ts**: Razorpay UI integration only - frontend payment widget (backend processes payments)
+- **mediaApiService.ts**: Media API calls only - HTTP requests to backend media endpoints
+- **cloudinaryUIService.ts**: Cloudinary UI widgets only - frontend upload interface (backend processes files)
+- **messagingApiService.ts**: Messaging API calls only - HTTP requests to backend messaging endpoints
+- **notificationApiService.ts**: Notification API calls only - HTTP requests to backend notification endpoints
+- **blogApiService.ts**: Blog API calls only - HTTP requests to backend blog endpoints
+- **contactApiService.ts**: Contact API calls only - HTTP requests to backend contact endpoints
+- **progressApiService.ts**: Progress API calls only - HTTP requests to backend progress endpoints
+- **portfolioApiService.ts**: Portfolio API calls only - HTTP requests to backend portfolio endpoints
 
-##### Admin Services
-- **adminService.ts**: Create admin-specific API calls with admin data management, admin operations, and admin state management using API client, admin endpoints, and admin data handling
-- **analyticsService.ts**: Implement analytics data fetching with analytics data management, analytics operations, and analytics state management using API client, analytics endpoints, and analytics data handling
-- **auditService.ts**: Build audit logging service with audit data management, audit operations, and audit state management using API client, audit endpoints, and audit data handling
-- **webhookService.ts**: Create webhook management service with webhook data management, webhook operations, and webhook state management using API client, webhook endpoints, and webhook data handling
+##### Admin Services (Display Backend Data Only)
+- **adminApiService.ts**: Admin API calls only - HTTP requests to backend admin endpoints (display backend data)
+- **analyticsApiService.ts**: Analytics data fetching only - HTTP requests to get backend-calculated analytics (no frontend calculations)
+- **auditApiService.ts**: Audit logs API calls only - HTTP requests to backend audit endpoints (display backend audit data)
+- **webhookApiService.ts**: Webhook data API calls only - HTTP requests to backend webhook endpoints (display backend webhook data)
 
-##### Infrastructure Services
-- **socketService.ts**: Implement WebSocket connection management with WebSocket connection, event handling, and real-time communication using Socket.io client, WebSocket state management, and real-time data handling
-- **socketHandlers.ts**: Create WebSocket event handlers with event processing, event routing, and event management using Socket.io event handlers, event processing logic, and event state management
-- **localStorageService.ts**: Build localStorage utility service with localStorage operations, data persistence, and storage management using localStorage API, data serialization, and storage state management
-- **sessionStorageService.ts**: Implement sessionStorage service with sessionStorage operations, session data management, and storage persistence using sessionStorage API, data serialization, and session state management
-- **googleAnalyticsService.ts**: Create Google Analytics integration with analytics tracking, event tracking, and analytics management using Google Analytics SDK, analytics tracking, and analytics data management
-- **sentryService.ts**: Implement Sentry error monitoring with error tracking, error reporting, and error management using Sentry SDK, error tracking, and error state management
+##### Infrastructure Services (UI Only)
+- **socketClient.ts**: WebSocket connection only - Socket.io client for UI updates (backend handles all message processing)
+- **socketEventHandlers.ts**: UI update handlers only - update UI state from WebSocket events (no message processing)
+- **analyticsUIService.ts**: UI analytics tracking only - frontend performance tracking with Google Analytics/Sentry
 
 #### Stores Implementation
 
-##### Zustand Stores
-- **authStore.ts**: Create authentication state store with authentication state, user data, and authentication management using Zustand store, authentication state management, and user data persistence
-- **userStore.ts**: Build user profile state store with user profile data, user preferences, and user state management using Zustand store, user state management, and profile data persistence
-- **uiStore.ts**: Implement UI state management store with UI state, modal state, and UI management using Zustand store, UI state management, and UI state persistence
-- **notificationStore.ts**: Create notification state store with notification data, notification state, and notification management using Zustand store, notification state management, and notification data persistence
-- **cacheStore.ts**: Build client-side cache store with cache data, cache management, and cache state using Zustand store, cache state management, and cache data persistence
-- **adminStore.ts**: Implement admin-specific state store with admin data, admin state, and admin management using Zustand store, admin state management, and admin data persistence
-- **projectStore.ts**: Create project state management with project data, project state, and project management using Zustand store, project state management, and project data persistence
-- **requestStore.ts**: Build request state management with request data, request state, and request management using Zustand store, request state management, and request data persistence
-- **quoteStore.ts**: Implement quote state management with quote data, quote state, and quote management using Zustand store, quote state management, and quote data persistence
-- **paymentStore.ts**: Create payment state management with payment data, payment state, and payment management using Zustand store, payment state management, and payment data persistence
-- **messagingStore.ts**: Build messaging state store with messaging data, messaging state, and messaging management using Zustand store, messaging state management, and messaging data persistence
+##### Zustand Stores (UI State Only - No Business Logic)
+- **authStore.ts**: Authentication UI state only - token, user data from API, isAuthenticated boolean (no auth logic)
+- **userStore.ts**: User profile UI state only - profile data from API, UI preferences (no profile processing)
+- **uiStore.ts**: UI state management only - modal states, drawer states, loading states, theme settings
+- **notificationStore.ts**: Notification UI state only - notification display state, UI notification queue (no notification processing)
+- **cacheStore.ts**: Client-side API cache only - cached API responses for performance (no data processing)
+- **adminStore.ts**: Admin UI state only - admin dashboard state, UI settings (no admin logic)
+- **projectStore.ts**: Project UI state only - selected projects, UI filters, display preferences (no project logic)
+- **requestStore.ts**: Request UI state only - selected requests, UI filters, form state (no request processing)
+- **quoteStore.ts**: Quote UI state only - selected quotes, UI filters, display state (no quote calculations)
+- **paymentStore.ts**: Payment UI state only - payment form state, UI payment status (no payment processing)
+- **messagingStore.ts**: Messaging UI state only - chat UI state, selected conversations (no message processing)
 
 #### Types Implementation
 
@@ -1524,37 +1510,38 @@ Below are detailed instructions for what should be implemented in each file. The
 
 #### Utils Implementation
 
-##### Validation Utils
-- **authValidation.ts**: Create authentication validation schemas with login validation, registration validation, and authentication rules using Yup validation schemas, form validation, and authentication validation
-- **projectValidation.ts**: Build project validation schemas with project creation validation, project update validation, and project rules using Yup validation schemas, form validation, and project validation
-- **requestValidation.ts**: Implement request validation schemas with request creation validation, request update validation, and request rules using Yup validation schemas, form validation, and request validation
-- **quoteValidation.ts**: Create quote validation schemas with quote creation validation, quote update validation, and quote rules using Yup validation schemas, form validation, and quote validation
-- **paymentValidation.ts**: Build payment validation schemas with payment validation, payment method validation, and payment rules using Yup validation schemas, form validation, and payment validation
+##### UI Validation Utils (UX Only - No Business Logic)
+- **formValidation.ts**: Basic form field validation for UX feedback only - required fields, format checking (backend handles all business validation)
+- **inputFormatting.ts**: Input formatting and masking for better UX - phone numbers, dates, currency display formatting
 
-##### Formatter Utils
-- **dateFormatter.ts**: Implement date formatting utilities with date-fns integration, timezone handling, relative time formatting, and localization support for project deadlines, milestones, and user activity timestamps
-- **currencyFormatter.ts**: Create currency formatting utilities with internationalization support, currency symbols, decimal precision, and locale-specific formatting for payment amounts, project budgets, and financial displays
-- **textFormatter.ts**: Build text formatting utilities with text truncation, HTML sanitization using DOMPurify, markdown rendering, and text processing for project descriptions, user profiles, and content display
+##### Formatter Utils (Display Only)
+- **dateFormatter.ts**: Date display formatting utilities - relative time, timezone display, date formatting for UI
+- **currencyFormatter.ts**: Currency display formatting - locale-specific currency display for UI components
+- **textFormatter.ts**: Text display formatting - truncation, content sanitization for display, markdown rendering for UI
+- **numberFormatter.ts**: Number display formatting - percentage, decimal formatting for UI display
 
-##### Helper Utils
-- **errorHelper.ts**: Create error handling utilities with error message formatting, error categorization, user-friendly error messages, and error logging integration with Sentry for consistent error handling across the application
-- **routeHelper.ts**: Implement route utility functions with route generation, parameter extraction, route validation, and navigation helpers for dynamic routing and route management
-- **permissionHelper.ts**: Build permission checking utilities with role-based access control, permission validation, access level checking, and security enforcement for user actions and feature access
-- **fileHelper.ts**: Create file handling utilities with file validation, file type checking, file size validation, file upload processing, and file management for media uploads and document handling
+##### Helper Utils (UI Only)
+- **errorDisplayHelper.ts**: Error message display helpers - format backend errors for user-friendly UI display
+- **routeHelper.ts**: Route generation helpers - URL building, navigation utilities (no route validation)
+- **uiStateHelper.ts**: UI state management helpers - component state utilities, UI state transformations
+- **fileDisplayHelper.ts**: File display helpers - file icons, file name formatting, file size display
+- **urlHelper.ts**: URL manipulation helpers - query string utilities, URL formatting for UI
 
-##### Security Utils
-- **encryption.ts**: Implement data encryption utilities with crypto-js integration, password hashing, data encryption/decryption, and secure data handling for sensitive information and user data protection
-- **sanitization.ts**: Create input sanitization utilities with DOMPurify integration, XSS prevention, input validation, and content sanitization for user-generated content and form inputs
+##### UI-Specific Utils
+- **domHelper.ts**: DOM manipulation helpers - scroll utilities, focus management, element utilities
+- **animationHelper.ts**: Animation utilities - transition helpers, animation configurations
+- **responsiveHelper.ts**: Responsive design helpers - breakpoint utilities, responsive behavior
+- **accessibilityHelper.ts**: A11y helper functions - ARIA utilities, keyboard navigation helpers
 
 #### Constants Implementation
 
-##### Application Constants
-- **api.constants.ts**: Define API-related constants with endpoint URLs, API version numbers, request timeout values, and API configuration constants for consistent API communication across the application
-- **routes.constants.ts**: Create route path constants with route definitions, route parameters, nested route structures, and route configuration for consistent routing and navigation throughout the application
-- **validation.constants.ts**: Build validation rule constants with field validation rules, error messages, validation patterns, and validation configuration for form validation and data integrity
-- **config.constants.ts**: Implement application configuration constants with app settings, feature flags, environment-specific configurations, and application-wide settings for consistent configuration management
-- **messages.constants.ts**: Create user-facing message constants with success messages, error messages, validation messages, and user notifications for consistent messaging and internationalization support
-- **theme.constants.ts**: Build theme-related constants with color values, spacing units, typography settings, and design system constants for consistent theming and styling across the application
+##### UI Constants (Frontend Only)
+- **api.constants.ts**: API endpoint URL constants only - backend endpoint URLs, timeout values for HTTP requests
+- **routes.constants.ts**: Frontend route path constants - client-side route definitions, route parameters for navigation
+- **ui.constants.ts**: UI constants - component sizes, spacing values, animation durations, breakpoint values
+- **messages.constants.ts**: User-facing display messages - success messages, error display text, UI labels for internationalization
+- **theme.constants.ts**: Theme and styling constants - color values, typography settings, design system tokens
+- **status.constants.ts**: Status display constants - status labels, status colors, status icons for UI display
 
 #### Styles Implementation
 
@@ -1585,7 +1572,7 @@ Below are detailed instructions for what should be implemented in each file. The
 - **api.config.ts**: Build API configuration with API endpoints, request configurations, timeout settings, and API client setup for consistent API communication
 - **router.config.ts**: Implement router configuration with route definitions, navigation settings, route guards, and routing behavior configuration for application navigation
 - **theme.config.ts**: Create theme configuration with theme settings, color schemes, typography configurations, and design system settings for consistent visual design
-- **role.config.ts**: Build role-based access configuration with user roles, permissions, access levels, and role-based feature access for security and authorization
+- **role.config.ts**: Define UI-only role configuration used to show/hide features based on backend-provided roles; backend enforces permissions
 - **analytics.config.ts**: Implement analytics configuration with Google Analytics settings, event tracking, user analytics, and performance monitoring configuration
 - **sentry.config.ts**: Create Sentry configuration with error tracking settings, performance monitoring, release tracking, and error reporting configuration for application monitoring
 
@@ -1596,7 +1583,7 @@ Below are detailed instructions for what should be implemented in each file. The
 - **axios.ts**: Set up Axios instance configuration with base URL, interceptors, timeout settings, and request/response transformation for HTTP client setup
 - **socketio.ts**: Configure Socket.io client with connection settings, event handlers, reconnection logic, and WebSocket communication setup for real-time features
 - **cloudinary.ts**: Set up Cloudinary integration with upload presets, transformation settings, media management, and image optimization configuration
-- **razorpay.ts**: Configure Razorpay payment gateway with payment settings, webhook configuration, and payment processing setup for secure payment handling
+- **razorpay.ts**: Configure Razorpay SDK loading and client UI options; backend owns payment settings, webhooks, and processing
 - **yup.ts**: Set up form validation schemas with validation rules, error messages, and form validation configuration for consistent form validation
 - **framerMotion.ts**: Configure animation library with animation presets, transition settings, and animation configuration for smooth user interactions
 - **dompurify.ts**: Set up HTML sanitization with sanitization rules, allowed tags, and XSS protection configuration for secure content rendering
