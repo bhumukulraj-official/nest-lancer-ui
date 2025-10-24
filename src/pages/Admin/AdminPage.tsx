@@ -1,14 +1,27 @@
+/**
+ * Admin Page
+ * Main admin dashboard with system metrics and user management
+ */
+
 import React from 'react'
-import { Box, Typography } from '@mui/material'
+import { Box, Container, Grid } from '@mui/material'
+import { AdminOverview, SystemMetrics } from '@/components/features/admin/dashboard'
 
 const AdminPage: React.FC = () => {
   return (
-    <Box sx={{ p: 3 }}>
-      <Typography variant="h4" gutterBottom>Admin</Typography>
-      <Typography variant="body1" color="text.secondary">
-        Admin page implementation coming soon...
-      </Typography>
-    </Box>
+    <Container maxWidth="xl" sx={{ py: 3 }}>
+      <Grid container spacing={3}>
+        {/* Main Admin Overview */}
+        <Grid item xs={12}>
+          <AdminOverview />
+        </Grid>
+
+        {/* System Metrics */}
+        <Grid item xs={12}>
+          <SystemMetrics />
+        </Grid>
+      </Grid>
+    </Container>
   )
 }
 

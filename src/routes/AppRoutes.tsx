@@ -5,16 +5,11 @@
  */
 
 import React, { Suspense } from 'react'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { ThemeProvider } from '@mui/material/styles'
-import { CssBaseline } from '@mui/material'
+import { Routes, Route, Navigate } from 'react-router-dom'
+import { Box, CircularProgress, Typography } from '@mui/material'
 
 // Providers and Layout
-import { theme } from '@/styles/theme'
 import { initializeAuth } from '@/stores/authStore'
-import { ToastProvider } from '@/components/shared/Toast'
 import { ErrorBoundary } from '@/components/shared/ErrorBoundaries'
 import { AppLayout } from '@/components/layout/AppLayout'
 
@@ -24,6 +19,7 @@ import ProtectedRoute from './ProtectedRoute'
 import PublicRoute from './PublicRoute'
 
 // Page Components (Lazy loaded)
+const HomePage = React.lazy(() => import('@/pages/Home/HomePage'))
 const DashboardPage = React.lazy(() => import('@/pages/Dashboard/DashboardPage'))
 const ProfilePage = React.lazy(() => import('@/pages/Profile/ProfilePage'))
 const ProjectsPage = React.lazy(() => import('@/pages/Projects/ProjectsPage'))
@@ -38,26 +34,22 @@ const NotFoundPage = React.lazy(() => import('@/pages/NotFound/NotFoundPage'))
 
 // Loading component
 const PageLoader: React.FC = () => (
-  <div className="page-loader">
-    <div className="loader-spinner" />
-    <p>Loading...</p>
-  </div>
+  <Box
+    sx={{
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      minHeight: '100vh',
+      gap: 2,
+    }}
+  >
+    <CircularProgress size={48} />
+    <Typography variant="body1" color="text.secondary">
+      Loading...
+    </Typography>
+  </Box>
 )
-
-// Create React Query client
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: 3,
-      staleTime: 5 * 60 * 1000, // 5 minutes
-      cacheTime: 10 * 60 * 1000, // 10 minutes
-      refetchOnWindowFocus: false,
-    },
-    mutations: {
-      retry: 1,
-    },
-  },
-})
 
 /**
  * Application Routes Component
@@ -71,90 +63,72 @@ export const AppRoutes: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <QueryClientProvider client={queryClient}>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <ToastProvider position="top-right" />
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          {/* Public Routes */}
+          <Route path="/" element={<HomePage />} />
           
-          <BrowserRouter>
-            <Suspense fallback={<PageLoader />}>
-              <Routes>
-                {/* Public Routes */}
-                <Route path="/" element={
-                  <PublicRoute>
-                    <Navigate to="/portfolio" replace />
-                  </PublicRoute>
-                } />
-                
-                {/* Portfolio (Public) */}
-                <Route path="/portfolio" element={
-                  <PublicRoute>
-                    <PortfolioPage />
-                  </PublicRoute>
-                } />
-                
-                {/* Blog (Public) */}
-                <Route path="/blog/*" element={
-                  <PublicRoute>
-                    <BlogPage />
-                  </PublicRoute>
-                } />
-                
-                {/* Contact (Public) */}
-                <Route path="/contact" element={
-                  <PublicRoute>
-                    <ContactPage />
-                  </PublicRoute>
-                } />
-                
-                {/* Authentication Routes */}
-                <Route path="/auth/*" element={<AuthRoutes />} />
-                
-                {/* Protected Application Routes */}
-                <Route path="/app" element={
-                  <ProtectedRoute>
-                    <AppLayout />
-                  </ProtectedRoute>
-                }>
-                  {/* Dashboard */}
-                  <Route index element={<Navigate to="/app/dashboard" replace />} />
-                  <Route path="dashboard" element={<DashboardPage />} />
-                  
-                  {/* Profile */}
-                  <Route path="profile" element={<ProfilePage />} />
-                  
-                  {/* Projects */}
-                  <Route path="projects/*" element={<ProjectsPage />} />
-                  
-                  {/* Requests */}
-                  <Route path="requests/*" element={<RequestsPage />} />
-                  
-                  {/* Quotes */}
-                  <Route path="quotes/*" element={<QuotesPage />} />
-                  
-                  {/* Payments */}
-                  <Route path="payments/*" element={<PaymentsPage />} />
-                </Route>
-                
-                {/* Admin Routes */}
-                <Route path="/admin/*" element={
-                  <ProtectedRoute requiredRole="admin">
-                    <AdminPage />
-                  </ProtectedRoute>
-                } />
-                
-                {/* 404 Not Found */}
-                <Route path="*" element={<NotFoundPage />} />
-              </Routes>
-            </Suspense>
-          </BrowserRouter>
+          {/* Portfolio (Public) */}
+          <Route path="/portfolio" element={
+            <PublicRoute>
+              <PortfolioPage />
+            </PublicRoute>
+          } />
           
-          {/* React Query DevTools (development only) */}
-          {import.meta.env.DEV && (
-            <ReactQueryDevtools initialIsOpen={false} />
-          )}
-        </ThemeProvider>
-      </QueryClientProvider>
+          {/* Blog (Public) */}
+          <Route path="/blog/*" element={
+            <PublicRoute>
+              <BlogPage />
+            </PublicRoute>
+          } />
+          
+          {/* Contact (Public) */}
+          <Route path="/contact" element={
+            <PublicRoute>
+              <ContactPage />
+            </PublicRoute>
+          } />
+          
+          {/* Authentication Routes */}
+          <Route path="/auth/*" element={<AuthRoutes />} />
+          
+          {/* Protected Application Routes */}
+          <Route path="/app" element={
+            <ProtectedRoute>
+              <AppLayout />
+            </ProtectedRoute>
+          }>
+            {/* Dashboard */}
+            <Route index element={<Navigate to="/app/dashboard" replace />} />
+            <Route path="dashboard" element={<DashboardPage />} />
+            
+            {/* Profile */}
+            <Route path="profile" element={<ProfilePage />} />
+            
+            {/* Projects */}
+            <Route path="projects/*" element={<ProjectsPage />} />
+            
+            {/* Requests */}
+            <Route path="requests/*" element={<RequestsPage />} />
+            
+            {/* Quotes */}
+            <Route path="quotes/*" element={<QuotesPage />} />
+            
+            {/* Payments */}
+            <Route path="payments/*" element={<PaymentsPage />} />
+          </Route>
+          
+          {/* Admin Routes */}
+          <Route path="/admin/*" element={
+            <ProtectedRoute requiredRole="admin">
+              <AdminPage />
+            </ProtectedRoute>
+          } />
+          
+          {/* 404 Not Found */}
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Suspense>
     </ErrorBoundary>
   )
 }
