@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- App Metadata -->
+  <title>NestLancer - Freelancing Platform</title>
+  <meta name="description" content="Professional freelancing platform for project management and collaboration. Connect talented freelancers with amazing projects." />
+  <meta name="keywords" content="freelancing, projects, remote work, collaboration, developers, designers" />
+  <meta name="author" content="NestLancer" />
+  
+  <!-- Theme and Icons -->
+  <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+  <link rel="apple-touch-icon" href="/logo.svg" />
+  <meta name="theme-color" content="#1976d2" />
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="NestLancer - Freelancing Platform" />
+  <meta property="og:description" content="Professional freelancing platform for project management and collaboration" />
+  <meta property="og:image" content="/logo.svg" />
+  <meta property="og:url" content="https://nestlancer.com" />
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NestLancer - Freelancing Platform" />
+  <meta name="twitter:description" content="Professional freelancing platform for project management and collaboration" />
+  <meta name="twitter:image" content="/logo.svg" />
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json" />
+  
+  <!-- Preconnect to External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Performance and Security -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  
+  <!-- Robots -->
+  <meta name="robots" content="index, follow" />
+  
+  <!-- Loading Styles -->
+  <style>
+    /* Inline critical styles for loading state */
+    .app-loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fafafa;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    
+    .app-loading .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid #e0e0e0;
+      border-top: 4px solid #1976d2;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    .app-loading .text {
+      margin-top: 16px;
+      color: #757575;
+      font-size: 14px;
+      text-align: center;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* Hide loading when app loads */
+    .app-loaded .app-loading {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- App Container -->
+  <div id="root">
+    <!-- Loading State -->
+    <div class="app-loading">
+      <div>
+        <div class="spinner"></div>
+        <div class="text">Loading NestLancer...</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- No Script Message -->
+  <noscript>
+    <div style="
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+      text-align: center;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #fafafa;
+    ">
+      <h1 style="color: #f44336; margin-bottom: 1rem;">JavaScript Required</h1>
+      <p style="color: #666; margin-bottom: 1rem;">
+        NestLancer requires JavaScript to run. Please enable JavaScript in your browser settings and reload the page.
+      </p>
+      <button 
+        onclick="location.reload()" 
+        style="
+          padding: 0.75rem 1.5rem;
+          background-color: #1976d2;
+          color: white;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 1rem;
+        "
+      >
+        Reload Page
+      </button>
+    </div>
+  </noscript>
+  
+  <!-- App Script -->
+  <script type="module" src="/src/main.tsx"></script>
+  
+  <!-- Mark app as loaded -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.classList.add('app-loaded');
+    });
+  </script>
+</body>
+</html>
