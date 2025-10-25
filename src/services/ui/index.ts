@@ -1,10 +1,17 @@
 /**
  * UI Services Index
- * Central export point for all UI-related services and utilities
+ * Central export point for all UI-related services
  */
 
-export { storageService, type StorageType, type StorageItem } from './storageService'
-export { errorUIService, type UIError, type UIErrorAction, type ErrorSeverity } from './errorUIService'
+export { RouterService } from './routerService'
+export { AnalyticsUIService } from './analyticsUIService'
+export { StorageService } from './storageService'
+export { ErrorUIService } from './errorUIService'
 
-// Re-export for convenience
-export { storageService as default } from './storageService'
+// Re-export types for convenience
+export type {
+  AnalyticsEvent,
+  PageViewEvent,
+  UserEvent,
+  EcommerceEvent
+} from './analyticsUIService'
