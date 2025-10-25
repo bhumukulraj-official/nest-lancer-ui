@@ -12,7 +12,6 @@ import {
   Grid,
   LinearProgress,
   Stack,
-  Chip,
   useTheme,
 } from '@mui/material'
 import {
@@ -73,12 +72,21 @@ const StatsCard: React.FC<StatsCardProps> = ({
       }}
     >
       <CardContent sx={{ p: 3 }}>
-        <Stack direction="row" alignItems="flex-start" justifyContent="space-between" sx={{ mb: 2 }}>
+        <Stack
+          direction="row"
+          alignItems="flex-start"
+          justifyContent="space-between"
+          sx={{ mb: 2 }}
+        >
           <Box sx={{ flexGrow: 1 }}>
             <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
               {title}
             </Typography>
-            <Typography variant="h4" component="div" sx={{ fontWeight: 700, mb: 0.5 }}>
+            <Typography
+              variant="h4"
+              component="div"
+              sx={{ fontWeight: 700, mb: 0.5 }}
+            >
               {value}
             </Typography>
             {subtitle && (
@@ -103,7 +111,12 @@ const StatsCard: React.FC<StatsCardProps> = ({
         </Stack>
 
         {trend && (
-          <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: progress ? 2 : 0 }}>
+          <Stack
+            direction="row"
+            alignItems="center"
+            spacing={1}
+            sx={{ mb: progress ? 2 : 0 }}
+          >
             {trend.isPositive ? (
               <TrendingUp sx={{ fontSize: 16, color: 'success.main' }} />
             ) : (
@@ -116,7 +129,8 @@ const StatsCard: React.FC<StatsCardProps> = ({
                 fontWeight: 600,
               }}
             >
-              {trend.isPositive ? '+' : ''}{trend.value}%
+              {trend.isPositive ? '+' : ''}
+              {trend.value}%
             </Typography>
             <Typography variant="body2" color="text.secondary">
               vs {trend.period}
@@ -126,7 +140,12 @@ const StatsCard: React.FC<StatsCardProps> = ({
 
         {progress !== undefined && (
           <Box>
-            <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ mb: 1 }}>
+            <Stack
+              direction="row"
+              alignItems="center"
+              justifyContent="space-between"
+              sx={{ mb: 1 }}
+            >
               <Typography variant="body2" color="text.secondary">
                 Progress
               </Typography>
@@ -198,7 +217,7 @@ export const StatsCards: React.FC = () => {
       <Typography variant="h6" component="h2" sx={{ mb: 3, fontWeight: 600 }}>
         Performance Metrics
       </Typography>
-      
+
       <Grid container spacing={3}>
         {statsData.map((stat, index) => (
           <Grid item xs={12} sm={6} md={3} key={index}>

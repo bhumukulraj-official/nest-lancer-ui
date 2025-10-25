@@ -7,12 +7,17 @@ import { FC } from 'react'
 import { ThemeProvider, CssBaseline } from '@mui/material'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { BrowserRouter } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 
 import { defaultTheme } from '@/styles/theme'
 import { envConfig, isDevelopment } from '@/config'
 import ErrorBoundary from '@/components/shared/ErrorBoundaries/ErrorBoundary'
 import AppRoutes from '@/routes/AppRoutes'
+import { initSentry } from '@/lib/sentry'
+
+// Initialize Sentry
+initSentry()
 
 // Create React Query client
 const queryClient = new QueryClient({
@@ -32,29 +37,31 @@ const queryClient = new QueryClient({
 const App: FC = () => {
   return (
     <ErrorBoundary>
-      <QueryClientProvider client={queryClient}>
-        <ThemeProvider theme={defaultTheme}>
-          <CssBaseline />
-          <AppRoutes />
-          
-          {/* Toast Notifications */}
-          <Toaster
-            position="top-right"
-            toastOptions={{
-              duration: 4000,
-              style: {
-                background: '#363636',
-                color: '#fff',
-              },
-            }}
-          />
-          
-          {/* React Query DevTools (development only) */}
-          {isDevelopment() && envConfig.ENABLE_DEV_TOOLS && (
-            <ReactQueryDevtools initialIsOpen={false} />
-          )}
-        </ThemeProvider>
-      </QueryClientProvider>
+      <BrowserRouter>
+        <QueryClientProvider client={queryClient}>
+          <ThemeProvider theme={defaultTheme}>
+            <CssBaseline />
+            <AppRoutes />
+
+            {/* Toast Notifications */}
+            <Toaster
+              position="top-right"
+              toastOptions={{
+                duration: 4000,
+                style: {
+                  background: '#363636',
+                  color: '#fff',
+                },
+              }}
+            />
+
+            {/* React Query DevTools (development only) */}
+            {isDevelopment() && envConfig.ENABLE_DEV_TOOLS && (
+              <ReactQueryDevtools initialIsOpen={false} />
+            )}
+          </ThemeProvider>
+        </QueryClientProvider>
+      </BrowserRouter>
     </ErrorBoundary>
   )
 }

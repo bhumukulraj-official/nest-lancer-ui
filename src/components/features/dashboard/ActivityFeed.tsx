@@ -17,7 +17,6 @@ import {
   Chip,
   Divider,
   Stack,
-  useTheme,
 } from '@mui/material'
 import {
   Assignment,
@@ -46,8 +45,6 @@ interface ActivityItemProps {
 }
 
 const ActivityItem: React.FC<ActivityItemProps> = ({ activity }) => {
-  const theme = useTheme()
-
   const getActivityIcon = () => {
     switch (activity.type) {
       case 'project':
@@ -81,8 +78,10 @@ const ActivityItem: React.FC<ActivityItemProps> = ({ activity }) => {
   const formatTimestamp = (timestamp: string) => {
     const date = new Date(timestamp)
     const now = new Date()
-    const diffInHours = Math.floor((now.getTime() - date.getTime()) / (1000 * 60 * 60))
-    
+    const diffInHours = Math.floor(
+      (now.getTime() - date.getTime()) / (1000 * 60 * 60)
+    )
+
     if (diffInHours < 1) return 'Just now'
     if (diffInHours < 24) return `${diffInHours}h ago`
     if (diffInHours < 48) return 'Yesterday'
@@ -166,7 +165,8 @@ const EmptyActivityFeed: React.FC = () => {
         No recent activity
       </Typography>
       <Typography variant="body2" color="text.secondary">
-        Your recent activities will appear here once you start working on projects.
+        Your recent activities will appear here once you start working on
+        projects.
       </Typography>
     </Box>
   )
@@ -225,7 +225,7 @@ export const ActivityFeed: React.FC = () => {
         <Typography variant="h6" component="h2" sx={{ mb: 2, fontWeight: 600 }}>
           Recent Activity
         </Typography>
-        
+
         {activities.length > 0 ? (
           <List sx={{ p: 0 }}>
             {activities.map((activity, index) => (

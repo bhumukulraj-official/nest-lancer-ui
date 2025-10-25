@@ -63,14 +63,13 @@ export const useAuthStore = create<AuthState>()(
       error: null,
 
       // Login action
-      login: async (email: string, password: string, rememberMe = false) => {
+      login: async (email: string, password: string, _rememberMe = false) => {
         try {
           set({ isLoading: true, error: null })
           
           const response = await authApiService.login({
             email,
             password,
-            rememberMe,
           })
           
           set({

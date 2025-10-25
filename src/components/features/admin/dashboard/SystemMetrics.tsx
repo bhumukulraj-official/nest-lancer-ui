@@ -18,13 +18,8 @@ import {
   ListItemText,
   ListItemIcon,
   Divider,
-  useTheme,
 } from '@mui/material'
 import {
-  Memory,
-  Storage,
-  Speed,
-  Security,
   CheckCircle,
   Warning,
   Error,
@@ -50,8 +45,6 @@ interface MetricCardProps {
 }
 
 const MetricCard: React.FC<MetricCardProps> = ({ metric }) => {
-  const theme = useTheme()
-
   const getStatusColor = () => {
     switch (metric.status) {
       case 'healthy':
@@ -74,7 +67,7 @@ const MetricCard: React.FC<MetricCardProps> = ({ metric }) => {
       case 'critical':
         return <Error sx={{ fontSize: 16 }} />
       default:
-        return null
+        return undefined
     }
   }
 
@@ -94,12 +87,17 @@ const MetricCard: React.FC<MetricCardProps> = ({ metric }) => {
   return (
     <Card sx={{ height: '100%' }}>
       <CardContent>
-        <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ mb: 2 }}>
+        <Stack
+          direction="row"
+          alignItems="center"
+          justifyContent="space-between"
+          sx={{ mb: 2 }}
+        >
           <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
             {metric.name}
           </Typography>
           <Chip
-            icon={getStatusIcon()}
+            icon={getStatusIcon() || undefined}
             label={metric.status}
             size="small"
             color={getStatusColor() as any}
@@ -135,7 +133,11 @@ const MetricCard: React.FC<MetricCardProps> = ({ metric }) => {
               },
             }}
           />
-          <Typography variant="caption" color="text.secondary" sx={{ mt: 0.5, display: 'block' }}>
+          <Typography
+            variant="caption"
+            color="text.secondary"
+            sx={{ mt: 0.5, display: 'block' }}
+          >
             {percentage.toFixed(1)}% utilized
           </Typography>
         </Box>
@@ -267,9 +269,9 @@ export const SystemMetrics: React.FC = () => {
       <Typography variant="h6" component="h2" sx={{ mb: 3, fontWeight: 600 }}>
         System Performance
       </Typography>
-      
+
       <Grid container spacing={3} sx={{ mb: 4 }}>
-        {metrics.map((metric) => (
+        {metrics.map(metric => (
           <Grid item xs={12} sm={6} md={3} key={metric.id}>
             <MetricCard metric={metric} />
           </Grid>
@@ -280,7 +282,11 @@ export const SystemMetrics: React.FC = () => {
         <Grid item xs={12} md={8}>
           <Card>
             <CardContent>
-              <Typography variant="h6" component="h2" sx={{ mb: 2, fontWeight: 600 }}>
+              <Typography
+                variant="h6"
+                component="h2"
+                sx={{ mb: 2, fontWeight: 600 }}
+              >
                 Performance Trends
               </Typography>
               <Box

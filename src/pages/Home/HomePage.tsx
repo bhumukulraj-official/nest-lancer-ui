@@ -29,6 +29,7 @@ import {
   ArrowForward,
 } from '@mui/icons-material'
 import { Link as RouterLink } from 'react-router-dom'
+import SentryTest from '@/components/SentryTest'
 
 // Hero section component
 const HeroSection: React.FC = () => {
@@ -50,7 +51,8 @@ const HeroSection: React.FC = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
+          background:
+            'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
         },
       }}
     >
@@ -73,7 +75,7 @@ const HeroSection: React.FC = () => {
                   NestLancer
                 </Box>
               </Typography>
-              
+
               <Typography
                 variant={isMobile ? 'h6' : 'h5'}
                 sx={{
@@ -84,7 +86,7 @@ const HeroSection: React.FC = () => {
               >
                 Your Gateway to Professional Freelancing Excellence
               </Typography>
-              
+
               <Typography
                 variant="body1"
                 sx={{
@@ -94,10 +96,11 @@ const HeroSection: React.FC = () => {
                   lineHeight: 1.7,
                 }}
               >
-                Connect with top-tier freelancers, manage projects seamlessly, and grow your business 
-                with our comprehensive platform designed for modern professionals.
+                Connect with top-tier freelancers, manage projects seamlessly,
+                and grow your business with our comprehensive platform designed
+                for modern professionals.
               </Typography>
-              
+
               <Stack
                 direction={{ xs: 'column', sm: 'row' }}
                 spacing={2}
@@ -119,7 +122,7 @@ const HeroSection: React.FC = () => {
                 >
                   Get Started Free
                 </Button>
-                
+
                 <Button
                   component={RouterLink}
                   to="/auth/login"
@@ -137,7 +140,7 @@ const HeroSection: React.FC = () => {
                   Sign In
                 </Button>
               </Stack>
-              
+
               <Stack direction="row" spacing={2} flexWrap="wrap">
                 <Chip
                   label="No Credit Card Required"
@@ -160,7 +163,7 @@ const HeroSection: React.FC = () => {
               </Stack>
             </Box>
           </Grid>
-          
+
           <Grid item xs={12} md={6}>
             <Box
               sx={{
@@ -202,22 +205,25 @@ const HeroSection: React.FC = () => {
 // Features section component
 const FeaturesSection: React.FC = () => {
   const theme = useTheme()
-  
+
   const features = [
     {
       icon: <People sx={{ fontSize: 40, color: 'primary.main' }} />,
       title: 'Expert Freelancers',
-      description: 'Connect with verified professionals across various industries and skill sets.',
+      description:
+        'Connect with verified professionals across various industries and skill sets.',
     },
     {
       icon: <Security sx={{ fontSize: 40, color: 'primary.main' }} />,
       title: 'Secure Platform',
-      description: 'Your projects and payments are protected with enterprise-grade security.',
+      description:
+        'Your projects and payments are protected with enterprise-grade security.',
     },
     {
       icon: <Speed sx={{ fontSize: 40, color: 'primary.main' }} />,
       title: 'Fast Delivery',
-      description: 'Get your projects completed quickly with our streamlined workflow.',
+      description:
+        'Get your projects completed quickly with our streamlined workflow.',
     },
     {
       icon: <Support sx={{ fontSize: 40, color: 'primary.main' }} />,
@@ -257,10 +263,11 @@ const FeaturesSection: React.FC = () => {
               lineHeight: 1.6,
             }}
           >
-            We provide everything you need to succeed in the modern freelancing economy
+            We provide everything you need to succeed in the modern freelancing
+            economy
           </Typography>
         </Box>
-        
+
         <Grid container spacing={4}>
           {features.map((feature, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
@@ -269,7 +276,8 @@ const FeaturesSection: React.FC = () => {
                   height: '100%',
                   display: 'flex',
                   flexDirection: 'column',
-                  transition: 'transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out',
+                  transition:
+                    'transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out',
                   '&:hover': {
                     transform: 'translateY(-4px)',
                     boxShadow: theme.shadows[8],
@@ -277,9 +285,7 @@ const FeaturesSection: React.FC = () => {
                 }}
               >
                 <CardContent sx={{ flexGrow: 1, textAlign: 'center', p: 3 }}>
-                  <Box sx={{ mb: 2 }}>
-                    {feature.icon}
-                  </Box>
+                  <Box sx={{ mb: 2 }}>{feature.icon}</Box>
                   <Typography
                     variant="h6"
                     component="h3"
@@ -330,7 +336,7 @@ const CTASection: React.FC = () => {
           >
             Ready to Get Started?
           </Typography>
-          
+
           <Typography
             variant={isMobile ? 'h6' : 'h5'}
             sx={{
@@ -341,9 +347,10 @@ const CTASection: React.FC = () => {
               lineHeight: 1.6,
             }}
           >
-            Join thousands of professionals who trust NestLancer for their freelancing needs
+            Join thousands of professionals who trust NestLancer for their
+            freelancing needs
           </Typography>
-          
+
           <Stack
             direction={{ xs: 'column', sm: 'row' }}
             spacing={2}
@@ -368,7 +375,7 @@ const CTASection: React.FC = () => {
             >
               Start Your Journey
             </Button>
-            
+
             <Button
               component={RouterLink}
               to="/auth/login"
@@ -388,7 +395,7 @@ const CTASection: React.FC = () => {
               Sign In
             </Button>
           </Stack>
-          
+
           <Typography
             variant="body2"
             sx={{
@@ -411,6 +418,9 @@ export const HomePage: React.FC = () => {
       <HeroSection />
       <FeaturesSection />
       <CTASection />
+      
+      {/* Temporary Sentry Test Component - Remove after testing */}
+      <SentryTest />
     </Box>
   )
 }

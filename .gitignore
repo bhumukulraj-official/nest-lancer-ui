@@ -27,6 +27,8 @@ build/
 # Testing
 coverage/
 *.lcov
+playwright-report/
+test-results/
 
 # IDE files
 .vscode/
@@ -96,3 +98,6 @@ temp/
 *.njsproj
 *.sln
 *.sw?
+
+# Sentry Config File
+.sentryclirc

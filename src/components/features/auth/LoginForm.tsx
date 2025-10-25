@@ -109,7 +109,9 @@ export const LoginForm: FC<LoginFormProps> = ({
     }
 
     try {
-      await login(formData.email, formData.password, formData.rememberMe)
+      // Note: rememberMe is handled locally by the form for UI purposes
+      // Backend doesn't support rememberMe field in login request
+      await login(formData.email, formData.password)
       onSuccess?.()
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Login failed'

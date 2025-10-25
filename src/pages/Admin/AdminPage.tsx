@@ -4,8 +4,11 @@
  */
 
 import React from 'react'
-import { Box, Container, Grid } from '@mui/material'
-import { AdminOverview, SystemMetrics } from '@/components/features/admin/dashboard'
+import { Container, Grid } from '@mui/material'
+import {
+  AdminOverview,
+  SystemMetrics,
+} from '@/components/features/admin/dashboard'
 
 const AdminPage: React.FC = () => {
   return (

@@ -18,6 +18,7 @@ interface EnvConfig {
   // Analytics & Monitoring
   GA_TRACKING_ID: string
   SENTRY_DSN: string
+  SENTRY_ENABLED: boolean
 
   // Application Features
   ENABLE_DEV_TOOLS: boolean
@@ -72,8 +73,8 @@ const getNumberEnvVar = (key: string, defaultValue: number): number => {
  */
 export const envConfig: EnvConfig = {
   // API Configuration
-  API_BASE_URL: getEnvVar('VITE_API_BASE_URL', 'http://localhost:8000/api'),
-  WS_URL: getEnvVar('VITE_WS_URL', 'ws://localhost:8000'),
+  API_BASE_URL: getEnvVar('VITE_API_BASE_URL', 'http://localhost:8000'),
+  WS_URL: getEnvVar('VITE_WS_URL', 'ws://localhost:8001'),
   API_TIMEOUT: getNumberEnvVar('VITE_API_TIMEOUT', 30000),
 
   // Third-party Integration
@@ -84,6 +85,7 @@ export const envConfig: EnvConfig = {
   // Analytics & Monitoring
   GA_TRACKING_ID: getEnvVar('VITE_GA_TRACKING_ID', ''),
   SENTRY_DSN: getEnvVar('VITE_SENTRY_DSN', ''),
+  SENTRY_ENABLED: getBooleanEnvVar('VITE_SENTRY_ENABLED', false),
 
   // Application Features
   ENABLE_DEV_TOOLS: getBooleanEnvVar('VITE_ENABLE_DEV_TOOLS', true),
@@ -100,7 +102,10 @@ export const envConfig: EnvConfig = {
   // App Metadata
   APP_NAME: getEnvVar('VITE_APP_NAME', 'NestLancer'),
   APP_VERSION: getEnvVar('VITE_APP_VERSION', '1.0.0'),
-  APP_DESCRIPTION: getEnvVar('VITE_APP_DESCRIPTION', 'Freelancing platform for project management and collaboration'),
+  APP_DESCRIPTION: getEnvVar(
+    'VITE_APP_DESCRIPTION',
+    'Freelancing platform for project management and collaboration'
+  ),
 }
 
 /**
@@ -109,12 +114,12 @@ export const envConfig: EnvConfig = {
 export const validateEnvConfig = (): boolean => {
   const requiredVars = ['API_BASE_URL', 'WS_URL']
   const missing = requiredVars.filter(key => !envConfig[key as keyof EnvConfig])
-  
+
   if (missing.length > 0) {
     console.error('Missing required environment variables:', missing)
     return false
   }
-  
+
   return true
 }
 

@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
+import { visualizer } from 'rollup-plugin-visualizer'
 import path from 'path'
 
 // https://vitejs.dev/config/
@@ -25,7 +26,8 @@ export default defineConfig({
       manifest: {
         name: 'NestLancer',
         short_name: 'NestLancer',
-        description: 'Freelancing platform for project management and collaboration',
+        description:
+          'Freelancing platform for project management and collaboration',
         theme_color: '#1976d2',
         background_color: '#ffffff',
         display: 'standalone',
@@ -38,7 +40,15 @@ export default defineConfig({
         ],
       },
     }),
-  ],
+    // Bundle analyzer - only in analysis mode
+    process.env.ANALYZE &&
+      visualizer({
+        filename: 'dist/bundle-analysis.html',
+        open: true,
+        gzipSize: true,
+        brotliSize: true,
+      }),
+  ].filter(Boolean),
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

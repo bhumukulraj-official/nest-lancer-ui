@@ -12,7 +12,6 @@ import { tokenService, TokenData } from './tokenService'
 export interface LoginRequest {
   email: string
   password: string
-  rememberMe?: boolean
 }
 
 export interface LoginResponse {

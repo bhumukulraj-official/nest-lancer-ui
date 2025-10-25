@@ -78,6 +78,7 @@ export const useAuth = (): UseAuthReturn => {
     rememberMe: boolean = false
   ) => {
     try {
+      // Note: rememberMe parameter is kept for API compatibility but not sent to backend
       await loginAction(email, password, rememberMe)
       showSuccess('Welcome back!', 'Login Successful')
     } catch (error: any) {
