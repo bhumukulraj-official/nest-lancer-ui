@@ -7,7 +7,6 @@ interface ImportMetaEnv {
   readonly VITE_CLOUDINARY_CLOUD_NAME: string
   readonly VITE_CLOUDINARY_UPLOAD_PRESET: string
   readonly VITE_GA_TRACKING_ID: string
-  readonly VITE_SENTRY_DSN: string
   readonly VITE_ENABLE_DEV_TOOLS: string
   readonly VITE_PWA_ENABLED: string
   readonly VITE_MAINTENANCE_MODE: string

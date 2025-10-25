@@ -57,7 +57,6 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
     }
     
     // TODO: Send error to monitoring service when implemented
-    // Example: Sentry.captureException(error, { contexts: { react: errorInfo } })
   }
   
   handleReset = () => {

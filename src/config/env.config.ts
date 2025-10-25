@@ -17,8 +17,6 @@ interface EnvConfig {
 
   // Analytics & Monitoring
   GA_TRACKING_ID: string
-  SENTRY_DSN: string
-  SENTRY_ENABLED: boolean
 
   // Application Features
   ENABLE_DEV_TOOLS: boolean
@@ -84,8 +82,6 @@ export const envConfig: EnvConfig = {
 
   // Analytics & Monitoring
   GA_TRACKING_ID: getEnvVar('VITE_GA_TRACKING_ID', ''),
-  SENTRY_DSN: getEnvVar('VITE_SENTRY_DSN', ''),
-  SENTRY_ENABLED: getBooleanEnvVar('VITE_SENTRY_ENABLED', false),
 
   // Application Features
   ENABLE_DEV_TOOLS: getBooleanEnvVar('VITE_ENABLE_DEV_TOOLS', true),

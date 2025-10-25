@@ -14,10 +14,6 @@ import { defaultTheme } from '@/styles/theme'
 import { envConfig, isDevelopment } from '@/config'
 import ErrorBoundary from '@/components/shared/ErrorBoundaries/ErrorBoundary'
 import AppRoutes from '@/routes/AppRoutes'
-import { initSentry } from '@/lib/sentry'
-
-// Initialize Sentry
-initSentry()
 
 // Create React Query client
 const queryClient = new QueryClient({

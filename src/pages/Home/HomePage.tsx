@@ -29,7 +29,6 @@ import {
   ArrowForward,
 } from '@mui/icons-material'
 import { Link as RouterLink } from 'react-router-dom'
-import SentryTest from '@/components/SentryTest'
 
 // Hero section component
 const HeroSection: React.FC = () => {
@@ -418,9 +417,6 @@ export const HomePage: React.FC = () => {
       <HeroSection />
       <FeaturesSection />
       <CTASection />
-      
-      {/* Temporary Sentry Test Component - Remove after testing */}
-      <SentryTest />
     </Box>
   )
 }

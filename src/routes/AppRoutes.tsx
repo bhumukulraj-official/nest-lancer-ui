@@ -95,7 +95,7 @@ export const AppRoutes: React.FC = () => {
           {/* Protected Application Routes */}
           <Route path="/app" element={
             <ProtectedRoute>
-              <AppLayout />
+              <AppLayout showSidebar={true} />
             </ProtectedRoute>
           }>
             {/* Dashboard */}
@@ -119,11 +119,13 @@ export const AppRoutes: React.FC = () => {
           </Route>
           
           {/* Admin Routes */}
-          <Route path="/admin/*" element={
+          <Route path="/admin" element={
             <ProtectedRoute requiredRole="admin">
-              <AdminPage />
+              <AppLayout showSidebar={true} />
             </ProtectedRoute>
-          } />
+          }>
+            <Route index element={<AdminPage />} />
+          </Route>
           
           {/* 404 Not Found */}
           <Route path="*" element={<NotFoundPage />} />
