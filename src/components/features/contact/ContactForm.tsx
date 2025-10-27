@@ -8,16 +8,13 @@ import { FC, useState, ChangeEvent } from 'react'
 import {
   Box,
   TextField,
-  Typography,
   Stack,
   Alert,
   Button,
   Grid,
-  LinearProgress,
   InputAdornment,
-  IconButton,
   Chip,
-  Paper,
+  MenuItem,
 } from '@mui/material'
 import {
   Person,
@@ -32,6 +29,7 @@ import {
 import { LoadingButton } from '@/components/shared/Button'
 import { ContactApiService } from '@/services/contact/contactApiService'
 import type { ContactMessageCreateData } from '@/types/models/contact.types'
+import { InquiryType } from '@/types/models/contact.types'
 
 interface ContactFormData {
   name: string
@@ -41,6 +39,7 @@ interface ContactFormData {
   message: string
   company?: string
   website?: string
+  inquiryType: InquiryType
 }
 
 export interface ContactFormProps {
@@ -60,6 +59,7 @@ export const ContactForm: FC<ContactFormProps> = ({
     message: '',
     company: '',
     website: '',
+    inquiryType: InquiryType.GENERAL,
   })
 
   const [attachments, setAttachments] = useState<File[]>([])
@@ -180,6 +180,7 @@ export const ContactForm: FC<ContactFormProps> = ({
         phone: formData.phone || undefined,
         company: formData.company || undefined,
         website: formData.website || undefined,
+        inquiryType: formData.inquiryType,
       }
 
       // Submit contact form
@@ -201,6 +202,7 @@ export const ContactForm: FC<ContactFormProps> = ({
         message: '',
         company: '',
         website: '',
+        inquiryType: InquiryType.GENERAL,
       })
       setAttachments([])
       setFieldErrors({})
@@ -346,6 +348,31 @@ export const ContactForm: FC<ContactFormProps> = ({
             ),
           }}
         />
+
+        {/* Inquiry Type */}
+        <TextField
+          select
+          fullWidth
+          label="Inquiry Type"
+          value={formData.inquiryType}
+          onChange={handleInputChange('inquiryType')}
+          disabled={isSubmitting}
+          required
+          helperText="Please select the type of inquiry"
+        >
+          <MenuItem value={InquiryType.GENERAL}>General Inquiry</MenuItem>
+          <MenuItem value={InquiryType.SUPPORT}>Technical Support</MenuItem>
+          <MenuItem value={InquiryType.SALES}>Sales Inquiry</MenuItem>
+          <MenuItem value={InquiryType.PARTNERSHIP}>Partnership</MenuItem>
+          <MenuItem value={InquiryType.MEDIA}>Media Inquiry</MenuItem>
+          <MenuItem value={InquiryType.CAREER}>Career/Job Inquiry</MenuItem>
+          <MenuItem value={InquiryType.FEEDBACK}>Feedback</MenuItem>
+          <MenuItem value={InquiryType.COMPLAINT}>Complaint</MenuItem>
+          <MenuItem value={InquiryType.SUGGESTION}>Suggestion</MenuItem>
+          <MenuItem value={InquiryType.BUG_REPORT}>Bug Report</MenuItem>
+          <MenuItem value={InquiryType.FEATURE_REQUEST}>Feature Request</MenuItem>
+          <MenuItem value={InquiryType.OTHER}>Other</MenuItem>
+        </TextField>
 
         {/* Subject */}
         <TextField
