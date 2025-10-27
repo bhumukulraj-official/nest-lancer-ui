@@ -13,8 +13,6 @@ import type {
   UserFilters,
   UserSearchResult,
   UserStats,
-  UserProfile,
-  UserSettings,
   UserPreferences,
   UserActivity,
   UserNotificationSettings,

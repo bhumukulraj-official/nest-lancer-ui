@@ -21,6 +21,11 @@ export interface ServiceRequest {
   clientName: string
   clientEmail: string
   clientPhone?: string
+  client?: {
+    name?: string
+    email?: string
+    avatar?: string
+  }
   contactInfo: ContactInfo
   location?: RequestLocation
   skills: string[]
@@ -39,6 +44,8 @@ export interface ServiceRequest {
   cancelledAt?: string
   cancellationReason?: string
   feedback?: RequestFeedback
+  deadline?: string
+  progressPercentage?: number
   createdAt: string
   updatedAt: string
 }
@@ -244,13 +251,15 @@ export interface RequestUpdateData {
 }
 
 export interface RequestSearchResult {
-  requests: ServiceRequest[]
-  total: number
-  page: number
-  limit: number
-  totalPages: number
-  hasNext: boolean
-  hasPrev: boolean
+  data: ServiceRequest[]
+  pagination: {
+    page: number
+    limit: number
+    total: number
+    totalPages: number
+    hasNext: boolean
+    hasPrev: boolean
+  }
 }
 
 export interface RequestAnalytics {
@@ -353,4 +362,60 @@ export enum RequestSortBy {
   PRIORITY = 'priority',
   CLIENT_NAME = 'clientName',
   DEADLINE = 'deadline'
+}
+
+// Type aliases for backward compatibility
+export type Request = ServiceRequest
+
+export interface RequestComment {
+  id: string
+  content: string
+  authorId: string
+  authorName: string
+  authorRole: string
+  isInternal: boolean
+  attachments?: RequestAttachment[]
+  createdAt: string
+  updatedAt: string
+}
+
+export interface RequestTimeline {
+  id: string
+  requestId: string
+  type: 'status_change' | 'assignment' | 'comment' | 'escalation' | 'resolution'
+  description: string
+  metadata?: Record<string, any>
+  createdBy: string
+  createdAt: string
+}
+
+export interface RequestAssignment {
+  id: string
+  requestId: string
+  assigneeId: string
+  assigneeName: string
+  assignedBy: string
+  assignedAt: string
+  notes?: string
+}
+
+export interface RequestEscalation {
+  id: string
+  requestId: string
+  escalatedBy: string
+  escalatedTo: string
+  reason: string
+  priority: RequestPriority
+  notes?: string
+  escalatedAt: string
+}
+
+export interface RequestResolution {
+  id: string
+  requestId: string
+  resolvedBy: string
+  resolution: string
+  resolutionType: 'completed' | 'cancelled' | 'rejected'
+  feedback?: RequestFeedback
+  resolvedAt: string
 }

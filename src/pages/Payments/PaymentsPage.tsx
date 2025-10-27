@@ -77,7 +77,7 @@ const PaymentsPage: React.FC = () => {
       setLoading(true)
       setError(null)
       const result = await PaymentApiService.getPaymentHistory(filters)
-      setPayments(result.payments)
+      setPayments(result.data)
     } catch (err) {
       setError('Failed to load payments. Please try again.')
       console.error('Error loading payments:', err)

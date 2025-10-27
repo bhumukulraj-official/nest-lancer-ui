@@ -5,7 +5,7 @@
 
 import React from 'react'
 import { Card, CardContent, Typography, Chip, Box, LinearProgress, IconButton } from '@mui/material'
-import { CheckCircle, Edit, Delete } from '@mui/icons-material'
+import { Edit, Delete } from '@mui/icons-material'
 import { formatDate } from '@/utils'
 
 interface MilestoneCardProps {

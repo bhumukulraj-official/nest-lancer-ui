@@ -8,6 +8,8 @@ import { useState, useCallback, useEffect } from 'react'
 import { PaymentApiService } from '../../services/payment/paymentApiService'
 import type {
   Payment,
+  PaymentOrder,
+  PaymentRefund,
   PaymentCreateData,
   PaymentUpdateData,
   PaymentFilters,
@@ -36,11 +38,11 @@ export interface UsePaymentsReturn {
   // Actions
   fetchPayments: (filters?: PaymentFilters) => Promise<void>
   fetchPayment: (id: string) => Promise<void>
-  createPayment: (data: PaymentCreateData) => Promise<Payment>
+  createPayment: (data: PaymentCreateData) => Promise<PaymentOrder>
   updatePayment: (id: string, data: PaymentUpdateData) => Promise<Payment>
   deletePayment: (id: string) => Promise<void>
   processPayment: (paymentData: any) => Promise<Payment>
-  refundPayment: (id: string, refundData: any) => Promise<Payment>
+  refundPayment: (id: string, refundData: any) => Promise<PaymentRefund>
   setFilters: (filters: PaymentFilters) => void
   setCurrentPayment: (payment: Payment | null) => void
   clearError: () => void
@@ -106,16 +108,17 @@ export function usePayments(options: UsePaymentsOptions = {}): UsePaymentsReturn
   }, [])
 
   // Create payment
-  const createPayment = useCallback(async (data: PaymentCreateData): Promise<Payment> => {
+  const createPayment = useCallback(async (data: PaymentCreateData): Promise<PaymentOrder> => {
     try {
       setLoading(true)
       setError(null)
 
-      const payment = await PaymentApiService.createPayment(data)
-      setPayments(prev => [payment, ...prev])
-      setCurrentPayment(payment)
-      
-      return payment
+      const paymentOrder = await PaymentApiService.createPayment(data)
+      // PaymentOrder is not a Payment, so we don't add it to the payments array
+      // You might want to refresh the payments list or handle this differently
+      await fetchPayments() // Refresh to get updated payments
+
+      return paymentOrder
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Failed to create payment'
       setError(errorMessage)
@@ -194,19 +197,17 @@ export function usePayments(options: UsePaymentsOptions = {}): UsePaymentsReturn
   }, [])
 
   // Refund payment
-  const refundPayment = useCallback(async (id: string, refundData: any) => {
+  const refundPayment = useCallback(async (id: string, refundData: any): Promise<PaymentRefund> => {
     try {
       setLoading(true)
       setError(null)
 
-      const payment = await PaymentApiService.refundPayment(id, refundData)
-      
-      setPayments(prev => prev.map(p => p.id === id ? payment : p))
-      if (currentPayment?.id === id) {
-        setCurrentPayment(payment)
-      }
-      
-      return payment
+      const refund = await PaymentApiService.refundPayment(id, refundData)
+
+      // Since refund doesn't change the payment object directly, we refresh the payments
+      await fetchPayments() // Refresh to get updated payment status
+
+      return refund
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Failed to refund payment'
       setError(errorMessage)

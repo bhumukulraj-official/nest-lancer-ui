@@ -24,7 +24,7 @@ import {
 } from '@mui/icons-material'
 import { QuoteCard } from './QuoteCard'
 import { Quote } from '@/types/models/quote.types'
-import { SPINNER } from '@/components/shared'
+import { Spinner } from '@/components/shared'
 
 interface QuoteListProps {
   quotes: Quote[]
@@ -80,7 +80,7 @@ export const QuoteList: React.FC<QuoteListProps> = ({
         case 'amount':
           return b.totalAmount - a.totalAmount
         case 'deadline':
-          return new Date(a.deadline).getTime() - new Date(b.deadline).getTime()
+          return (a.deadline ? new Date(a.deadline).getTime() : 0) - (b.deadline ? new Date(b.deadline).getTime() : 0)
         default:
           return 0
       }
@@ -102,7 +102,7 @@ export const QuoteList: React.FC<QuoteListProps> = ({
   if (loading) {
     return (
       <Box display="flex" justifyContent="center" alignItems="center" minHeight="400px">
-        <SPINNER />
+        <Spinner />
       </Box>
     )
   }
@@ -195,7 +195,7 @@ export const QuoteList: React.FC<QuoteListProps> = ({
                 onEdit={onEditQuote}
                 onDelete={onDeleteQuote}
                 onAccept={onAcceptQuote}
-                variant={viewMode}
+                variant={viewMode === 'grid' ? 'default' : 'compact'}
               />
             </Grid>
           ))}

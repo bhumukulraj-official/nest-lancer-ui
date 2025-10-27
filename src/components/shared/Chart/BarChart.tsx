@@ -4,7 +4,7 @@
  * Includes horizontal/vertical orientation, data labels, and interactive features
  */
 
-import React, { FC } from 'react'
+import { FC } from 'react'
 import {
   BarChart as RechartsBarChart,
   Bar,
@@ -14,7 +14,6 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
-  BarChartProps as RechartsBarChartProps,
   Cell,
 } from 'recharts'
 
@@ -33,7 +32,7 @@ interface BarChartProps {
     color?: string
     name?: string
     stackId?: string
-    radius?: number | [number, number]
+    radius?: number | [number, number, number, number]
     fill?: string
   }>
   

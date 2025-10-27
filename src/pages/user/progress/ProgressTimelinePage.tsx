@@ -4,7 +4,7 @@ import { UserLayout } from '@/components/layout'
 import { ProgressTimeline } from '@/components/features/progress'
 
 export const ProgressTimelinePage: React.FC = () => {
-  const mockMilestones = []
+  const mockMilestones: any[] = []
 
   return (
     <UserLayout>

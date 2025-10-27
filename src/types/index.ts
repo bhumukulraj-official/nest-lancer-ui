@@ -10,28 +10,193 @@ export * from './api/error.types'
 export * from './api/pagination.types'
 export * from './api/webhook.types'
 
-// Model Types
-export * from './models/user.types'
-export * from './models/project.types'
-export * from './models/request.types'
-export * from './models/quote.types'
-export * from './models/payment.types'
-export * from './models/media.types'
-export * from './models/message.types'
-export * from './models/notification.types'
-export * from './models/blog.types'
-export * from './models/contact.types'
-export * from './models/progress.types'
-export * from './models/portfolio.types'
+// Model Types - using explicit exports to avoid conflicts
+export type {
+  User,
+  UserProfile,
+  UserSettings,
+  UserStats,
+  UserPreferences,
+  UserActivity,
+  UserNotificationSettings,
+  UserPrivacySettings,
+  UserSecuritySettings,
+  SkillCategory,
+  SkillLevel,
+} from './models/user.types'
 
-// Enum Types
-export * from './enums/userRole.enum'
-export * from './enums/requestStatus.enum'
-export * from './enums/quoteStatus.enum'
-export * from './enums/paymentStatus.enum'
-export * from './enums/notificationType.enum'
-export * from './enums/projectStatus.enum'
-export * from './enums/adminRole.enum'
+export type { PortfolioProject, PortfolioTestimonial } from './models/portfolio.types'
+
+export type {
+  Project,
+  ProjectCreateData,
+  ProjectUpdateData,
+  ProjectFilters,
+  ProjectSearchResult,
+  ProjectStats,
+  ProjectCategory,
+  CategoryStats,
+} from './models/project.types'
+
+export type {
+  Request,
+  ServiceRequest,
+  RequestCreateData,
+  RequestUpdateData,
+  RequestFilters,
+  RequestSearchResult,
+  RequestStats,
+  RequestAnalytics,
+  RequestAttachment,
+  RequestComment,
+  RequestTimeline,
+  RequestAssignment,
+  RequestEscalation,
+  RequestResolution,
+  RequestFeedback,
+  FeedbackCategory,
+} from './models/request.types'
+
+export type {
+  Quote,
+  QuoteCreateData,
+  QuoteUpdateData,
+  QuoteFilters,
+  QuoteSearchResult,
+  QuoteStats,
+  QuoteAnalytics,
+  QuoteItem,
+  QuotePricing,
+  QuoteDiscount,
+  QuoteTax,
+  QuotePaymentTerms,
+  QuoteValidity,
+  QuoteApproval,
+  QuoteRejection,
+  QuoteRevision,
+  QuoteAcceptance,
+} from './models/quote.types'
+
+export type {
+  Payment,
+  PaymentCreateData,
+  PaymentUpdateData,
+  PaymentFilters,
+  PaymentSearchResult,
+  PaymentStats,
+  PaymentMethod,
+} from './models/payment.types'
+
+export type {
+  Media,
+  MediaUpload,
+  MediaFilters,
+  MediaSearchResult,
+  MediaStats,
+  MediaMetadata,
+  MediaCategoryInfo,
+} from './models/media.types'
+
+export { MediaCategory } from './models/media.types'
+
+export type {
+  Conversation,
+  Message,
+  MessageCreateData,
+  MessageFilters,
+  MessageSearchResult,
+  TypingIndicator,
+} from './models/message.types'
+
+export type {
+  Notification,
+  NotificationCreateData,
+  NotificationFilters,
+  NotificationSearchResult,
+  NotificationStats,
+} from './models/notification.types'
+
+export type {
+  BlogPost,
+  BlogCreateData,
+  BlogUpdateData,
+  BlogFilters,
+  BlogSearchResult,
+  BlogStats,
+  BlogCategory,
+  BlogTag,
+  BlogComment,
+} from './models/blog.types'
+
+export type {
+  ContactMessage,
+  ContactCreateData,
+  ContactFilters,
+  ContactSearchResult,
+  ContactStats,
+} from './models/contact.types'
+
+export type {
+  Progress,
+  ProgressUpdate,
+  MilestoneCreateData,
+  MilestoneUpdateData,
+  Milestone,
+  TimelineEvent,
+  ProgressTimeline,
+  ProgressComment,
+} from './models/progress.types'
+
+export type {
+  Portfolio,
+  PortfolioUpdateData,
+  PortfolioStats,
+} from './models/portfolio.types'
+
+// Enum Types - using explicit exports to avoid conflicts
+export {
+  UserRole,
+  UserLanguage,
+  AdminRole,
+} from './enums/userRole.enum'
+
+export {
+  RequestStatus,
+  RequestPriority,
+  RequestComplexity,
+  RequestVisibility,
+  RequestCategory,
+  RequestSubcategory,
+  RequestSortBy,
+} from './enums/requestStatus.enum'
+
+export {
+  QuoteStatus,
+  QuoteSortBy,
+} from './enums/quoteStatus.enum'
+
+export {
+  PaymentStatus,
+  PaymentMethodType,
+  PaymentProvider,
+  PaymentSortBy,
+  OrderStatus,
+  RefundStatus,
+} from './enums/paymentStatus.enum'
+
+export {
+  NotificationType,
+  NotificationChannel,
+  NotificationPriority,
+  NotificationSortBy,
+} from './enums/notificationType.enum'
+
+export {
+  ProjectStatus,
+  ProjectVisibility,
+  ProjectSortBy,
+  MilestoneStatus,
+} from './enums/projectStatus.enum'
 
 // Form Types
 export * from './forms/auth.form.types'

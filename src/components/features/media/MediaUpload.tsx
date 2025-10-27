@@ -33,7 +33,7 @@ export const MediaUpload: React.FC<MediaUploadProps> = ({
   folder = 'uploads',
 }) => {
   const [files, setFiles] = useState<Array<{ file: File; progress: number; url?: string; uploading: boolean }>>([])
-  const [uploading, setUploading] = useState(false)
+  const [uploading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
 
@@ -57,7 +57,8 @@ export const MediaUpload: React.FC<MediaUploadProps> = ({
 
   const uploadFile = async (file: File, index: number) => {
     try {
-      const url = await CloudinaryUIService.uploadImage(file, { folder })
+      const result = await CloudinaryUIService.uploadImage(file, { folder })
+      const url = result.secure_url
       files[index] = { ...files[index], url, progress: 100, uploading: false }
       setFiles([...files])
       onUploadComplete?.(url)

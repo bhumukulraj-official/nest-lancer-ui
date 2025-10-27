@@ -78,7 +78,7 @@ export const Navbar: FC<NavbarProps> = ({
   
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [userMenuAnchor, setUserMenuAnchor] = useState<null | HTMLElement>(null)
-  const [unreadCount, setUnreadCount] = useState(0)
+  const [unreadCount] = useState(0)
   
   const { user, isAuthenticated, logout } = useAuth()
   
@@ -96,7 +96,7 @@ export const Navbar: FC<NavbarProps> = ({
     { label: 'Settings', icon: <Settings />, path: '/app/settings' },
   ]
   
-  const items = navigationItems.length > 0 ? navigationItems : defaultNavItems
+  const items = (navigationItems.length > 0 ? navigationItems : defaultNavItems) as Array<{ label: string; path: string; icon?: React.ReactNode }>
   const menuItems = userMenuItems.length > 0 ? userMenuItems : defaultUserMenuItems
   
   const handleUserMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
@@ -171,7 +171,7 @@ export const Navbar: FC<NavbarProps> = ({
                     mx: 1,
                     '&:hover': { bgcolor: 'action.hover' },
                   }}
-                  startIcon={item.icon}
+                  startIcon={item.icon ? item.icon : undefined}
                 >
                   {item.label}
                 </Button>
@@ -223,7 +223,7 @@ export const Navbar: FC<NavbarProps> = ({
                 {/* Login/Register Buttons */}
                 <Button
                   variant="text"
-                  onClick={() => router.push('/auth/login')}
+                  onClick={() => navigate('/auth/login')}
                   sx={{ 
                     color: 'inherit',
                   }}
@@ -232,7 +232,7 @@ export const Navbar: FC<NavbarProps> = ({
                 </Button>
                 <Button
                   variant="contained"
-                  onClick={() => router.push('/auth/register')}
+                  onClick={() => navigate('/auth/register')}
                   sx={{
                     ml: 1,
                   }}

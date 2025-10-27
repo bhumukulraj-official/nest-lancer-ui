@@ -4,7 +4,7 @@
  */
 
 import React from 'react'
-import { Container, Box, Typography } from '@mui/material'
+import { Container, Typography } from '@mui/material'
 import { UserLayout } from '@/components/layout'
 import ProfileForm from '@/components/features/profile/ProfileForm'
 import AvatarUpload from '@/components/features/profile/AvatarUpload'

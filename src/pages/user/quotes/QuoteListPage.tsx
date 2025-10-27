@@ -4,7 +4,7 @@ import { UserLayout } from '@/components/layout'
 import { QuoteList } from '@/components/features/quotes'
 
 export const QuoteListPage: React.FC = () => {
-  const mockQuotes = []
+  const mockQuotes: any[] = []
 
   return (
     <UserLayout>

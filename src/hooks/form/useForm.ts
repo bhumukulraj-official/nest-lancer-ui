@@ -59,7 +59,7 @@ export interface UseFormOptions<T = any> {
   onSubmit?: (values: T) => void | Promise<void>
 }
 
-export function useForm<T = any>(options: UseFormOptions<T>): FormState<T> & FormActions<T> {
+export function useForm<T extends Record<string, any> = Record<string, any>>(options: UseFormOptions<T>): FormState<T> & FormActions<T> {
   const {
     initialValues,
     validate,
@@ -233,7 +233,7 @@ export function useForm<T = any>(options: UseFormOptions<T>): FormState<T> & For
   }, [setValue])
 
   const handleBlur = useCallback((field: keyof T) => {
-    return (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    return (_e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
       setTouched(field, true)
     }
   }, [setTouched])

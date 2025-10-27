@@ -22,7 +22,6 @@ import type {
   BlogPostAnalytics,
   BlogPostSEO,
   BlogPostMedia,
-  BlogPostAuthor,
   BlogPostSeries,
   BlogPostTemplate
 } from '../../types/models/blog.types'
@@ -61,7 +60,7 @@ export class BlogApiService {
    */
   static async getBlogPostBySlug(slug: string): Promise<BlogPost> {
     try {
-      const response = await apiClient.get(`${BLOG_ENDPOINTS.BY_SLUG}/${slug}`)
+      const response = await apiClient.get(BLOG_ENDPOINTS.DETAIL(slug))
       return response.data
     } catch (error) {
       console.error('Error fetching blog post by slug:', error)

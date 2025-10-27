@@ -3,6 +3,7 @@
  * TypeScript type definitions for API response interfaces
  */
 
+
 // Base API Response Interface
 export interface BaseApiResponse<T = any> {
   success: boolean
@@ -48,6 +49,12 @@ export interface LoginResponse {
     avatar?: string
     isActive: boolean
     isVerified: boolean
+    isEmailVerified: boolean
+    isPhoneVerified: boolean
+    preferences: any
+    settings: any
+    createdAt: string
+    updatedAt: string
     lastLoginAt?: string
   }
   tokens: {

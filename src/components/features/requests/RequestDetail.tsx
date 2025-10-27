@@ -136,7 +136,7 @@ export const RequestDetail: React.FC<RequestDetailProps> = ({
               </Typography>
               <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
                 <Schedule color="primary" />
-                {formatDate(request.deadline)}
+                {request.deadline ? formatDate(request.deadline) : 'Not set'}
               </Typography>
             </Box>
           </Grid>
@@ -220,7 +220,7 @@ export const RequestDetail: React.FC<RequestDetailProps> = ({
               {request.attachments.map((attachment, index) => (
                 <Box key={index} sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                   <AttachFile />
-                  <Typography variant="body2">{attachment}</Typography>
+                  <Typography variant="body2">{attachment.filename}</Typography>
                 </Box>
               ))}
             </Stack>

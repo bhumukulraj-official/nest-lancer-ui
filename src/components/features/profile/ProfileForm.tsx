@@ -5,28 +5,22 @@
 
 import React, { useState, useEffect } from 'react'
 import {
-  Box,
   TextField,
   Button,
   Grid,
   Typography,
   Chip,
   Stack,
-  Avatar,
   Alert,
   CircularProgress,
   Card,
   CardContent,
   CardHeader,
-  Autocomplete,
-  IconButton,
-  Tooltip,
 } from '@mui/material'
 import {
   Save,
   Cancel,
   Add,
-  Delete,
   Edit,
   LinkedIn,
   GitHub,
@@ -34,7 +28,6 @@ import {
   Language,
   LocationOn,
   Work,
-  School,
   Email,
   Phone,
 } from '@mui/icons-material'
@@ -130,7 +123,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
     setSuccess(false)
 
     try {
-      await UserApiService.updateProfile(formData)
+      await UserApiService.updateCurrentUser(formData)
       setSuccess(true)
       onSave?.(formData)
       setTimeout(() => setSuccess(false), 3000)

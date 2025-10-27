@@ -252,13 +252,15 @@ export enum PaymentSortBy {
 }
 
 export interface PaymentSearchResult {
-  payments: Payment[]
-  total: number
-  page: number
-  limit: number
-  totalPages: number
-  hasNext: boolean
-  hasPrev: boolean
+  data: Payment[]
+  pagination: {
+    page: number
+    limit: number
+    total: number
+    totalPages: number
+    hasNext: boolean
+    hasPrev: boolean
+  }
 }
 
 export interface PaymentWebhookData {

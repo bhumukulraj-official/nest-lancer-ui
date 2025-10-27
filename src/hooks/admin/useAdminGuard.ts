@@ -42,7 +42,7 @@ export function useAdminGuard(options: UseAdminGuardOptions = {}): UseAdminGuard
       return false
     }
 
-    const userIsAdmin = user.role === 'admin' || user.role === 'super_admin'
+    const userIsAdmin = user.role === 'admin' || (user.role as string) === 'super_admin'
     setIsAdmin(userIsAdmin)
     setHasAccess(userIsAdmin)
 

@@ -13,10 +13,8 @@ import {
   FormControlLabel,
   Switch,
   Button,
-  Divider,
   Alert,
   Grid,
-  TextField,
   Stack,
   CircularProgress,
 } from '@mui/material'
@@ -25,9 +23,6 @@ import {
   Notifications,
   Lock,
   Security,
-  Email,
-  Language,
-  Palette,
 } from '@mui/icons-material'
 import { UserApiService } from '@/services/user'
 import { useAuth } from '@/hooks/auth/useAuth'
@@ -86,7 +81,52 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({
     setSuccess(false)
 
     try {
-      await UserApiService.updateSettings(settings)
+      // Map flat settings to UserPreferences structure
+      const preferences = {
+        theme: 'light' as const,
+        language: 'en',
+        currency: 'USD',
+        timezone: 'UTC',
+        notifications: {
+          email: {
+            projectUpdates: settings.projectUpdates,
+            paymentNotifications: settings.paymentNotifications,
+            messageNotifications: settings.messageNotifications,
+            systemNotifications: true,
+            marketingEmails: false,
+          },
+          push: {
+            projectUpdates: settings.projectUpdates,
+            paymentNotifications: settings.paymentNotifications,
+            messageNotifications: settings.messageNotifications,
+            systemNotifications: true,
+          },
+          sms: {
+            paymentNotifications: false,
+            securityAlerts: false,
+          },
+        },
+        privacy: {
+          profileVisibility: (settings.profilePublic ? 'public' : 'private') as 'public' | 'private' | 'contacts',
+          showEmail: settings.showEmail,
+          showPhone: settings.showPhone,
+          showLocation: false,
+          showLastActive: false,
+          allowDirectMessages: settings.allowMessages,
+          allowMessages: settings.allowMessages,
+          showOnlineStatus: true,
+        },
+        display: {
+          itemsPerPage: 10,
+          defaultSort: 'createdAt',
+          dateFormat: 'MM/DD/YYYY',
+          timeFormat: '12h' as '12h' | '24h',
+          compactMode: false,
+          showAvatars: true,
+          showTimestamps: true,
+        },
+      }
+      await UserApiService.updateUserPreferences(preferences)
       setSuccess(true)
       onSave?.(settings)
       setTimeout(() => setSuccess(false), 3000)

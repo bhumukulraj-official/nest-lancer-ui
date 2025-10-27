@@ -4,7 +4,7 @@
  */
 
 import React, { createContext, useContext, useReducer, ReactNode } from 'react'
-import { Notification, NotificationType, NotificationPriority } from '../types'
+import { Notification, NotificationType, NotificationPriority, NotificationChannel } from '../types'
 
 // Notification State Interface
 interface NotificationState {
@@ -92,7 +92,7 @@ const notificationReducer = (state: NotificationState, action: NotificationActio
 // Notification Context Interface
 interface NotificationContextType {
   state: NotificationState
-  addNotification: (notification: Omit<Notification, 'id' | 'createdAt'>) => void
+  addNotification: (notification: Omit<Notification, 'id' | 'createdAt' | 'updatedAt' | 'isArchived'>) => void
   removeNotification: (id: string) => void
   markAsRead: (id: string) => void
   markAllAsRead: () => void
@@ -118,11 +118,13 @@ export const NotificationProvider: React.FC<NotificationProviderProps> = ({ chil
   const [state, dispatch] = useReducer(notificationReducer, initialState)
 
   // Add notification function
-  const addNotification = (notification: Omit<Notification, 'id' | 'createdAt'>) => {
+  const addNotification = (notification: Omit<Notification, 'id' | 'createdAt' | 'updatedAt' | 'isArchived'>) => {
     const newNotification: Notification = {
       ...notification,
       id: `notification-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
       createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      isArchived: false,
     }
     dispatch({ type: 'ADD_NOTIFICATION', payload: newNotification })
   }
@@ -166,7 +168,7 @@ export const NotificationProvider: React.FC<NotificationProviderProps> = ({ chil
       message,
       isRead: false,
       priority: NotificationPriority.MEDIUM,
-      channels: ['in_app'],
+      channels: [NotificationChannel.IN_APP],
     })
   }
 
@@ -179,7 +181,7 @@ export const NotificationProvider: React.FC<NotificationProviderProps> = ({ chil
       message,
       isRead: false,
       priority: NotificationPriority.HIGH,
-      channels: ['in_app'],
+      channels: [NotificationChannel.IN_APP],
     })
   }
 
@@ -192,7 +194,7 @@ export const NotificationProvider: React.FC<NotificationProviderProps> = ({ chil
       message,
       isRead: false,
       priority: NotificationPriority.MEDIUM,
-      channels: ['in_app'],
+      channels: [NotificationChannel.IN_APP],
     })
   }
 
@@ -205,7 +207,7 @@ export const NotificationProvider: React.FC<NotificationProviderProps> = ({ chil
       message,
       isRead: false,
       priority: NotificationPriority.LOW,
-      channels: ['in_app'],
+      channels: [NotificationChannel.IN_APP],
     })
   }
 

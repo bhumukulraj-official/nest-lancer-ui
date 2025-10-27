@@ -23,7 +23,6 @@ import type {
   ProgressTimeline,
   ProgressReport,
   ProgressAnalytics,
-  ProgressNotification,
   ProgressComment,
   ProgressAttachment
 } from '../../types/models/progress.types'
@@ -208,7 +207,7 @@ export class ProgressApiService {
         formData.append('notes', completionData.notes)
       }
       if (completionData?.attachments) {
-        completionData.attachments.forEach((file, index) => {
+        completionData.attachments.forEach((file) => {
           formData.append(`attachments`, file)
         })
       }

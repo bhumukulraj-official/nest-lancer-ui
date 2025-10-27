@@ -212,13 +212,15 @@ export interface BlogUpdateData {
 }
 
 export interface BlogSearchResult {
-  posts: BlogPost[]
-  total: number
-  page: number
-  limit: number
-  totalPages: number
-  hasNext: boolean
-  hasPrev: boolean
+  data: BlogPost[]
+  pagination: {
+    page: number
+    limit: number
+    total: number
+    totalPages: number
+    hasNext: boolean
+    hasPrev: boolean
+  }
 }
 
 export interface BlogAnalytics {
@@ -403,4 +405,113 @@ export enum NewsletterStatus {
   SENT = 'sent',
   FAILED = 'failed',
   CANCELLED = 'cancelled'
+}
+
+// Type aliases for backward compatibility
+export type BlogPostCreateData = BlogCreateData
+export type BlogPostUpdateData = BlogUpdateData
+export type BlogPostFilters = BlogFilters
+export type BlogPostSearchResult = BlogSearchResult
+export type BlogPostStats = BlogStats
+export type BlogPostStatus = BlogStatus
+export type BlogPostCategory = BlogCategory
+export type BlogPostTag = BlogTag
+export type BlogPostComment = BlogComment
+export type BlogPostAnalytics = BlogAnalytics
+
+export interface BlogPostLike {
+  id: string
+  postId: string
+  userId: string
+  likedAt: string
+  ipAddress?: string
+  userAgent?: string
+}
+
+export interface BlogPostShare {
+  id: string
+  postId: string
+  userId?: string
+  platform: 'twitter' | 'facebook' | 'linkedin' | 'email' | 'link'
+  sharedAt: string
+  url: string
+  ipAddress?: string
+  userAgent?: string
+}
+
+export interface BlogPostSEO {
+  id: string
+  postId: string
+  title?: string
+  description?: string
+  keywords?: string[]
+  canonicalUrl?: string
+  ogTitle?: string
+  ogDescription?: string
+  ogImage?: string
+  twitterTitle?: string
+  twitterDescription?: string
+  twitterImage?: string
+  noIndex?: boolean
+  noFollow?: boolean
+  structuredData?: any
+}
+
+export interface BlogPostMedia {
+  id: string
+  postId: string
+  mediaId: string
+  mediaType: 'image' | 'video' | 'audio' | 'document'
+  url: string
+  alt?: string
+  caption?: string
+  position: number
+  isFeatured: boolean
+  createdAt: string
+}
+
+export interface BlogPostAuthor {
+  id: string
+  postId: string
+  userId: string
+  userName: string
+  userAvatar?: string
+  role: 'author' | 'co_author' | 'editor'
+  contribution?: string
+  addedAt: string
+}
+
+export interface BlogPostSeries {
+  id: string
+  title: string
+  slug: string
+  description?: string
+  coverImage?: string
+  authorId: string
+  posts: Array<{
+    id: string
+    title: string
+    slug: string
+    position: number
+    publishedAt?: string
+  }>
+  totalPosts: number
+  publishedPosts: number
+  createdAt: string
+  updatedAt: string
+}
+
+export interface BlogPostTemplate {
+  id: string
+  name: string
+  description?: string
+  content: string
+  category?: string
+  tags?: string[]
+  isDefault: boolean
+  isPublic: boolean
+  authorId: string
+  usageCount: number
+  createdAt: string
+  updatedAt: string
 }

@@ -306,8 +306,8 @@ export function useAdminUsers(options: UseAdminUsersOptions = {}): UseAdminUsers
       setLoading(true)
       setError(null)
 
-      const filters = exportFilters || filters
-      const blob = await UserApiService.exportUsers(filters)
+      const filtersToUse = exportFilters || filters
+      const blob = await UserApiService.exportUsers(filtersToUse)
       
       return blob
     } catch (err) {

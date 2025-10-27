@@ -17,6 +17,33 @@ export interface User {
   role: 'user' | 'admin'
   avatar?: string
   emailVerified: boolean
+  phone?: string
+  bio?: string
+  website?: string
+  location?: string
+  linkedin?: string
+  github?: string
+  twitter?: string
+  timezone?: string
+  yearsOfExperience?: number
+  hourlyRate?: number
+  availability?: string
+  skills?: string[]
+  languages?: string[]
+  tagline?: string
+  settings?: {
+    emailNotifications: boolean
+    pushNotifications: boolean
+    projectUpdates: boolean
+    messageNotifications: boolean
+    paymentNotifications: boolean
+    profilePublic: boolean
+    showEmail: boolean
+    showPhone: boolean
+    allowMessages: boolean
+    twoFactorAuth: boolean
+    loginAlerts: boolean
+  }
   createdAt?: string
   updatedAt?: string
 }
@@ -195,7 +222,7 @@ export const useAuthStore = create<AuthState>()(
       setLoading: (loading: boolean) => set({ isLoading: loading }),
 
       // UI Helper: Check if user has specific role
-      hasRole: (role: 'user' | 'admin') => {
+      hasRole: (role: string) => {
         const { user } = get()
         return user?.role === role
       },

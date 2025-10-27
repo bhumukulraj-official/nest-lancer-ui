@@ -5,7 +5,6 @@
 
 import React, { useState } from 'react'
 import {
-  Box,
   Card,
   CardContent,
   CardHeader,
@@ -27,16 +26,14 @@ import {
   Save,
   Cancel,
   AttachMoney,
-  Schedule,
-  Description,
   Assignment,
 } from '@mui/icons-material'
-import { CreateRequestDto } from '@/types/api'
+import { RequestFormData } from '@/types/forms/request.form.types'
 
 interface RequestFormProps {
-  onSubmit: (data: CreateRequestDto) => Promise<void>
+  onSubmit: (data: RequestFormData) => Promise<void>
   onCancel?: () => void
-  initialData?: Partial<CreateRequestDto>
+  initialData?: Partial<RequestFormData>
   loading?: boolean
 }
 
@@ -46,20 +43,37 @@ export const RequestForm: React.FC<RequestFormProps> = ({
   initialData,
   loading = false,
 }) => {
-  const [formData, setFormData] = useState<CreateRequestDto>({
+  const [formData, setFormData] = useState<RequestFormData>({
     title: initialData?.title || '',
     description: initialData?.description || '',
-    budget: initialData?.budget || 0,
-    deadline: initialData?.deadline || '',
-    priority: initialData?.priority || 'medium',
+    shortDescription: initialData?.shortDescription || '',
     category: initialData?.category || '',
+    subcategory: initialData?.subcategory || '',
+    budget: initialData?.budget || 0,
+    currency: initialData?.currency || 'USD',
+    timeline: initialData?.timeline || '',
+    requirements: initialData?.requirements || [],
+    contactInfo: initialData?.contactInfo || {
+      name: '',
+      email: '',
+      phone: '',
+      company: '',
+      website: ''
+    },
+    location: initialData?.location,
     skills: initialData?.skills || [],
+    tags: initialData?.tags || [],
+    priority: initialData?.priority || 'medium',
+    isUrgent: initialData?.isUrgent || false,
+    estimatedDuration: initialData?.estimatedDuration,
+    estimatedComplexity: initialData?.estimatedComplexity,
+    deadline: initialData?.deadline || '',
   })
 
   const [error, setError] = useState<string | null>(null)
   const [newSkill, setNewSkill] = useState('')
 
-  const handleChange = (field: keyof CreateRequestDto, value: any) => {
+  const handleChange = (field: keyof RequestFormData, value: any) => {
     setFormData(prev => ({
       ...prev,
       [field]: value,

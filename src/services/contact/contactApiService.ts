@@ -20,7 +20,6 @@ import type {
   ContactMessageAttachment,
   ContactMessageAnalytics,
   ContactForm,
-  ContactFormField,
   ContactFormSubmission,
   ContactFormAnalytics,
   ContactSettings,

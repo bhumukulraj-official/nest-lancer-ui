@@ -46,7 +46,7 @@ export interface MediaMetadata {
   checksum?: string
 }
 
-export interface MediaCategory {
+export interface MediaCategoryInfo {
   id: string
   name: string
   description: string
@@ -193,13 +193,15 @@ export interface MediaUpdateData {
 }
 
 export interface MediaSearchResult {
-  media: Media[]
-  total: number
-  page: number
-  limit: number
-  totalPages: number
-  hasNext: boolean
-  hasPrev: boolean
+  data: Media[]
+  pagination: {
+    page: number
+    limit: number
+    total: number
+    totalPages: number
+    hasNext: boolean
+    hasPrev: boolean
+  }
 }
 
 export interface MediaAnalytics {
@@ -392,4 +394,76 @@ export enum MediaSortBy {
   CATEGORY = 'category',
   UPLOADED_BY = 'uploadedBy',
   UPLOADED_AT = 'uploadedAt'
+}
+
+// Additional media-related types and enums
+export enum MediaType {
+  IMAGE = 'image',
+  VIDEO = 'video',
+  AUDIO = 'audio',
+  DOCUMENT = 'document',
+  ARCHIVE = 'archive',
+  OTHER = 'other'
+}
+
+export enum MediaStatus {
+  UPLOADING = 'uploading',
+  PROCESSING = 'processing',
+  COMPLETED = 'completed',
+  FAILED = 'failed',
+  DELETED = 'deleted'
+}
+
+export interface MediaTag {
+  id: string
+  name: string
+  color?: string
+  usageCount: number
+  createdAt: string
+}
+
+export interface MediaThumbnail {
+  id: string
+  mediaId: string
+  url: string
+  width: number
+  height: number
+  format: string
+  size: number
+  createdAt: string
+}
+
+export interface MediaVersion {
+  id: string
+  mediaId: string
+  version: number
+  url: string
+  filename: string
+  size: number
+  format: string
+  transformation?: MediaTransformation
+  createdAt: string
+  createdBy: string
+}
+
+export interface MediaAccess {
+  id: string
+  mediaId: string
+  userId?: string
+  role?: string
+  permissions: ('read' | 'write' | 'delete' | 'share')[]
+  grantedAt: string
+  grantedBy: string
+  expiresAt?: string
+}
+
+export interface MediaDownload {
+  id: string
+  mediaId: string
+  userId: string
+  downloadedAt: string
+  ipAddress: string
+  userAgent: string
+  format?: string
+  size?: number
 }

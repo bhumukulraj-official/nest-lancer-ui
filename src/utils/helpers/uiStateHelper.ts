@@ -158,8 +158,8 @@ export const mergeObjects = <T extends Record<string, any>>(obj1: T, obj2: Parti
 
 // Deep Merge Objects
 export const deepMergeObjects = <T extends Record<string, any>>(obj1: T, obj2: Partial<T>): T => {
-  const result = { ...obj1 }
-  
+  const result = { ...obj1 } as Record<string, any>
+
   Object.keys(obj2).forEach(key => {
     if (obj2[key] && typeof obj2[key] === 'object' && !Array.isArray(obj2[key])) {
       result[key] = deepMergeObjects(result[key] || {}, obj2[key])
@@ -167,8 +167,8 @@ export const deepMergeObjects = <T extends Record<string, any>>(obj1: T, obj2: P
       result[key] = obj2[key]
     }
   })
-  
-  return result
+
+  return result as T
 }
 
 // Get Nested Value

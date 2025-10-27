@@ -4,7 +4,7 @@
  * Includes loading states, error handling, and export functionality
  */
 
-import React, { FC, ReactNode } from 'react'
+import { FC, ReactNode } from 'react'
 import {
   Box,
   Paper,
@@ -15,7 +15,6 @@ import {
   IconButton,
   Tooltip,
   Stack,
-  useTheme,
 } from '@mui/material'
 import {
   Download,
@@ -73,35 +72,32 @@ export const ChartContainer: FC<ChartContainerProps> = ({
   showBorder = true,
   showBackground = true,
   spacing = 2,
-  ...props
+  sx,
+  className,
+  style,
+  ...otherProps
 }) => {
-  const theme = useTheme()
-  
   const errorMessage = error instanceof Error ? error.message : error
   
-  const Wrapper = variant === 'paper' ? Paper : Box
-  
-  const wrapperProps = variant === 'paper' ? { elevation } : {}
-  
-  return (
-    <Wrapper
-      {...wrapperProps}
-      sx={{
-        width,
-        height: loading || error ? height : 'auto',
-        p: spacing,
-        ...(showBorder && {
-          border: 1,
-          borderColor: 'divider',
-        }),
-        ...(showBackground && {
-          bgcolor: 'background.paper',
-        }),
-        borderRadius: 2,
-        ...props.sx,
-      }}
-      {...props}
-    >
+  if (variant === 'paper') {
+    return (
+      <Paper
+        elevation={elevation}
+        sx={{
+          width,
+          height: loading || error ? height : 'auto',
+          p: spacing,
+          ...(showBorder && {
+            border: 1,
+            borderColor: 'divider',
+          }),
+          ...(showBackground && {
+            bgcolor: 'background.paper',
+          }),
+          borderRadius: 2,
+          ...sx,
+        }}
+      >
       {/* Header */}
       {(title || subtitle || showActions) && (
         <Box sx={{ mb: 2 }}>
@@ -195,7 +191,124 @@ export const ChartContainer: FC<ChartContainerProps> = ({
           </Box>
         )}
       </Box>
-    </Wrapper>
+    </Paper>
+    )
+  }
+
+  return (
+    <Box
+      className={className}
+      style={style}
+      sx={{
+        width,
+        height: loading || error ? height : 'auto',
+        p: spacing,
+        ...(showBorder && {
+          border: 1,
+          borderColor: 'divider',
+        }),
+        ...(showBackground && {
+          bgcolor: 'background.paper',
+        }),
+        borderRadius: 2,
+        ...sx,
+      }}
+      {...otherProps}
+    >
+      {/* Header */}
+      {(title || subtitle || showActions) && (
+        <Box sx={{ mb: 2 }}>
+          <Stack direction="row" alignItems="center" justifyContent="space-between">
+            <Box>
+              {title && (
+                <Typography variant="h6" color="text.primary">
+                  {title}
+                </Typography>
+              )}
+              {subtitle && (
+                <Typography variant="caption" color="text.secondary">
+                  {subtitle}
+                </Typography>
+              )}
+            </Box>
+
+            {showActions && (
+              <Stack direction="row" spacing={0.5}>
+                {onSettings && (
+                  <Tooltip title="Settings">
+                    <IconButton size="small" onClick={onSettings}>
+                      <Settings fontSize="small" />
+                    </IconButton>
+                  </Tooltip>
+                )}
+
+                {onRefresh && (
+                  <Tooltip title="Refresh">
+                    <IconButton size="small" onClick={onRefresh}>
+                      <Refresh fontSize="small" />
+                    </IconButton>
+                  </Tooltip>
+                )}
+
+                {onExport && (
+                  <Tooltip title="Download">
+                    <IconButton size="small" onClick={onExport}>
+                      <Download fontSize="small" />
+                    </IconButton>
+                  </Tooltip>
+                )}
+
+                {onFullscreen && (
+                  <Tooltip title="Fullscreen">
+                    <IconButton size="small" onClick={onFullscreen}>
+                      <Fullscreen fontSize="small" />
+                    </IconButton>
+                  </Tooltip>
+                )}
+              </Stack>
+            )}
+          </Stack>
+        </Box>
+      )}
+
+      {/* Content */}
+      <Box
+        sx={{
+          width: '100%',
+          height,
+          position: 'relative',
+          minHeight: loading || error ? 200 : undefined,
+        }}
+      >
+        {/* Loading State */}
+        {loading && (
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              height: '100%',
+            }}
+          >
+            <CircularProgress size={40} />
+          </Box>
+        )}
+
+        {/* Error State */}
+        {error && !loading && (
+          <Box sx={{ width: '100%', mt: 2 }}>
+            <Alert severity="error">{errorMessage || 'Failed to load chart data'}</Alert>
+          </Box>
+        )}
+
+        {/* Chart Content */}
+        {!loading && !error && (
+          <Box sx={{ width: '100%', height: '100%' }}>
+            {children}
+          </Box>
+        )}
+      </Box>
+    </Box>
   )
 }
 

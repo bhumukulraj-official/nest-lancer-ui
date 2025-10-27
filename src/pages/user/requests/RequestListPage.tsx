@@ -5,7 +5,7 @@ import { RequestList } from '@/components/features/requests'
 
 export const RequestListPage: React.FC = () => {
   // Mock data - replace with actual API call
-  const mockRequests = []
+  const mockRequests: any[] = []
 
   return (
     <UserLayout>

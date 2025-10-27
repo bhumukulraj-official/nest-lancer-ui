@@ -2,8 +2,8 @@
  * User Content
  */
 
-import React, { FC, ReactNode } from 'react'
-import { Container, Box } from '@mui/material'
+import { FC, ReactNode } from 'react'
+import { Container } from '@mui/material'
 
 interface UserContentProps {
   children: ReactNode

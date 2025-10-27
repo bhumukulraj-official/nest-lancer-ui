@@ -5,7 +5,6 @@
 
 import React, { useState } from 'react'
 import {
-  Box,
   Card,
   CardContent,
   CardHeader,
@@ -16,24 +15,19 @@ import {
   Alert,
   Typography,
   CircularProgress,
-  MenuItem,
   Divider,
   Chip,
-  Autocomplete,
 } from '@mui/material'
 import {
   Save,
   Cancel,
-  AttachMoney,
-  Schedule,
-  Assignment,
 } from '@mui/icons-material'
-import { CreateQuoteDto } from '@/types/api'
+import { QuoteFormData } from '@/types/forms/quote.form.types'
 
 interface QuoteFormProps {
-  onSubmit: (data: CreateQuoteDto) => Promise<void>
+  onSubmit: (data: QuoteFormData) => Promise<void>
   onCancel?: () => void
-  initialData?: Partial<CreateQuoteDto>
+  initialData?: Partial<QuoteFormData>
   loading?: boolean
 }
 
@@ -43,12 +37,19 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({
   initialData,
   loading = false,
 }) => {
-  const [formData, setFormData] = useState<CreateQuoteDto>({
-    requestId: initialData?.requestId || '',
+  const [formData, setFormData] = useState<QuoteFormData>({
+    serviceRequestId: initialData?.serviceRequestId || initialData?.requestId || '',
+    requestId: initialData?.requestId || initialData?.serviceRequestId || '',
     title: initialData?.title || '',
     description: initialData?.description || '',
-    totalAmount: initialData?.totalAmount || 0,
+    amount: initialData?.amount || initialData?.totalAmount || 0,
+    totalAmount: initialData?.totalAmount || initialData?.amount || 0,
+    currency: initialData?.currency || 'USD',
+    timeline: initialData?.timeline || '',
     estimatedDuration: initialData?.estimatedDuration || 0,
+    deliverables: initialData?.deliverables || [],
+    terms: initialData?.terms || [],
+    validUntil: initialData?.validUntil || '',
     deadline: initialData?.deadline || '',
     termsAndConditions: initialData?.termsAndConditions || '',
     skills: initialData?.skills || [],
@@ -57,7 +58,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({
   const [error, setError] = useState<string | null>(null)
   const [newSkill, setNewSkill] = useState('')
 
-  const handleChange = (field: keyof CreateQuoteDto, value: any) => {
+  const handleChange = (field: keyof QuoteFormData, value: any) => {
     setFormData(prev => ({
       ...prev,
       [field]: value,
@@ -65,10 +66,10 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({
   }
 
   const handleAddSkill = () => {
-    if (newSkill.trim() && !formData.skills.includes(newSkill.trim())) {
+    if (newSkill.trim() && formData.skills && !formData.skills.includes(newSkill.trim())) {
       setFormData(prev => ({
         ...prev,
-        skills: [...prev.skills, newSkill.trim()],
+        skills: [...(prev.skills || []), newSkill.trim()],
       }))
       setNewSkill('')
     }
@@ -77,7 +78,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({
   const handleRemoveSkill = (skill: string) => {
     setFormData(prev => ({
       ...prev,
-      skills: prev.skills.filter(s => s !== skill),
+      skills: (prev.skills || []).filter(s => s !== skill),
     }))
   }
 
@@ -199,7 +200,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({
                 </Button>
               </Stack>
               <Stack direction="row" spacing={1} flexWrap="wrap">
-                {formData.skills.map(skill => (
+                {(formData.skills || []).map(skill => (
                   <Chip
                     key={skill}
                     label={skill}

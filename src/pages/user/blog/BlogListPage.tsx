@@ -4,7 +4,7 @@ import { UserLayout } from '@/components/layout'
 import { BlogList } from '@/components/features/blog'
 
 export const BlogListPage: React.FC = () => {
-  const mockPosts = []
+  const mockPosts: any[] = []
 
   return (
     <UserLayout>

@@ -4,7 +4,7 @@
  * Includes percentage labels, donut support, and click interactions
  */
 
-import React, { FC } from 'react'
+import { FC, MouseEventHandler } from 'react'
 import {
   PieChart as RechartsPieChart,
   Pie,
@@ -12,10 +12,6 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
-  PieChartProps as RechartsPieChartProps,
-  LegendProps,
-  LabelList,
-  Sector,
 } from 'recharts'
 
 export interface PieChartData {
@@ -53,9 +49,9 @@ interface PieChartProps {
   legendPosition?: 'top' | 'bottom' | 'left' | 'right'
   
   // Callbacks
-  onClick?: (data: any, index: number) => void
-  onMouseEnter?: (data: any, index: number) => void
-  onMouseLeave?: (data: any, index: number) => void
+  onClick?: MouseEventHandler
+  onMouseEnter?: MouseEventHandler
+  onMouseLeave?: MouseEventHandler
   
   // Custom colors
   colors?: string[]
@@ -130,7 +126,8 @@ export const PieChart: FC<PieChartProps> = ({
         
         {showLegend && (
           <Legend
-            verticalAlign={legendPosition}
+            verticalAlign={legendPosition === 'top' ? 'top' : legendPosition === 'bottom' ? 'bottom' : 'bottom'}
+            align={legendPosition === 'left' ? 'left' : legendPosition === 'right' ? 'right' : 'center'}
             height={legendPosition === 'top' || legendPosition === 'bottom' ? 36 : undefined}
           />
         )}

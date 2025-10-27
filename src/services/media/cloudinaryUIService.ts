@@ -5,6 +5,7 @@
  */
 
 import { Cloudinary } from '@cloudinary/url-gen'
+import { scale } from '@cloudinary/url-gen/actions/resize'
 
 // Cloudinary configuration
 const cloudinaryConfig = {
@@ -90,6 +91,24 @@ export interface CloudinaryWidgetOptions {
 }
 
 export class CloudinaryUIService {
+  /**
+   * Upload image to Cloudinary
+   */
+  static async uploadImage(_file: File, _options?: CloudinaryUploadOptions): Promise<CloudinaryUploadResult> {
+    // TODO: Implement actual Cloudinary upload
+    console.warn('CloudinaryUIService.uploadImage not implemented yet')
+    throw new Error('Cloudinary upload not implemented')
+  }
+
+  /**
+   * Open Cloudinary upload widget
+   */
+  static openUploadWidget(_options?: any): Promise<CloudinaryUploadResult> {
+    // TODO: Implement Cloudinary widget
+    console.warn('CloudinaryUIService.openUploadWidget not implemented yet')
+    return Promise.reject(new Error('Cloudinary widget not implemented'))
+  }
+
   /**
    * Initialize Cloudinary widget
    */
@@ -209,9 +228,12 @@ export class CloudinaryUIService {
       const image = cld.image(publicId)
       
       if (options) {
-        if (options.width) image.resize({ width: options.width })
-        if (options.height) image.resize({ height: options.height })
-        if (options.crop) image.resize({ crop: options.crop as any })
+        if (options.width || options.height) {
+          const resizeAction = scale()
+          if (options.width) resizeAction.width(options.width)
+          if (options.height) resizeAction.height(options.height)
+          image.resize(resizeAction)
+        }
         if (options.quality) image.quality(options.quality)
         if (options.format) image.format(options.format as any)
       }
@@ -231,9 +253,12 @@ export class CloudinaryUIService {
       const video = cld.video(publicId)
       
       if (options) {
-        if (options.width) video.resize({ width: options.width })
-        if (options.height) video.resize({ height: options.height })
-        if (options.crop) video.resize({ crop: options.crop as any })
+        if (options.width || options.height) {
+          const resizeAction = scale()
+          if (options.width) resizeAction.width(options.width)
+          if (options.height) resizeAction.height(options.height)
+          video.resize(resizeAction)
+        }
         if (options.quality) video.quality(options.quality)
         if (options.format) video.format(options.format as any)
       }

@@ -4,7 +4,7 @@
  * Includes data points, tooltips, legends, and responsive design
  */
 
-import React, { FC } from 'react'
+import { FC } from 'react'
 import {
   LineChart as RechartsLineChart,
   Line,
@@ -14,7 +14,6 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
-  LineChartProps as RechartsLineChartProps,
 } from 'recharts'
 
 export interface LineChartData {
@@ -54,8 +53,6 @@ interface LineChartProps {
   connectNulls?: boolean
   isAnimationActive?: boolean
   
-  // Callbacks
-  onClick?: (data: any, index: number) => void
   
   // Additional props
   [key: string]: any
@@ -75,7 +72,6 @@ export const LineChart: FC<LineChartProps> = ({
   dot = true,
   connectNulls = true,
   isAnimationActive = true,
-  onClick,
   ...props
 }) => {
   return (
@@ -117,7 +113,6 @@ export const LineChart: FC<LineChartProps> = ({
             dot={dot}
             connectNulls={connectNulls}
             isAnimationActive={isAnimationActive}
-            onClick={onClick}
           />
         ))}
       </RechartsLineChart>

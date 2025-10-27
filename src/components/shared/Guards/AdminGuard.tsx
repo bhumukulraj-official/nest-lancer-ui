@@ -22,7 +22,7 @@ export const AdminGuard: FC<AdminGuardProps> = ({
 }) => {
   const { user } = useAuth()
   const navigate = useNavigate()
-  const isAdmin = user?.role === 'admin' || user?.role === 'super_admin'
+  const isAdmin = user?.role === 'admin' || (user?.role as string) === 'super_admin'
   
   React.useEffect(() => {
     if (!isAdmin) {

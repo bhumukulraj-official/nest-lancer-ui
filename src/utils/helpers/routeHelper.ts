@@ -3,7 +3,6 @@
  * Route generation helpers
  */
 
-import { ROUTES, USER_ROUTES, ADMIN_ROUTES, ROUTE_PARAMS } from '../../constants'
 
 // Generate Route with Parameters
 export const generateRoute = (route: string, params: Record<string, string | number> = {}): string => {
@@ -66,7 +65,7 @@ export const getBreadcrumbPath = (pathname: string): Array<{ label: string; path
   
   let currentPath = ''
   
-  segments.forEach((segment, index) => {
+  segments.forEach((segment) => {
     currentPath += `/${segment}`
     
     // Skip numeric segments (IDs) for breadcrumb labels

@@ -4,7 +4,7 @@ import { UserLayout } from '@/components/layout'
 import { NotificationCenter } from '@/components/features/notifications'
 
 export const NotificationCenterPage: React.FC = () => {
-  const mockNotifications = []
+  const mockNotifications: any[] = []
 
   return (
     <UserLayout>

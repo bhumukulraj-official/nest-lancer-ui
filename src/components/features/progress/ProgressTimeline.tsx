@@ -9,15 +9,17 @@ import {
   Card,
   CardContent,
   Typography,
+  Chip,
+  LinearProgress,
+} from '@mui/material'
+import {
   Timeline,
   TimelineItem,
   TimelineSeparator,
   TimelineConnector,
   TimelineContent,
   TimelineDot,
-  Chip,
-  LinearProgress,
-} from '@mui/material'
+} from '@mui/lab'
 import {
   CheckCircle,
   RadioButtonUnchecked,

@@ -5,8 +5,8 @@
 
 export { RouterService } from './routerService'
 export { AnalyticsUIService } from './analyticsUIService'
-export { StorageService } from './storageService'
-export { ErrorUIService } from './errorUIService'
+export { storageService as StorageService } from './storageService'
+export { errorUIService as ErrorUIService } from './errorUIService'
 
 // Re-export types for convenience
 export type {

@@ -18,7 +18,7 @@ import {
 import {
   Dashboard,
   Folder,
-  Request,
+  Assignment as Request,
   Payment,
   Message,
   Settings,

@@ -13,7 +13,6 @@ import {
   ListItemText,
   Divider,
   Typography,
-  Collapse,
   useTheme,
 } from '@mui/material'
 import {
@@ -24,9 +23,6 @@ import {
   AttachMoney,
   Assessment,
   Settings,
-  AdminPanelSettings,
-  ExpandLess,
-  ExpandMore,
 } from '@mui/icons-material'
 import { useNavigate, useLocation } from 'react-router-dom'
 

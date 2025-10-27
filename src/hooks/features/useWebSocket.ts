@@ -5,7 +5,9 @@
  */
 
 import { useState, useCallback, useEffect, useRef } from 'react'
-import { socketClient } from '../../services/websocket/socketClient'
+import WebSocketService from '../../services/websocket/socketClient'
+import { tokenService } from '../../services/auth/tokenService'
+import { WebSocketMessageType } from '../../types/models/message.types'
 
 export interface WebSocketMessage {
   type: string
@@ -30,7 +32,7 @@ export interface UseWebSocketReturn {
   // Actions
   connect: () => void
   disconnect: () => void
-  sendMessage: (type: string, data: any) => void
+  sendMessage: (type: WebSocketMessageType, data: any) => void
   subscribe: (eventType: string, callback: (data: any) => void) => void
   unsubscribe: (eventType: string, callback: (data: any) => void) => void
   clearError: () => void
@@ -62,29 +64,34 @@ export function useWebSocket(options: UseWebSocketOptions = {}): UseWebSocketRet
       setIsConnecting(true)
       setError(null)
 
-      socketClient.connect()
+      const token = tokenService.getToken()
+      if (!token) {
+        throw new Error('No authentication token available')
+      }
+
+      WebSocketService.getInstance().connect(token)
 
       // Set up event listeners
-      socketClient.on('connect', () => {
+      WebSocketService.getInstance().on('connect', () => {
         setIsConnected(true)
         setIsConnecting(false)
         setReconnectAttempts(0)
         console.log('WebSocket connected')
       })
 
-      socketClient.on('disconnect', () => {
+      WebSocketService.getInstance().on('disconnect', () => {
         setIsConnected(false)
         setIsConnecting(false)
         console.log('WebSocket disconnected')
       })
 
-      socketClient.on('error', (err: any) => {
+      WebSocketService.getInstance().on('error', (err: any) => {
         setError(err.message || 'WebSocket connection error')
         setIsConnecting(false)
         console.error('WebSocket error:', err)
       })
 
-      socketClient.on('message', (message: WebSocketMessage) => {
+      WebSocketService.getInstance().on('message', (message: WebSocketMessage) => {
         setLastMessage(message)
         
         // Trigger event listeners
@@ -94,7 +101,7 @@ export function useWebSocket(options: UseWebSocketOptions = {}): UseWebSocketRet
         }
       })
 
-      socketClient.on('reconnect', (attempt: number) => {
+      WebSocketService.getInstance().on('reconnect', (attempt: number) => {
         setReconnectAttempts(attempt)
         console.log(`WebSocket reconnecting... attempt ${attempt}`)
       })
@@ -115,7 +122,7 @@ export function useWebSocket(options: UseWebSocketOptions = {}): UseWebSocketRet
         reconnectTimeoutRef.current = null
       }
 
-      socketClient.disconnect()
+      WebSocketService.getInstance().disconnect()
       setIsConnected(false)
       setIsConnecting(false)
       setReconnectAttempts(0)
@@ -126,20 +133,14 @@ export function useWebSocket(options: UseWebSocketOptions = {}): UseWebSocketRet
   }, [])
 
   // Send message
-  const sendMessage = useCallback((type: string, data: any) => {
+  const sendMessage = useCallback((type: WebSocketMessageType, data: any) => {
     if (!isConnected) {
       console.warn('WebSocket not connected. Cannot send message.')
       return
     }
 
     try {
-      const message: WebSocketMessage = {
-        type,
-        data,
-        timestamp: new Date().toISOString()
-      }
-
-      socketClient.send(message)
+      WebSocketService.getInstance().send(type, data)
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Failed to send message'
       setError(errorMessage)

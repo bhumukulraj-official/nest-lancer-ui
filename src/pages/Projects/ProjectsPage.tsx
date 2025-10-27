@@ -51,7 +51,7 @@ const ProjectsPage: React.FC = () => {
       setLoading(true)
       setError(null)
       const result = await ProjectApiService.getProjects(filters)
-      setProjects(result.projects)
+      setProjects(result.data)
     } catch (err) {
       setError('Failed to load projects. Please try again.')
       console.error('Error loading projects:', err)

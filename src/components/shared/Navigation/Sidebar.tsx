@@ -48,7 +48,6 @@ interface SidebarProps {
   variant?: 'permanent' | 'persistent' | 'temporary'
   open?: boolean
   onClose?: () => void
-  collapseOnMobile?: boolean
   
   // Styling
   width?: number
@@ -65,7 +64,6 @@ export const Sidebar: FC<SidebarProps> = ({
   variant = 'persistent',
   open: controlledOpen,
   onClose,
-  collapseOnMobile = true,
   width = 280,
   collapsedWidth = 64,
   showToolbar = false,
@@ -192,7 +190,7 @@ export const Sidebar: FC<SidebarProps> = ({
         {hasChildren && open && (
           <Collapse in={isExpanded} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
-              {item.children.map((child) => renderItem(child, depth + 1))}
+              {item.children!.map((child) => renderItem(child, depth + 1))}
             </List>
           </Collapse>
         )}

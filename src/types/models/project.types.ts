@@ -191,13 +191,15 @@ export enum ProjectSortBy {
 }
 
 export interface ProjectSearchResult {
-  projects: Project[]
-  total: number
-  page: number
-  limit: number
-  totalPages: number
-  hasNext: boolean
-  hasPrev: boolean
+  data: Project[]
+  pagination: {
+    page: number
+    limit: number
+    total: number
+    totalPages: number
+    hasNext: boolean
+    hasPrev: boolean
+  }
 }
 
 export interface ProjectGallery {

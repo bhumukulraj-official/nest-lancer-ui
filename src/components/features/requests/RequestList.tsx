@@ -8,27 +8,23 @@ import {
   Box,
   Grid,
   Typography,
-  Stack,
   TextField,
   Select,
   MenuItem,
   FormControl,
   InputLabel,
-  Chip,
   IconButton,
   Tooltip,
   Card,
 } from '@mui/material'
 import {
-  FilterList,
-  Sort,
   ViewList,
   ViewModule,
   Search,
 } from '@mui/icons-material'
 import { RequestCard } from './RequestCard'
 import { Request } from '@/types/models/request.types'
-import { SPINNER } from '@/components/shared'
+import { Spinner } from '@/components/shared'
 
 interface RequestListProps {
   requests: Request[]
@@ -80,7 +76,7 @@ export const RequestList: React.FC<RequestListProps> = ({
         case 'oldest':
           return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
         case 'deadline':
-          return new Date(a.deadline).getTime() - new Date(b.deadline).getTime()
+          return (a.deadline ? new Date(a.deadline).getTime() : 0) - (b.deadline ? new Date(b.deadline).getTime() : 0)
         case 'budget':
           return b.budget - a.budget
         default:
@@ -104,7 +100,7 @@ export const RequestList: React.FC<RequestListProps> = ({
   if (loading) {
     return (
       <Box display="flex" justifyContent="center" alignItems="center" minHeight="400px">
-        <SPINNER />
+        <Spinner />
       </Box>
     )
   }
@@ -197,7 +193,7 @@ export const RequestList: React.FC<RequestListProps> = ({
                 onView={onViewRequest}
                 onEdit={onEditRequest}
                 onDelete={onDeleteRequest}
-                variant={viewMode}
+                variant={viewMode === 'grid' ? 'default' : 'compact'}
               />
             </Grid>
           ))}

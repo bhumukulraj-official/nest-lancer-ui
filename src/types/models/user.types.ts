@@ -3,6 +3,19 @@
  * These types represent the data structures for user management
  */
 
+import type { PortfolioProject, PortfolioTestimonial } from './portfolio.types'
+
+// Enums
+export enum UserRole {
+  ADMIN = 'admin',
+  SUPER_ADMIN = 'super_admin',
+  USER = 'user',
+  CLIENT = 'client',
+  FREELANCER = 'freelancer',
+  MODERATOR = 'moderator',
+  SUPPORT = 'support'
+}
+
 export interface User {
   id: string
   firstName: string
@@ -13,8 +26,17 @@ export interface User {
   avatar?: string
   website?: string
   location?: string
+  linkedin?: string
+  github?: string
+  twitter?: string
   timezone?: string
-  role: UserRole
+  yearsOfExperience?: number
+  hourlyRate?: number
+  availability?: string
+  skills?: string[]
+  languages?: string[]
+  tagline?: string
+  role: UserRole | string
   isActive: boolean
   isVerified: boolean
   isEmailVerified: boolean
@@ -339,24 +361,18 @@ export interface UserUpdateData {
 }
 
 export interface UserSearchResult {
-  users: User[]
-  total: number
-  page: number
-  limit: number
-  totalPages: number
-  hasNext: boolean
-  hasPrev: boolean
+  data: User[]
+  pagination: {
+    page: number
+    limit: number
+    total: number
+    totalPages: number
+    hasNext: boolean
+    hasPrev: boolean
+  }
 }
 
 // Enums
-export enum UserRole {
-  ADMIN = 'admin',
-  USER = 'user',
-  CLIENT = 'client',
-  FREELANCER = 'freelancer',
-  MODERATOR = 'moderator',
-  SUPPORT = 'support'
-}
 
 export enum SkillCategory {
   PROGRAMMING_LANGUAGES = 'programming_languages',
@@ -420,4 +436,152 @@ export enum UserSortBy {
   LAST_LOGIN = 'lastLoginAt',
   ROLE = 'role',
   STATUS = 'isActive'
+}
+
+// Profile-related types
+export interface ProfileStats {
+  totalProjects: number
+  completedProjects: number
+  activeProjects: number
+  totalEarnings: number
+  averageRating: number
+  totalReviews: number
+  profileViews: number
+  profileCompletion: number
+}
+
+export interface ProfileSettings {
+  notifications: {
+    email: boolean
+    push: boolean
+    sms: boolean
+  }
+  privacy: {
+    profileVisible: boolean
+    contactInfoVisible: boolean
+    portfolioVisible: boolean
+  }
+  preferences: {
+    language: string
+    timezone: string
+    currency: string
+  }
+}
+
+export interface UserTestimonial {
+  id: string
+  authorId: string
+  authorName: string
+  authorAvatar?: string
+  content: string
+  rating: number
+  projectId?: string
+  projectTitle?: string
+  createdAt: string
+  updatedAt: string
+}
+
+export interface ProfileVisibility {
+  profile: 'public' | 'private' | 'connections'
+  contactInfo: 'public' | 'private' | 'connections'
+  portfolio: 'public' | 'private' | 'connections'
+  skills: 'public' | 'private' | 'connections'
+  experience: 'public' | 'private' | 'connections'
+}
+
+export interface ProfileSocialLinks {
+  linkedin?: string
+  github?: string
+  twitter?: string
+  website?: string
+  portfolio?: string
+}
+
+export interface ProfileSkills {
+  skills: UserSkill[]
+  endorsements: Record<string, string[]> // skillId -> userIds who endorsed
+}
+
+export interface ProfileExperience {
+  experiences: UserExperience[]
+  totalYears: number
+}
+
+export interface ProfileEducation {
+  education: UserEducation[]
+  highestDegree?: string
+}
+
+export interface ProfileCertification {
+  certifications: UserCertification[]
+  verifiedCount: number
+}
+
+export interface ProfilePortfolio {
+  projects: PortfolioProject[]
+  featured: string[] // project IDs
+}
+
+export interface ProfileTestimonial {
+  testimonials: PortfolioTestimonial[]
+  averageRating: number
+}
+
+export interface ProfileUpdateData {
+  firstName?: string
+  lastName?: string
+  bio?: string
+  avatar?: string
+  website?: string
+  location?: string
+  timezone?: string
+  socialLinks?: SocialLinks
+  skills?: UserSkill[]
+  experience?: UserExperience[]
+  education?: UserEducation[]
+  certifications?: UserCertification[]
+  portfolio?: PortfolioProject[]
+  testimonials?: UserTestimonial[]
+}
+
+export interface UserNotificationSettings {
+  email: {
+    projectUpdates: boolean
+    messageNotifications: boolean
+    paymentNotifications: boolean
+    marketingEmails: boolean
+  }
+  push: {
+    projectUpdates: boolean
+    messageNotifications: boolean
+    paymentNotifications: boolean
+  }
+  sms: {
+    urgentNotifications: boolean
+    paymentNotifications: boolean
+  }
+}
+
+export interface UserSecuritySettings {
+  twoFactorEnabled: boolean
+  sessionTimeout: number
+  loginAlerts: boolean
+  passwordLastChanged: string
+  trustedDevices: DeviceInfo[]
+}
+
+export interface UserPrivacySettings {
+  profileVisibility: 'public' | 'private' | 'connections'
+  showOnlineStatus: boolean
+  allowMessaging: 'everyone' | 'connections' | 'none'
+  dataSharing: boolean
+}
+
+export interface DeviceInfo {
+  id: string
+  name: string
+  type: string
+  lastUsed: string
+  ipAddress: string
+  location?: string
 }

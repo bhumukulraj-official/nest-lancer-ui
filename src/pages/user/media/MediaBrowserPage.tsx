@@ -4,15 +4,13 @@
  */
 
 import React, { useState } from 'react'
-import { Container, Box, Typography, Button, Grid, Card, CardContent, TextField, InputAdornment, IconButton, Alert } from '@mui/material'
-import { Search, Upload, Clear, Delete, Download } from '@mui/icons-material'
+import { Container, Box, Typography, Button, Card, CardContent, TextField, InputAdornment, IconButton, Alert } from '@mui/material'
+import { Search, Upload, Clear, Delete } from '@mui/icons-material'
 import { UserLayout } from '@/components/layout'
 import { MediaBrowser } from '@/components/features/media'
 import { MediaApiService } from '@/services/media'
-import { useAuth } from '@/hooks/auth/useAuth'
 
 export const MediaBrowserPage: React.FC = () => {
-  const { user } = useAuth()
   const [media, setMedia] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -26,7 +24,8 @@ export const MediaBrowserPage: React.FC = () => {
   const fetchMedia = async () => {
     try {
       setLoading(true)
-      const data = await MediaApiService.getUserMedia()
+      const result = await MediaApiService.getMedia()
+      const data = result.data
       setMedia(data)
     } catch (err) {
       setError('Failed to load media files')
@@ -38,18 +37,6 @@ export const MediaBrowserPage: React.FC = () => {
 
   const handleSearch = (query: string) => {
     setSearchQuery(query)
-  }
-
-  const handleDeleteMedia = async (mediaId: string) => {
-    if (!confirm('Are you sure you want to delete this media file?')) return
-
-    try {
-      await MediaApiService.deleteMedia(mediaId)
-      setMedia(media.filter(m => m.id !== mediaId))
-    } catch (err) {
-      setError('Failed to delete media file')
-      console.error('Error deleting media:', err)
-    }
   }
 
   const handleBulkDelete = async () => {
@@ -64,10 +51,6 @@ export const MediaBrowserPage: React.FC = () => {
       setError('Failed to delete media files')
       console.error('Error deleting media:', err)
     }
-  }
-
-  const handleDownload = (mediaItem: any) => {
-    window.open(mediaItem.url, '_blank')
   }
 
   const filteredMedia = searchQuery
@@ -100,18 +83,23 @@ export const MediaBrowserPage: React.FC = () => {
             placeholder="Search media files..."
             value={searchQuery}
             onChange={(e) => handleSearch(e.target.value)}
-            startIcon={<Search />}
-            endIcon={
-              searchQuery && (
-                <IconButton
-                  size="small"
-                  onClick={() => handleSearch('')}
-                  edge="end"
-                >
-                  <Clear />
-                </IconButton>
-              )
-            }
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <Search />
+                </InputAdornment>
+              ),
+              endAdornment: searchQuery && (
+                <InputAdornment position="end">
+                  <IconButton
+                    size="small"
+                    onClick={() => handleSearch('')}
+                  >
+                    <Clear />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
           />
         </Box>
 
@@ -167,9 +155,6 @@ export const MediaBrowserPage: React.FC = () => {
                 prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]
               )
             }}
-            onDelete={handleDeleteMedia}
-            onDownload={handleDownload}
-            selectedItems={selectedMedia}
           />
         )}
       </Container>

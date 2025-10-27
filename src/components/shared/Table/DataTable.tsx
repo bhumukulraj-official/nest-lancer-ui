@@ -4,7 +4,7 @@
  * Includes sorting, filtering, pagination, row selection, and column resizing
  */
 
-import React, { FC, useState, useMemo } from 'react'
+import { useState, useMemo } from 'react'
 import {
   Table,
   TableBody,
@@ -18,16 +18,9 @@ import {
   IconButton,
   Box,
   TablePagination,
-  TableProps,
   alpha,
   useTheme,
 } from '@mui/material'
-import {
-  Delete,
-  Edit,
-  MoreVert,
-  GetApp,
-} from '@mui/icons-material'
 
 export interface Column<T> {
   id: keyof T | string
@@ -48,7 +41,6 @@ interface DataTableProps<T> {
   sortable?: boolean
   selectable?: boolean
   paginated?: boolean
-  searchable?: boolean
   
   // Display
   pageSize?: number
@@ -80,7 +72,6 @@ export const DataTable = <T extends { id?: string | number }>({
   sortable = true,
   selectable = false,
   paginated = true,
-  searchable = false,
   pageSize = 10,
   rowsPerPageOptions = [10, 20, 50],
   elevation = 2,

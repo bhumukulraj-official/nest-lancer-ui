@@ -9,25 +9,20 @@ import {
   Card,
   CardContent,
   Typography,
-  Chip,
   Divider,
   Stack,
   Button,
   Alert,
   Checkbox,
   FormControlLabel,
-  LinearProgress,
   Grid,
 } from '@mui/material'
 import {
   CheckCircle,
-  AttachMoney,
-  Schedule,
-  Description,
   Payment,
 } from '@mui/icons-material'
 import { Quote } from '@/types/models/quote.types'
-import { formatCurrency, formatDate } from '@/utils'
+import { formatCurrency } from '@/utils'
 
 interface QuoteAcceptanceProps {
   quote: Quote

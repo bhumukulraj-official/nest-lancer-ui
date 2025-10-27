@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { Container, Box } from '@mui/material'
+import { Container } from '@mui/material'
 import { UserLayout } from '@/components/layout'
 import { BlogPost, BlogComments } from '@/components/features/blog'
 import { Grid } from '@mui/material'
@@ -8,7 +8,7 @@ import { Grid } from '@mui/material'
 export const BlogPostPage: React.FC = () => {
   const { id } = useParams<{ id: string }>()
   const mockPost = { id: id || '1', title: 'Sample Post', content: '', author: { name: 'Admin', avatar: '' }, publishedAt: new Date() }
-  const mockComments = []
+  const mockComments: any[] = []
 
   return (
     <UserLayout>

@@ -379,7 +379,7 @@ export class RouterService {
     const breadcrumbs: Array<{ label: string; path: string }> = []
 
     let currentPathAccumulator = ''
-    segments.forEach((segment, index) => {
+    segments.forEach((segment, _index) => {
       currentPathAccumulator += `/${segment}`
       
       // Generate label from segment

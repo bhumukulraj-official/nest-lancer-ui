@@ -53,6 +53,13 @@ export class PaymentApiService {
   }
 
   /**
+   * Create a new payment (alias for createPaymentOrder)
+   */
+  static async createPayment(data: PaymentCreateData): Promise<PaymentOrder> {
+    return this.createPaymentOrder(data)
+  }
+
+  /**
    * Create a new payment order
    */
   static async createPaymentOrder(data: PaymentCreateData): Promise<PaymentOrder> {
@@ -91,6 +98,36 @@ export class PaymentApiService {
       return response.data
     } catch (error) {
       console.error(`Error updating payment ${id}:`, error)
+      throw error
+    }
+  }
+
+  /**
+   * Process a payment (alias for verifyPayment)
+   */
+  static async processPayment(paymentData: {
+    razorpay_payment_id: string
+    razorpay_order_id: string
+    razorpay_signature: string
+  }): Promise<Payment> {
+    return this.verifyPayment(paymentData)
+  }
+
+  /**
+   * Refund a payment (alias for processRefund)
+   */
+  static async refundPayment(id: string, data: RefundCreateData): Promise<PaymentRefund> {
+    return this.processRefund(id, data)
+  }
+
+  /**
+   * Delete a payment
+   */
+  static async deletePayment(id: string): Promise<void> {
+    try {
+      await apiClient.delete(PAYMENT_ENDPOINTS.DETAIL(id))
+    } catch (error) {
+      console.error(`Error deleting payment ${id}:`, error)
       throw error
     }
   }

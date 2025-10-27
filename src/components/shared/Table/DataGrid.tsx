@@ -4,16 +4,16 @@
  * Includes virtual scrolling, column grouping, export functionality, and real-time data updates
  */
 
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { DataGrid as MuiDataGrid, GridColDef, DataGridProps } from '@mui/x-data-grid'
 
-interface DataGridComponentProps extends DataGridProps {
+interface DataGridComponentProps extends Omit<DataGridProps, 'pagination'> {
   // Columns
   columns: GridColDef[]
-  
+
   // Data
   rows: any[]
-  
+
   // Features
   loading?: boolean
   checkboxSelection?: boolean
@@ -23,7 +23,7 @@ interface DataGridComponentProps extends DataGridProps {
   
   // Callbacks
   onRowClick?: (params: any) => void
-  onSelectionChange?: (selection: any[]) => void
+  onRowSelectionModelChange?: (selectionModel: any[]) => void
 }
 
 export const DataGrid: FC<DataGridComponentProps> = ({
@@ -35,7 +35,7 @@ export const DataGrid: FC<DataGridComponentProps> = ({
   density = 'standard',
   pagination = true,
   onRowClick,
-  onSelectionChange,
+  onRowSelectionModelChange,
   ...props
 }) => {
   return (
@@ -46,12 +46,14 @@ export const DataGrid: FC<DataGridComponentProps> = ({
       checkboxSelection={checkboxSelection}
       autoHeight={autoHeight}
       density={density}
-      pagination={pagination}
-      pageSize={10}
-      rowsPerPageOptions={[10, 25, 50, 100]}
+      {...(pagination && {
+        pagination: true,
+        pageSize: 10,
+        rowsPerPageOptions: [10, 25, 50, 100]
+      })}
       onRowClick={onRowClick}
-      onSelectionModelChange={onSelectionChange}
-      disableSelectionOnClick
+      onRowSelectionModelChange={onRowSelectionModelChange}
+      disableRowSelectionOnClick
       {...props}
     />
   )

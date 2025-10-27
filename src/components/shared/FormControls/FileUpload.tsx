@@ -12,14 +12,10 @@ import {
   LinearProgress,
   Paper,
   IconButton,
-  alpha,
-  alpha as alphaUtil,
-  useTheme,
 } from '@mui/material'
 import {
   CloudUpload,
   Close,
-  CheckCircle,
 } from '@mui/icons-material'
 
 interface FileUploadProps {
@@ -29,7 +25,6 @@ interface FileUploadProps {
   onUpload?: (files: File[]) => void
   onRemove?: (file: File) => void
   maxFiles?: number
-  showPreview?: boolean
 }
 
 export const FileUpload: FC<FileUploadProps> = ({
@@ -39,11 +34,9 @@ export const FileUpload: FC<FileUploadProps> = ({
   onUpload,
   onRemove,
   maxFiles = 5,
-  showPreview = true,
 }) => {
-  const theme = useTheme()
   const [files, setFiles] = useState<File[]>([])
-  const [uploading, setUploading] = useState(false)
+  const [uploading] = useState(false)
   const [errors, setErrors] = useState<string[]>([])
   
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {

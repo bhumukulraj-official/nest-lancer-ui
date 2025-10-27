@@ -5,9 +5,9 @@
  */
 
 import React, { FC } from 'react'
-import { TablePagination as MuiTablePagination, TablePaginationProps } from '@mui/material'
+import { TablePagination as MuiTablePagination } from '@mui/material'
 
-interface TablePaginationComponentProps extends TablePaginationProps {
+interface TablePaginationComponentProps {
   count: number
   page: number
   onPageChange: (event: unknown, newPage: number) => void

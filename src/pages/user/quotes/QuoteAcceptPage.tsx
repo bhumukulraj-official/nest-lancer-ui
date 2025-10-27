@@ -48,7 +48,11 @@ export const QuoteAcceptPage: React.FC = () => {
     setAccepting(true)
     try {
       await QuoteApiService.acceptQuote(quote.id, {
+        acceptedBy: user.id,
         acceptedAt: new Date().toISOString(),
+        acceptanceType: 'full',
+        ipAddress: '', // This would come from the request
+        userAgent: navigator.userAgent,
         notes: 'Quote accepted by user'
       })
       // Redirect to payment or success page
@@ -66,8 +70,10 @@ export const QuoteAcceptPage: React.FC = () => {
 
     try {
       await QuoteApiService.rejectQuote(quote.id, {
+        rejectedBy: user.id,
         rejectedAt: new Date().toISOString(),
-        reason: 'Quote rejected by user'
+        reason: 'Quote rejected by user',
+        canRenegotiate: false
       })
       navigate('/user/quotes')
     } catch (err) {

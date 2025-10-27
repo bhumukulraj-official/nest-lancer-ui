@@ -33,6 +33,7 @@ export interface RequestFormData {
   isUrgent?: boolean
   estimatedDuration?: number
   estimatedComplexity?: string
+  deadline?: string
 }
 
 export interface RequestFormErrors {

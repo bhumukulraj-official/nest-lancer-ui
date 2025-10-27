@@ -184,13 +184,15 @@ export interface NotificationUpdateData {
 }
 
 export interface NotificationSearchResult {
-  notifications: Notification[]
-  total: number
-  page: number
-  limit: number
-  totalPages: number
-  hasNext: boolean
-  hasPrev: boolean
+  data: Notification[]
+  pagination: {
+    page: number
+    limit: number
+    total: number
+    totalPages: number
+    hasNext: boolean
+    hasPrev: boolean
+  }
   unreadCount: number
 }
 
@@ -363,4 +365,80 @@ export enum NotificationSortBy {
   TYPE = 'type',
   PRIORITY = 'priority',
   TITLE = 'title'
+}
+
+// Additional notification-related types
+export enum NotificationStatus {
+  PENDING = 'pending',
+  SENT = 'sent',
+  DELIVERED = 'delivered',
+  READ = 'read',
+  FAILED = 'failed',
+  CANCELLED = 'cancelled'
+}
+
+export interface NotificationSchedule {
+  id: string
+  notificationId: string
+  scheduledAt: string
+  timezone: string
+  recurring?: {
+    frequency: 'daily' | 'weekly' | 'monthly'
+    interval: number
+    endDate?: string
+  }
+  status: 'scheduled' | 'sent' | 'cancelled'
+  createdAt: string
+  updatedAt: string
+}
+
+export interface NotificationPreferences {
+  userId: string
+  emailEnabled: boolean
+  pushEnabled: boolean
+  smsEnabled: boolean
+  inAppEnabled: boolean
+  quietHours: {
+    enabled: boolean
+    start: string // HH:mm format
+    end: string // HH:mm format
+    timezone: string
+  }
+  categories: Record<NotificationType, {
+    email: boolean
+    push: boolean
+    sms: boolean
+    inApp: boolean
+  }>
+  updatedAt: string
+}
+
+export interface NotificationDelivery {
+  id: string
+  notificationId: string
+  channel: NotificationChannel
+  recipient: string
+  status: NotificationStatus
+  sentAt?: string
+  deliveredAt?: string
+  readAt?: string
+  failedAt?: string
+  errorMessage?: string
+  providerResponse?: any
+  metadata?: Record<string, any>
+}
+
+export interface NotificationReadReceipt {
+  id: string
+  notificationId: string
+  userId: string
+  readAt: string
+  readVia: NotificationChannel
+  ipAddress?: string
+  userAgent?: string
+  location?: {
+    country?: string
+    city?: string
+    coordinates?: [number, number]
+  }
 }

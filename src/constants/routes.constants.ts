@@ -18,6 +18,46 @@ export const ROUTES = {
   TERMS: '/terms',
   PRIVACY: '/privacy',
   COOKIES: '/cookies',
+
+  // User routes for navigation
+  DASHBOARD: '/user/dashboard',
+  PROJECTS: '/user/projects',
+  REQUESTS: '/user/requests',
+  QUOTES: '/user/quotes',
+  PAYMENTS: '/user/payments',
+  MESSAGING: '/user/messaging',
+  NOTIFICATIONS: '/user/notifications',
+  SETTINGS: '/user/settings',
+
+  // Dynamic routes
+  QUOTE_DETAIL: '/user/quotes/:id',
+  PAYMENT_DETAIL: '/user/payments/:id',
+  BLOG_POST: '/blog/:slug',
+  PROJECT_DETAIL: '/user/projects/:id',
+  REQUEST_DETAIL: '/user/requests/:id',
+  REQUEST_CREATE: '/user/requests/create',
+  PROFILE: '/user/profile',
+  PROFILE_EDIT: '/user/profile/edit',
+
+  // Auth routes
+  AUTH: {
+    LOGIN: '/auth/login',
+    REGISTER: '/auth/register',
+  },
+
+  // Admin routes
+  ADMIN: {
+    DASHBOARD: '/admin/dashboard',
+    USERS: '/admin/users',
+    PROJECTS: '/admin/projects',
+    REQUESTS: '/admin/requests',
+    QUOTES: '/admin/quotes',
+    PAYMENTS: '/admin/payments',
+    ANALYTICS: '/admin/analytics',
+    SETTINGS: '/admin/settings',
+    AUDIT_LOGS: '/admin/audit/logs',
+    WEBHOOKS: '/admin/webhooks',
+  },
 } as const
 
 // Authentication Routes

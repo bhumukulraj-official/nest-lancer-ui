@@ -3,9 +3,8 @@
  * Breadcrumb and quick actions for admin panel
  */
 
-import React, { FC, ReactNode } from 'react'
-import { Box, Typography, Button, Stack } from '@mui/material'
-import { useNavigate } from 'react-router-dom'
+import { FC, ReactNode } from 'react'
+import { Box, Typography, Stack } from '@mui/material'
 import { Breadcrumbs } from '@/components/shared/Navigation'
 
 interface BreadcrumbItem {
@@ -24,8 +23,6 @@ export const AdminNavigation: FC<AdminNavigationProps> = ({
   title,
   actions,
 }) => {
-  const navigate = useNavigate()
-  
   return (
     <Box sx={{ mb: 3 }}>
       {breadcrumbs.length > 0 && (

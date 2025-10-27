@@ -4,7 +4,7 @@
  * Includes gradient fills, multiple data series, and time-based filtering
  */
 
-import React, { FC } from 'react'
+import { FC, MouseEventHandler } from 'react'
 import {
   AreaChart as RechartsAreaChart,
   Area,
@@ -14,7 +14,6 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
-  AreaChartProps as RechartsAreaChartProps,
 } from 'recharts'
 
 export interface AreaChartData {
@@ -58,7 +57,7 @@ interface AreaChartProps {
   dot?: boolean
   
   // Callbacks
-  onClick?: (data: any, index: number) => void
+  onClick?: MouseEventHandler
   
   // Additional props
   [key: string]: any

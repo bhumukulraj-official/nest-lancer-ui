@@ -4,7 +4,7 @@
  * Includes determinate/indeterminate states and custom styling
  */
 
-import React, { FC } from 'react'
+import { FC } from 'react'
 import {
   LinearProgress,
   LinearProgressProps,

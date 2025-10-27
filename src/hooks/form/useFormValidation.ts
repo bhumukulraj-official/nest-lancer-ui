@@ -19,7 +19,7 @@ export interface ValidationRule {
   custom?: (value: any) => string | undefined
 }
 
-export interface ValidationRules<T = any> {
+export type ValidationRules<T = any> = {
   [K in keyof T]?: ValidationRule
 }
 

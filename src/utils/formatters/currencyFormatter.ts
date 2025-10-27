@@ -74,7 +74,7 @@ export const formatCompactCurrency = (
 }
 
 // Parse Currency
-export const parseCurrency = (value: string, currency: string = CURRENCY_CODES.USD): number => {
+export const parseCurrency = (value: string, _currency: string = CURRENCY_CODES.USD): number => {
   // Remove currency symbols and spaces
   const cleanValue = value.replace(/[^\d.-]/g, '')
   return parseFloat(cleanValue) || 0
@@ -83,8 +83,8 @@ export const parseCurrency = (value: string, currency: string = CURRENCY_CODES.U
 // Convert Currency
 export const convertCurrency = (
   amount: number,
-  fromCurrency: string,
-  toCurrency: string,
+  _fromCurrency: string,
+  _toCurrency: string,
   exchangeRate: number
 ): number => {
   return amount * exchangeRate

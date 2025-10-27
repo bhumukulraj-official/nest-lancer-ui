@@ -11,10 +11,13 @@ export const CloudinaryWidget: React.FC<{ onUploadComplete?: (url: string) => vo
         uploadPreset: import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET,
         multiple: false,
       })
-        .result.then((result: any) => {
-          if (result.event === 'success' && result.info.url) {
+        .then((result: any) => {
+          if (result.event === 'success' && result.info?.url) {
             onUploadComplete?.(result.info.url)
           }
+        })
+        .catch((error) => {
+          console.error('Upload failed:', error)
         })
     }
     initWidget()

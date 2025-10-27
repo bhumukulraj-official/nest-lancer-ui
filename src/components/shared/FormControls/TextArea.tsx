@@ -4,19 +4,14 @@
  * Includes validation, formatting, and responsive design
  */
 
-import React, { forwardRef, useState } from 'react'
+import { forwardRef } from 'react'
 import {
   TextField,
   TextFieldProps,
   Box,
   Typography,
-  alpha,
   useTheme,
 } from '@mui/material'
-import {
-  CheckCircle,
-  Error as ErrorIcon,
-} from '@mui/icons-material'
 
 export interface TextAreaProps extends Omit<TextFieldProps, 'multiline'> {
   variant?: 'outlined' | 'filled' | 'standard'

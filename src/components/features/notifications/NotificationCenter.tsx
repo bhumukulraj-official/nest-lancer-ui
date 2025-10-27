@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Card, CardContent, Typography, Divider, Stack, IconButton, Chip } from '@mui/material'
 import { Clear, CheckCircle, Error, Info } from '@mui/icons-material'
 
-export const NotificationCenter: React.FC<{ notifications: any[]; onClear?: () => void; onMarkRead?: (id: string) => void }> = ({ notifications, onClear, onMarkRead }) => {
+export const NotificationCenter: React.FC<{ notifications: any[]; onClear?: () => void; onMarkRead?: (id: string) => void }> = ({ notifications, onClear }) => {
   return (
     <Card>
       <CardContent>

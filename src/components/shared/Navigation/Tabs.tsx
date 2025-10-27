@@ -4,18 +4,15 @@
  * Includes tab panels, lazy loading, and keyboard navigation
  */
 
-import React, { FC, useState, ReactNode } from 'react'
+import { FC, ReactNode } from 'react'
 import {
   Tabs as MuiTabs,
   TabsProps as MuiTabsProps,
   Tab,
-  TabProps,
   Box,
   BoxProps,
-  Paper,
   useTheme,
   useMediaQuery,
-  alpha,
 } from '@mui/material'
 
 interface TabItem {
@@ -26,7 +23,7 @@ interface TabItem {
   disabled?: boolean
 }
 
-interface TabsProps extends Omit<MuiTabsProps, 'children'> {
+interface TabsProps extends Omit<MuiTabsProps, 'children' | 'onChange'> {
   // Tabs configuration
   items: TabItem[]
   value: string
@@ -108,7 +105,7 @@ export const Tabs: FC<TabsProps> = ({
             key={item.value}
             label={item.label}
             value={item.value}
-            icon={item.icon}
+            icon={item.icon as React.ReactElement | undefined}
             disabled={item.disabled}
             iconPosition="start"
             sx={{

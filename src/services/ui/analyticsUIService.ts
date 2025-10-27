@@ -97,7 +97,7 @@ export class AnalyticsUIService {
   /**
    * Initialize custom analytics providers
    */
-  private static initializeCustomProviders(config: any): void {
+  private static initializeCustomProviders(_config: any): void {
     // Add custom analytics initialization here
     // This could include custom tracking services, internal analytics, etc.
   }

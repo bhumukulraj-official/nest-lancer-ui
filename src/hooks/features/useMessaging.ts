@@ -41,7 +41,7 @@ export interface UseMessagingReturn {
 }
 
 export function useMessaging(options: UseMessagingOptions = {}): UseMessagingReturn {
-  const { autoFetch = true, userId } = options
+  const { autoFetch = true } = options
 
   // State
   const [conversations, setConversations] = useState<Conversation[]>([])

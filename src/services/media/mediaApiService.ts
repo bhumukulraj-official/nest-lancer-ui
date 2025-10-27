@@ -13,17 +13,10 @@ import type {
   MediaFilters,
   MediaSearchResult,
   MediaStats,
-  MediaType,
   MediaStatus,
   MediaCategory,
-  MediaTag,
-  MediaMetadata,
-  MediaThumbnail,
   MediaVersion,
-  MediaAccess,
   MediaAnalytics,
-  MediaUpload,
-  MediaDownload,
   MediaProcessing,
   MediaTransformation
 } from '../../types/models/media.types'
@@ -92,7 +85,7 @@ export class MediaApiService {
     try {
       const formData = new FormData()
       
-      files.forEach((file, index) => {
+      files.forEach((file) => {
         formData.append(`files`, file)
       })
       

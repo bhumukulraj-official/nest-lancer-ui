@@ -3,16 +3,18 @@
  * Status labels and mappings
  */
 
-export const STATUS_LABELS = {
-  // User Status
+// User Status Labels
+export const USER_STATUS_LABELS = {
   ACTIVE: 'Active',
   INACTIVE: 'Inactive',
   PENDING: 'Pending',
   SUSPENDED: 'Suspended',
   VERIFIED: 'Verified',
   UNVERIFIED: 'Unverified',
-  
-  // Project Status
+} as const
+
+// Project Status Labels
+export const PROJECT_STATUS_LABELS = {
   DRAFT: 'Draft',
   ACTIVE: 'Active',
   IN_PROGRESS: 'In Progress',
@@ -20,27 +22,42 @@ export const STATUS_LABELS = {
   COMPLETED: 'Completed',
   CANCELLED: 'Cancelled',
   ARCHIVED: 'Archived',
-  
-  // Request Status
+} as const
+
+// Request Status Labels
+export const REQUEST_STATUS_LABELS = {
   PENDING: 'Pending',
   ACTIVE: 'Active',
   IN_PROGRESS: 'In Progress',
   COMPLETED: 'Completed',
   CANCELLED: 'Cancelled',
-  
-  // Quote Status
+} as const
+
+// Quote Status Labels
+export const QUOTE_STATUS_LABELS = {
   PENDING: 'Pending',
   ACCEPTED: 'Accepted',
   REJECTED: 'Rejected',
   EXPIRED: 'Expired',
   WITHDRAWN: 'Withdrawn',
-  
-  // Payment Status
+} as const
+
+// Payment Status Labels
+export const PAYMENT_STATUS_LABELS = {
   PENDING: 'Pending',
   PROCESSING: 'Processing',
   COMPLETED: 'Completed',
   FAILED: 'Failed',
   REFUNDED: 'Refunded',
+} as const
+
+// Combined status labels for backward compatibility
+export const STATUS_LABELS = {
+  ...USER_STATUS_LABELS,
+  ...PROJECT_STATUS_LABELS,
+  ...REQUEST_STATUS_LABELS,
+  ...QUOTE_STATUS_LABELS,
+  ...PAYMENT_STATUS_LABELS,
 } as const
 
 export const STATUS_COLORS = {

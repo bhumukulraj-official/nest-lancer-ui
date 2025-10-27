@@ -16,7 +16,6 @@ import {
 import {
   Home,
   NavigateNext,
-  KeyboardArrowRight,
 } from '@mui/icons-material'
 import { useNavigate } from 'react-router-dom'
 
@@ -87,8 +86,8 @@ export const Breadcrumbs: FC<BreadcrumbsProps> = ({
     }
   }
   
-  const allItems = showHome 
-    ? [{ label: 'Home', path: homePath, icon: <Home fontSize="small" /> }, ...items]
+  const allItems: BreadcrumbItem[] = showHome
+    ? [{ label: 'Home', path: homePath, icon: <Home fontSize="small" />, disabled: false }, ...items]
     : items
   
   const displayItems = allItems.length > maxItems

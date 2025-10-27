@@ -4,7 +4,7 @@
  */
 
 import React, { createContext, useContext, useReducer, useEffect, ReactNode } from 'react'
-import { User, LoginResponse, AuthError } from '../types'
+import { User, LoginResponse, AuthError, UserRole } from '../types'
 
 // Auth State Interface
 interface AuthState {
@@ -148,7 +148,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   }, [state.token, state.refreshToken])
 
   // Login function
-  const login = async (email: string, password: string) => {
+  const login = async (email: string, _password: string) => {
     dispatch({ type: 'AUTH_START' })
     
     try {
@@ -163,11 +163,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
           firstName: 'John',
           lastName: 'Doe',
           email: email,
-          role: 'user',
+          role: UserRole.USER,
           isActive: true,
           isVerified: true,
-          preferences: {} as any,
-          settings: {} as any,
+          isEmailVerified: true,
+          isPhoneVerified: false,
+          preferences: {},
+          settings: {},
           createdAt: new Date().toISOString(),
           updatedAt: new Date().toISOString(),
         },
@@ -203,11 +205,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
           firstName: userData.firstName,
           lastName: userData.lastName,
           email: userData.email,
-          role: 'user',
+          role: UserRole.USER,
           isActive: true,
           isVerified: false,
-          preferences: {} as any,
-          settings: {} as any,
+          isEmailVerified: false,
+          isPhoneVerified: false,
+          preferences: {},
+          settings: {},
           createdAt: new Date().toISOString(),
           updatedAt: new Date().toISOString(),
         },

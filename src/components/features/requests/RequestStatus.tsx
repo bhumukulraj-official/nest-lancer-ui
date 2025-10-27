@@ -5,7 +5,7 @@
 
 import React from 'react'
 import { Box, Typography, Stepper, Step, StepLabel, Chip, Card, CardContent } from '@mui/material'
-import { Done, Schedule, InProgress, Cancel } from '@mui/icons-material'
+import { Done, Schedule, Pending as InProgress, Cancel } from '@mui/icons-material'
 
 interface RequestStatusProps {
   status: string

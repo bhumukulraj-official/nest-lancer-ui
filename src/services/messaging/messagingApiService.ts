@@ -96,14 +96,14 @@ export class MessagingApiService {
   }
 
   /**
-   * Send a new message
+   * Create a new message
    */
-  static async sendMessage(conversationId: string, data: MessageCreateData): Promise<Message> {
+  static async createMessage(conversationId: string, data: MessageCreateData): Promise<Message> {
     try {
       const formData = new FormData()
       formData.append('content', data.content)
       formData.append('type', data.type || 'text')
-      
+
       if (data.replyTo) {
         formData.append('replyTo', data.replyTo)
       }
@@ -121,9 +121,16 @@ export class MessagingApiService {
       })
       return response.data
     } catch (error) {
-      console.error(`Error sending message to conversation ${conversationId}:`, error)
+      console.error(`Error creating message in conversation ${conversationId}:`, error)
       throw error
     }
+  }
+
+  /**
+   * Send a new message (alias for createMessage)
+   */
+  static async sendMessage(conversationId: string, data: MessageCreateData): Promise<Message> {
+    return this.createMessage(conversationId, data)
   }
 
   /**
@@ -159,6 +166,25 @@ export class MessagingApiService {
       await apiClient.post(MESSAGE_ENDPOINTS.MARK_READ(conversationId))
     } catch (error) {
       console.error(`Error marking messages as read for conversation ${conversationId}:`, error)
+      throw error
+    }
+  }
+
+  /**
+   * Mark conversation as read (alias for markMessagesAsRead)
+   */
+  static async markConversationAsRead(conversationId: string): Promise<void> {
+    return this.markMessagesAsRead(conversationId)
+  }
+
+  /**
+   * Mark a specific message as read
+   */
+  static async markMessageAsRead(messageId: string): Promise<void> {
+    try {
+      await apiClient.post(`${MESSAGE_ENDPOINTS.CONVERSATIONS}/messages/${messageId}/read`)
+    } catch (error) {
+      console.error(`Error marking message ${messageId} as read:`, error)
       throw error
     }
   }

@@ -15,8 +15,6 @@ import {
   MenuItem,
   FormControl,
   InputLabel,
-  useTheme,
-  alpha,
   TablePagination,
 } from '@mui/material'
 
@@ -79,13 +77,12 @@ export const Pagination: FC<PaginationProps> = ({
   totalItemsLabel = 'Total items',
   ...props
 }) => {
-  const theme = useTheme()
   
   const handleChange = (_event: React.ChangeEvent<unknown>, value: number) => {
     onChange(value)
   }
   
-  const handlePageSizeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleTablePageSizeChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const newPageSize = Number(event.target.value)
     onPageSizeChange?.(newPageSize)
   }
@@ -99,7 +96,7 @@ export const Pagination: FC<PaginationProps> = ({
         page={page - 1}
         onPageChange={(_event, newPage) => onChange(newPage + 1)}
         rowsPerPage={pageSize}
-        onRowsPerPageChange={handlePageSizeChange}
+        onRowsPerPageChange={handleTablePageSizeChange}
         rowsPerPageOptions={pageSizeOptions}
         labelRowsPerPage={rowsPerPageLabel}
         labelDisplayedRows={({ from, to, count: totalCount }) =>
@@ -131,7 +128,7 @@ export const Pagination: FC<PaginationProps> = ({
             <Select
               value={pageSize}
               label={rowsPerPageLabel}
-              onChange={handlePageSizeChange}
+              onChange={handleTablePageSizeChange as any}
             >
               {pageSizeOptions.map((size) => (
                 <MenuItem key={size} value={size}>

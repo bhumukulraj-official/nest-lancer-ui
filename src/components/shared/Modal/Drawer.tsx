@@ -4,7 +4,7 @@
  * Includes swipe gestures, backdrop control, and responsive behavior
  */
 
-import React, { FC, ReactNode } from 'react'
+import { FC, ReactNode } from 'react'
 import {
   Drawer as MuiDrawer,
   DrawerProps as MuiDrawerProps,
@@ -17,7 +17,7 @@ import {
 } from '@mui/material'
 import { Close } from '@mui/icons-material'
 
-export interface DrawerProps extends MuiDrawerProps {
+export interface DrawerProps extends Omit<MuiDrawerProps, 'title'> {
   open: boolean
   onClose: () => void
   title?: ReactNode

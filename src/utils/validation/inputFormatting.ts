@@ -128,7 +128,7 @@ export const formatKebabCase = (value: string): string => {
 }
 
 // Input Masking
-export const createInputMask = (pattern: string, placeholder: string = '_'): (value: string) => string => {
+export const createInputMask = (pattern: string, _placeholder: string = '_'): (value: string) => string => {
   return (value: string) => {
     let maskedValue = ''
     let valueIndex = 0

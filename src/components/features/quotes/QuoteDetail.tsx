@@ -24,9 +24,7 @@ import {
 import {
   Edit,
   Delete,
-  Visibility,
   AttachMoney,
-  Schedule,
   Assignment,
   Description,
   CheckCircle,

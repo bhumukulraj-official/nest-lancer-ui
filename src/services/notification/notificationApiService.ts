@@ -13,7 +13,6 @@ import type {
   NotificationFilters,
   NotificationSearchResult,
   NotificationStats,
-  NotificationType,
   NotificationStatus,
   NotificationPriority,
   NotificationChannel,
@@ -60,7 +59,7 @@ export class NotificationApiService {
    */
   static async getCurrentUserNotifications(filters?: NotificationFilters): Promise<NotificationSearchResult> {
     try {
-      const response = await apiClient.get(NOTIFICATION_ENDPOINTS.USER_NOTIFICATIONS, {
+      const response = await apiClient.get(NOTIFICATION_ENDPOINTS.LIST, {
         params: filters
       })
       return response.data

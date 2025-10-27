@@ -36,6 +36,19 @@ export interface Quote {
   rejectionReason?: string
   withdrawnAt?: string
   withdrawalReason?: string
+  deadline?: string
+  estimatedDuration?: number
+  milestones?: Array<{
+    id: string
+    title: string
+    description: string
+    dueDate: string
+    amount: number
+    status: string
+  }>
+  termsAndConditions?: string
+  progressPercentage?: number
+  totalAmount: number
   createdAt: string
   updatedAt: string
 }
@@ -231,13 +244,15 @@ export interface QuoteNegotiationData {
 }
 
 export interface QuoteSearchResult {
-  quotes: Quote[]
-  total: number
-  page: number
-  limit: number
-  totalPages: number
-  hasNext: boolean
-  hasPrev: boolean
+  data: Quote[]
+  pagination: {
+    page: number
+    limit: number
+    total: number
+    totalPages: number
+    hasNext: boolean
+    hasPrev: boolean
+  }
 }
 
 export interface QuoteAnalytics {
@@ -394,4 +409,88 @@ export enum QuoteSortBy {
   VALID_UNTIL = 'validUntil',
   FREELANCER_NAME = 'freelancerName',
   CLIENT_NAME = 'clientName'
+}
+
+// Additional quote-related interfaces
+export interface QuoteItem {
+  id: string
+  name: string
+  description: string
+  quantity: number
+  unitPrice: number
+  totalPrice: number
+  category?: string
+  type: 'service' | 'product' | 'milestone'
+}
+
+export interface QuotePricing {
+  subtotal: number
+  discountAmount: number
+  discountPercentage?: number
+  taxAmount: number
+  taxRate: number
+  total: number
+  currency: string
+}
+
+export interface QuoteDiscount {
+  id: string
+  type: 'percentage' | 'fixed'
+  value: number
+  description: string
+  appliedBy: string
+  appliedAt: string
+}
+
+export interface QuoteTax {
+  id: string
+  name: string
+  rate: number
+  amount: number
+  type: 'inclusive' | 'exclusive'
+  jurisdiction?: string
+}
+
+export interface QuotePaymentTerms {
+  paymentSchedule: 'full' | 'milestone' | 'installment'
+  depositRequired?: boolean
+  depositAmount?: number
+  depositPercentage?: number
+  installments?: number
+  netTerms: number // days
+  latePaymentFee?: number
+}
+
+export interface QuoteValidity {
+  validFrom: string
+  validUntil: string
+  autoExpire: boolean
+  expiryWarningDays: number
+}
+
+export interface QuoteApproval {
+  approvedBy: string
+  approvedAt: string
+  approvalLevel: 'basic' | 'manager' | 'executive'
+  comments?: string
+  approvalWorkflowId?: string
+}
+
+export interface QuoteRejection {
+  rejectedBy: string
+  rejectedAt: string
+  reason: string
+  comments?: string
+  canRenegotiate: boolean
+}
+
+export interface QuoteAcceptance {
+  acceptedBy: string
+  acceptedAt: string
+  acceptanceType: 'full' | 'conditional'
+  conditions?: string[]
+  signedDocumentUrl?: string
+  ipAddress: string
+  userAgent: string
+  notes?: string
 }

@@ -22,7 +22,6 @@ import {
   Schedule,
   AttachMoney,
   Person,
-  Work,
 } from '@mui/icons-material'
 import { Request } from '@/types/models/request.types'
 import { formatCurrency, formatDate } from '@/utils'
@@ -106,7 +105,7 @@ export const RequestCard: React.FC<RequestCardProps> = ({
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <Schedule fontSize="small" color="action" />
             <Typography variant="body2">
-              Deadline: {formatDate(request.deadline)}
+              Deadline: {request.deadline ? formatDate(request.deadline) : 'Not set'}
             </Typography>
           </Box>
           {request.client && (

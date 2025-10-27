@@ -12,7 +12,6 @@ import {
   Avatar,
   Menu,
   MenuItem,
-  useTheme,
 } from '@mui/material'
 import {
   Menu as MenuIcon,
@@ -32,7 +31,6 @@ export const UserHeader: FC<UserHeaderProps> = ({
   onMenuClick,
   showMenuButton = false,
 }) => {
-  const theme = useTheme()
   const navigate = useNavigate()
   const { user, logout } = useAuth()
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)

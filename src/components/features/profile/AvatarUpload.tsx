@@ -15,19 +15,16 @@ import {
   Card,
   CardContent,
   Stack,
-  Tooltip,
 } from '@mui/material'
 import {
   CameraAlt,
   CloudUpload,
   Delete,
-  Edit,
 } from '@mui/icons-material'
 import { CloudinaryUIService } from '@/services/media'
 
 interface AvatarUploadProps {
   currentAvatar?: string
-  userId?: string
   onAvatarChange?: (url: string) => void
   size?: number
   editable?: boolean
@@ -35,7 +32,6 @@ interface AvatarUploadProps {
 
 export const AvatarUpload: React.FC<AvatarUploadProps> = ({
   currentAvatar,
-  userId,
   onAvatarChange,
   size = 120,
   editable = true,
@@ -65,18 +61,18 @@ export const AvatarUpload: React.FC<AvatarUploadProps> = ({
     setError(null)
 
     try {
-      const url = await CloudinaryUIService.uploadImage(file, {
+      const result = await CloudinaryUIService.uploadImage(file, {
         folder: 'avatars',
         transformation: {
           width: 400,
           height: 400,
           crop: 'fill',
-          gravity: 'face',
           format: 'jpg',
           quality: 'auto',
         },
       })
-      
+
+      const url = result.secure_url
       setAvatarUrl(url)
       onAvatarChange?.(url)
     } catch (err) {

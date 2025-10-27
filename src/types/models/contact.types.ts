@@ -189,13 +189,15 @@ export interface ContactUpdateData {
 }
 
 export interface ContactSearchResult {
-  contacts: ContactForm[]
-  total: number
-  page: number
-  limit: number
-  totalPages: number
-  hasNext: boolean
-  hasPrev: boolean
+  data: ContactForm[]
+  pagination: {
+    page: number
+    limit: number
+    total: number
+    totalPages: number
+    hasNext: boolean
+    hasPrev: boolean
+  }
 }
 
 export interface ContactAnalytics {
@@ -414,4 +416,85 @@ export enum ContactSortBy {
   ASSIGNED_TO = 'assignedTo',
   RESPONDED_AT = 'respondedAt',
   FOLLOW_UP_DATE = 'followUpDate'
+}
+
+// Type aliases for backward compatibility
+export type ContactMessage = ContactForm
+
+export type ContactMessageCreateData = ContactCreateData
+export type ContactMessageUpdateData = ContactUpdateData
+export type ContactMessageFilters = ContactFilters
+export type ContactMessageSearchResult = ContactSearchResult
+export type ContactMessageStats = ContactStats
+export type ContactMessageStatus = ContactStatus
+export type ContactMessagePriority = ContactPriority
+export type ContactMessageCategory = InquiryType
+export type ContactMessageResponse = ContactResponse
+export type ContactMessageAttachment = ContactAttachment
+export type ContactMessageAnalytics = ContactAnalytics
+
+export interface ContactFormField {
+  id: string
+  name: string
+  label: string
+  type: 'text' | 'email' | 'textarea' | 'select' | 'checkbox' | 'radio'
+  required: boolean
+  placeholder?: string
+  options?: string[]
+  validation?: {
+    pattern?: string
+    minLength?: number
+    maxLength?: number
+  }
+}
+
+export interface ContactFormSubmission {
+  id: string
+  formId: string
+  data: Record<string, any>
+  submittedAt: string
+  submittedBy?: string
+  ipAddress: string
+  userAgent: string
+  status: 'pending' | 'processed' | 'spam' | 'archived'
+}
+
+export interface ContactFormAnalytics {
+  totalSubmissions: number
+  submissionsToday: number
+  submissionsThisWeek: number
+  submissionsThisMonth: number
+  averageResponseTime: number
+  conversionRate: number
+  topSources: Array<{
+    source: string
+    count: number
+  }>
+  formPerformance: Array<{
+    fieldName: string
+    completionRate: number
+  }>
+}
+
+export interface ContactSettings {
+  autoResponse: boolean
+  autoResponseTemplate?: string
+  defaultPriority: ContactPriority
+  defaultAssignee?: string
+  businessHours: {
+    enabled: boolean
+    timezone: string
+    schedule: Record<string, { start: string; end: string }>
+  }
+  notificationSettings: {
+    emailNotifications: boolean
+    slackNotifications: boolean
+    webhookUrl?: string
+  }
+  spamFilter: {
+    enabled: boolean
+    sensitivity: 'low' | 'medium' | 'high'
+    blockedDomains: string[]
+    blockedKeywords: string[]
+  }
 }

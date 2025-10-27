@@ -4,7 +4,7 @@
  * Includes multiple filter types, filter persistence, and clear all functionality
  */
 
-import React, { FC } from 'react'
+import { FC } from 'react'
 import {
   Box,
   TextField,

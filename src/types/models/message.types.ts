@@ -115,23 +115,28 @@ export interface ConversationUpdateData {
 }
 
 export interface MessageSearchResult {
-  messages: Message[]
-  total: number
-  page: number
-  limit: number
-  totalPages: number
-  hasNext: boolean
-  hasPrev: boolean
+  data: Message[]
+  pagination: {
+    page: number
+    limit: number
+    total: number
+    totalPages: number
+    hasNext: boolean
+    hasPrev: boolean
+  }
 }
 
 export interface ConversationSearchResult {
-  conversations: Conversation[]
-  total: number
-  page: number
-  limit: number
-  totalPages: number
-  hasNext: boolean
-  hasPrev: boolean
+  data: Conversation[]
+  pagination: {
+    page: number
+    limit: number
+    total: number
+    totalPages: number
+    hasNext: boolean
+    hasPrev: boolean
+  }
+  unreadCount?: number
 }
 
 export interface MessageStats {
@@ -293,6 +298,7 @@ export interface MessageSearchResult {
   total: number
   query: string
   searchTime: number
+  hasNext?: boolean
 }
 
 export interface ConversationInvite {

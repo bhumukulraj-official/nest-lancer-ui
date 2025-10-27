@@ -1,5 +1,5 @@
 import React from 'react'
-import { Badge, IconButton, Tooltip, Menu, MenuItem, Box } from '@mui/material'
+import { Badge, IconButton, Tooltip, Menu, MenuItem, Box, Typography } from '@mui/material'
 import { Notifications } from '@mui/icons-material'
 
 export const NotificationBell: React.FC<{ count: number; notifications?: any[]; onClick?: () => void }> = ({ count, notifications = [], onClick }) => {

@@ -10,7 +10,6 @@ import type {
   UserProfile,
   ProfileUpdateData,
   ProfileStats,
-  ProfileSettings,
   ProfileVisibility,
   ProfileSocialLinks,
   ProfileSkills,

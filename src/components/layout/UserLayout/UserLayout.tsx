@@ -5,7 +5,7 @@
  */
 
 import React, { FC, ReactNode } from 'react'
-import { Box, Container, useTheme, useMediaQuery } from '@mui/material'
+import { Box, useTheme, useMediaQuery } from '@mui/material'
 import { UserHeader } from './UserHeader'
 import { UserSidebar } from './UserSidebar'
 import { UserContent } from './UserContent'

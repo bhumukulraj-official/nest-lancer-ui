@@ -9,19 +9,21 @@ import {
   Card,
   CardContent,
   Typography,
+  Avatar,
+  Chip,
+} from '@mui/material'
+import {
   Timeline,
   TimelineItem,
   TimelineSeparator,
   TimelineConnector,
   TimelineContent,
   TimelineDot,
-  Avatar,
-  Chip,
-} from '@mui/material'
+} from '@mui/lab'
 import {
   CheckCircle,
   Pending,
-  InProgress,
+  Pending as InProgress,
   Cancel,
 } from '@mui/icons-material'
 import { formatDate } from '@/utils'

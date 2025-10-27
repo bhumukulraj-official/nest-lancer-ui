@@ -371,3 +371,31 @@ export enum ProgressSortBy {
   ASSIGNED_TO = 'assignedTo',
   PRIORITY = 'priority'
 }
+
+// Type aliases for backward compatibility
+export type Milestone = ProgressMilestone
+export type ProgressUpdateCreateData = ProgressUpdate
+export type TimelineEvent = ProgressUpdate
+
+export interface ProgressTimeline {
+  id: string
+  progressId: string
+  type: 'milestone_completed' | 'update_added' | 'status_changed' | 'deadline_changed'
+  description: string
+  metadata?: Record<string, any>
+  createdBy: string
+  createdAt: string
+}
+
+export interface ProgressComment {
+  id: string
+  progressId: string
+  content: string
+  authorId: string
+  authorName: string
+  authorRole: string
+  attachments?: ProgressAttachment[]
+  isInternal: boolean
+  createdAt: string
+  updatedAt: string
+}

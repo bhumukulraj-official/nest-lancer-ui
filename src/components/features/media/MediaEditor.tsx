@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
-import { Box, Card, CardContent, Button, Stack, CircularProgress } from '@mui/material'
+import React from 'react'
+import { Box, Card, CardContent, Typography, Button, Stack } from '@mui/material'
 import { Save, Cancel } from '@mui/icons-material'
 
 export const MediaEditor: React.FC<{ url: string; onSave?: (edits: any) => void; onCancel?: () => void }> = ({ url, onSave, onCancel }) => {
-  const [saving, setSaving] = useState(false)
   
   return (
     <Card>
@@ -12,7 +11,7 @@ export const MediaEditor: React.FC<{ url: string; onSave?: (edits: any) => void;
           <Typography variant="h6">Media Editor</Typography>
           <Stack direction="row" spacing={1}>
             <Button variant="outlined" size="small" onClick={onCancel} startIcon={<Cancel />}>Cancel</Button>
-            <Button variant="contained" size="small" onClick={() => onSave?.({})} startIcon={saving ? <CircularProgress size={16} /> : <Save />}>
+            <Button variant="contained" size="small" onClick={() => onSave?.({})} startIcon={<Save />}>
               Save Changes
             </Button>
           </Stack>

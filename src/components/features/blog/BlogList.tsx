@@ -2,7 +2,7 @@ import React from 'react'
 import { Grid, Typography, TextField, Pagination, Box } from '@mui/material'
 import { BlogCard } from './BlogCard'
 
-export const BlogList: React.FC<{ posts: any[]; onViewPost?: (id: string) => void; loading?: boolean }> = ({ posts, onViewPost, loading }) => {
+export const BlogList: React.FC<{ posts: any[]; onViewPost?: (id: string) => void; loading?: boolean }> = ({ posts, onViewPost }) => {
   return (
     <Box>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>

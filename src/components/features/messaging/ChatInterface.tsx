@@ -133,7 +133,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
       setError(null)
       const result = await MessagingApiService.getMessages(conversation.id)
       setMessages(result.messages)
-      setHasMoreMessages(result.hasNext)
+      setHasMoreMessages(result.hasNext ?? false)
       scrollToBottom()
     } catch (err) {
       setError('Failed to load messages')
@@ -152,7 +152,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
         limit: 20
       })
       setMessages(prev => [...result.messages, ...prev])
-      setHasMoreMessages(result.hasNext)
+      setHasMoreMessages(result.hasNext ?? false)
     } catch (err) {
       console.error('Error loading more messages:', err)
     }
