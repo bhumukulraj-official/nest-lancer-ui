@@ -1,0 +1,49 @@
+/**
+ * System Info Page
+ * Admin page for viewing system information
+ */
+
+import React from 'react'
+import { Container } from '@mui/material'
+import { AdminLayout } from '@/components/layout/AdminLayout'
+import { SystemInfo } from '@/components/features/admin/system'
+
+const SystemInfoPage: React.FC = () => {
+  // Mock data - replace with actual API call
+  const systemInfo = {
+    version: '1.0.0',
+    environment: 'production',
+    nodeVersion: '18.0.0',
+    uptime: '5 days, 3 hours',
+    memory: {
+      total: '8 GB',
+      used: '4.2 GB',
+      free: '3.8 GB',
+    },
+    disk: {
+      total: '100 GB',
+      used: '45 GB',
+      free: '55 GB',
+    },
+    cpu: {
+      usage: '35%',
+      cores: 8,
+    },
+    services: {
+      database: 'online',
+      cache: 'online',
+      queue: 'online',
+    },
+  }
+
+  return (
+    <AdminLayout>
+      <Container maxWidth="xl" sx={{ py: 3 }}>
+        <SystemInfo systemInfo={systemInfo} />
+      </Container>
+    </AdminLayout>
+  )
+}
+
+export default SystemInfoPage
+
