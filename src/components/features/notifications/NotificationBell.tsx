@@ -1,6 +1,6 @@
-import React from 'react'
-import { Badge, IconButton, Tooltip, Menu, MenuItem, Box, Typography } from '@mui/material'
 import { Notifications } from '@mui/icons-material'
+import { Badge, IconButton, Tooltip, Menu, MenuItem, Box, Typography } from '@mui/material'
+import React from 'react'
 
 export const NotificationBell: React.FC<{ count: number; notifications?: any[]; onClick?: () => void }> = ({ count, notifications = [], onClick }) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)

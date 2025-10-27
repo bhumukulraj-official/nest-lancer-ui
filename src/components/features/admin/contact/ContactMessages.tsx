@@ -2,10 +2,11 @@
  * Contact Messages Component
  */
 
-import React from 'react'
-import { Box, Paper, Typography, IconButton, Tooltip } from '@mui/material'
 import { Visibility, Reply, Delete } from '@mui/icons-material'
+import { Box, Paper, Typography, IconButton, Tooltip } from '@mui/material'
 import { DataGrid, GridColDef } from '@mui/x-data-grid'
+import React from 'react'
+
 import { formatDate } from '@/utils/formatters/dateFormatter'
 
 const ContactMessages: React.FC = () => {

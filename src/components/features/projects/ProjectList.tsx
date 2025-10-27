@@ -3,7 +3,15 @@
  * Displays a list of projects with filtering and sorting options
  */
 
-import React, { useState, useMemo } from 'react'
+import {
+  Search,
+  FilterList,
+  ViewModule,
+  ViewList,
+  Sort,
+  Refresh,
+  Add
+} from '@mui/icons-material'
 import {
   Box,
   Grid,
@@ -24,17 +32,11 @@ import {
   ToggleButton,
   ToggleButtonGroup
 } from '@mui/material'
-import {
-  Search,
-  FilterList,
-  ViewModule,
-  ViewList,
-  Sort,
-  Refresh,
-  Add
-} from '@mui/icons-material'
-import ProjectCard from './ProjectCard'
+import React, { useState, useMemo } from 'react'
+
 import { Project, ProjectFilters, ProjectSortBy, ProjectStatus } from '../../../types/models/project.types'
+
+import ProjectCard from './ProjectCard'
 
 interface ProjectListProps {
   projects: Project[]

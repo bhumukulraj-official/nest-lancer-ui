@@ -2,8 +2,8 @@
  * Blog Comments Manager Component
  */
 
-import React from 'react'
 import { Box, Paper, Typography } from '@mui/material'
+import React from 'react'
 
 const BlogCommentsManager: React.FC = () => {
   const comments: any[] = []

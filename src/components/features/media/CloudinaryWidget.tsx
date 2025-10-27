@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react'
 import { Box, Alert } from '@mui/material'
+import React, { useEffect } from 'react'
+
 import { CloudinaryUIService } from '@/services/media'
 
 export const CloudinaryWidget: React.FC<{ onUploadComplete?: (url: string) => void }> = ({ onUploadComplete }) => {

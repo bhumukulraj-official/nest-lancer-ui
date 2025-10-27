@@ -4,9 +4,10 @@
  * Performs UI redirects only; backend enforces security
  */
 
+import { Box, Typography } from '@mui/material'
 import React, { FC, ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Box, Typography } from '@mui/material'
+
 import { useAuth } from '@/hooks/auth/useAuth'
 
 interface AdminGuardProps {

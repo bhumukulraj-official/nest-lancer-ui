@@ -2,8 +2,8 @@
  * Message Inbox Component
  */
 
-import React from 'react'
 import { Box, Paper, Typography, List, ListItem, ListItemText, Chip, Divider } from '@mui/material'
+import React from 'react'
 
 const MessageInbox: React.FC = () => {
   const messages: any[] = []

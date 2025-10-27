@@ -4,8 +4,6 @@
  * UI-only service - no business logic processing
  */
 
-import { apiClient } from '../api/client'
-import { BLOG_ENDPOINTS } from '../api/endpoints'
 import type {
   BlogPost,
   BlogPostCreateData,
@@ -25,6 +23,8 @@ import type {
   BlogPostSeries,
   BlogPostTemplate
 } from '../../types/models/blog.types'
+import { apiClient } from '../api/client'
+import { BLOG_ENDPOINTS } from '../api/endpoints'
 
 export class BlogApiService {
   /**

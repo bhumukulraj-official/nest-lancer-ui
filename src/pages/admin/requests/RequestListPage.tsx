@@ -3,10 +3,11 @@
  * Admin page for viewing and managing all requests
  */
 
-import React from 'react'
 import { Container } from '@mui/material'
-import { AdminLayout } from '@/components/layout/AdminLayout'
+import React from 'react'
+
 import { RequestListAdmin } from '@/components/features/admin/requests'
+import { AdminLayout } from '@/components/layout/AdminLayout'
 
 const RequestListPage: React.FC = () => {
   return (

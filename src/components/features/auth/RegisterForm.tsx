@@ -4,7 +4,13 @@
  * Includes comprehensive validation, password strength, and terms acceptance
  */
 
-import { FC, useState } from 'react'
+import {
+  Person,
+  Email,
+  Lock,
+  Visibility,
+  VisibilityOff,
+} from '@mui/icons-material'
 import {
   Box,
   TextField,
@@ -18,14 +24,9 @@ import {
   IconButton,
   LinearProgress,
 } from '@mui/material'
-import {
-  Person,
-  Email,
-  Lock,
-  Visibility,
-  VisibilityOff,
-} from '@mui/icons-material'
+import { FC, useState } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
+
 import { LoadingButton } from '@/components/shared/Button'
 import { useAuth } from '@/hooks/auth/useAuth'
 

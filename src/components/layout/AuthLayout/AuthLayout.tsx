@@ -4,7 +4,6 @@
  * Provides consistent branding and responsive design for auth flows
  */
 
-import { FC, ReactNode } from 'react'
 import {
   Box,
   Container,
@@ -15,6 +14,7 @@ import {
   Stack,
   Divider,
 } from '@mui/material'
+import { FC, ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 
 export interface AuthLayoutProps {

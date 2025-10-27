@@ -4,8 +4,11 @@
  * Handles email verification and redirects to login
  */
 
-import { FC, useEffect, useState } from 'react'
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import {
+  CheckCircle,
+  Error,
+  Email,
+} from '@mui/icons-material'
 import {
   Box,
   Typography,
@@ -13,15 +16,13 @@ import {
   Alert,
   CircularProgress,
 } from '@mui/material'
-import {
-  CheckCircle,
-  Error,
-  Email,
-} from '@mui/icons-material'
+import { FC, useEffect, useState } from 'react'
+import { useNavigate, useSearchParams } from 'react-router-dom'
+
 import { AuthLayout } from '@/components/layout/AuthLayout'
 import { LoadingButton } from '@/components/shared/Button'
-import { authApiService } from '@/services/auth/authApiService'
 import { useAuth } from '@/hooks/auth/useAuth'
+import { authApiService } from '@/services/auth/authApiService'
 
 type VerificationState = 'verifying' | 'success' | 'error' | 'expired'
 

@@ -4,7 +4,13 @@
  * Supports various layouts, actions, and interactive states
  */
 
-import React, { forwardRef } from 'react'
+import {
+  Favorite,
+  FavoriteBorder,
+  Share,
+  ExpandMore,
+  ExpandLess,
+} from '@mui/icons-material'
 import {
   Card as MuiCard,
   CardProps as MuiCardProps,
@@ -19,13 +25,7 @@ import {
   useTheme,
   Button,
 } from '@mui/material'
-import {
-  Favorite,
-  FavoriteBorder,
-  Share,
-  ExpandMore,
-  ExpandLess,
-} from '@mui/icons-material'
+import React, { forwardRef } from 'react'
 
 // Card component props
 export interface CardProps extends Omit<MuiCardProps, 'variant' | 'title'> {

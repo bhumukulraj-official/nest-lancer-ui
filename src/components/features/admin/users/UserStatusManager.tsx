@@ -3,8 +3,9 @@
  * Manage user status, activation, and deactivation
  */
 
-import React from 'react'
 import { Box, Paper, Typography, Chip, Switch, FormControlLabel } from '@mui/material'
+import React from 'react'
+
 import { User } from '@/types/models/user.types'
 
 interface UserStatusManagerProps {

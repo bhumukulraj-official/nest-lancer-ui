@@ -3,7 +3,11 @@
  * Quote list component with filtering, sorting, and status management
  */
 
-import React, { useState, useMemo } from 'react'
+import {
+  ViewList,
+  ViewModule,
+  Search,
+} from '@mui/icons-material'
 import {
   Box,
   Grid,
@@ -17,14 +21,12 @@ import {
   Tooltip,
   Card,
 } from '@mui/material'
-import {
-  ViewList,
-  ViewModule,
-  Search,
-} from '@mui/icons-material'
-import { QuoteCard } from './QuoteCard'
-import { Quote } from '@/types/models/quote.types'
+import React, { useState, useMemo } from 'react'
+
 import { Spinner } from '@/components/shared'
+import { Quote } from '@/types/models/quote.types'
+
+import { QuoteCard } from './QuoteCard'
 
 interface QuoteListProps {
   quotes: Quote[]

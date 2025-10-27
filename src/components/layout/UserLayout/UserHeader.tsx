@@ -2,7 +2,12 @@
  * User Layout Header
  */
 
-import React, { FC } from 'react'
+import {
+  Menu as MenuIcon,
+  Notifications,
+  Settings,
+  Logout,
+} from '@mui/icons-material'
 import {
   AppBar,
   Toolbar,
@@ -13,14 +18,10 @@ import {
   Menu,
   MenuItem,
 } from '@mui/material'
-import {
-  Menu as MenuIcon,
-  Notifications,
-  Settings,
-  Logout,
-} from '@mui/icons-material'
-import { useAuth } from '@/hooks/auth/useAuth'
+import React, { FC } from 'react'
 import { useNavigate } from 'react-router-dom'
+
+import { useAuth } from '@/hooks/auth/useAuth'
 
 interface UserHeaderProps {
   onMenuClick?: () => void

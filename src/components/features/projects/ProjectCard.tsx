@@ -3,7 +3,17 @@
  * Displays project information in a card format
  */
 
-import React from 'react'
+import {
+  Visibility,
+  Edit,
+  Delete,
+  Star,
+  StarBorder,
+  Schedule,
+  AttachMoney,
+  CalendarToday,
+  MoreVert
+} from '@mui/icons-material'
 import {
   Card,
   CardContent,
@@ -18,17 +28,8 @@ import {
   LinearProgress,
   Stack
 } from '@mui/material'
-import {
-  Visibility,
-  Edit,
-  Delete,
-  Star,
-  StarBorder,
-  Schedule,
-  AttachMoney,
-  CalendarToday,
-  MoreVert
-} from '@mui/icons-material'
+import React from 'react'
+
 import { Project, ProjectStatus } from '../../../types/models/project.types'
 
 interface ProjectCardProps {

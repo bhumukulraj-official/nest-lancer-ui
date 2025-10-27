@@ -4,13 +4,13 @@
  * Uses Material-UI CircularProgress with customizable colors and animation
  */
 
-import { FC } from 'react'
 import {
   Box,
   CircularProgress,
   Typography,
   useTheme,
 } from '@mui/material'
+import { FC } from 'react'
 
 export type SpinnerSize = 'small' | 'medium' | 'large' | number
 

@@ -4,7 +4,12 @@
  * Includes nested navigation, role-based menu items, and responsive behavior
  */
 
-import React, { FC, useState } from 'react'
+import {
+  ChevronLeft,
+  ChevronRight,
+  ExpandMore,
+  ExpandLess,
+} from '@mui/icons-material'
 import {
   Drawer,
   Box,
@@ -22,12 +27,7 @@ import {
   useMediaQuery,
   alpha,
 } from '@mui/material'
-import {
-  ChevronLeft,
-  ChevronRight,
-  ExpandMore,
-  ExpandLess,
-} from '@mui/icons-material'
+import React, { FC, useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 
 interface SidebarItem {

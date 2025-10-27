@@ -2,8 +2,9 @@
  * Audit Analytics Component
  */
 
-import React from 'react'
 import { Box, Grid, Paper, Typography, Divider } from '@mui/material'
+import React from 'react'
+
 import { LineChart } from '@/components/shared/Chart/LineChart'
 
 const AuditAnalytics: React.FC = () => {

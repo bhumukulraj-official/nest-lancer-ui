@@ -3,8 +3,8 @@
  * Progress tracking component with overall project progress and milestone completion
  */
 
-import React from 'react'
 import { Card, CardContent, Typography, Box, Grid, LinearProgress } from '@mui/material'
+import React from 'react'
 
 interface ProgressTrackerProps {
   overallProgress: number

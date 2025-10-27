@@ -3,8 +3,9 @@
  * Breadcrumb and quick actions for admin panel
  */
 
-import { FC, ReactNode } from 'react'
 import { Box, Typography, Stack } from '@mui/material'
+import { FC, ReactNode } from 'react'
+
 import { Breadcrumbs } from '@/components/shared/Navigation'
 
 interface BreadcrumbItem {

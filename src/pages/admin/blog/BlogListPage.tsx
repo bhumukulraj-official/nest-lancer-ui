@@ -3,8 +3,9 @@
  * Admin page for viewing and managing blog posts
  */
 
-import React from 'react'
 import { Container } from '@mui/material'
+import React from 'react'
+
 import { AdminLayout } from '@/components/layout/AdminLayout'
 
 const BlogListPage: React.FC = () => {

@@ -4,7 +4,6 @@
  * Includes accessibility features and responsive design
  */
 
-import React, { FC } from 'react'
 import {
   Pagination as MuiPagination,
   PaginationProps as MuiPaginationProps,
@@ -17,6 +16,7 @@ import {
   InputLabel,
   TablePagination,
 } from '@mui/material'
+import React, { FC } from 'react'
 
 interface PaginationProps extends Omit<MuiPaginationProps, 'onChange'> {
   // Pagination data

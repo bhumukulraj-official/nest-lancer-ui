@@ -3,7 +3,15 @@
  * Displays payment transaction history
  */
 
-import React, { useState, useMemo } from 'react'
+import {
+  Download,
+  Refresh,
+  Search,
+  FilterList,
+  Visibility,
+  TrendingUp,
+  TrendingDown,
+} from '@mui/icons-material'
 import {
   Box,
   Typography,
@@ -36,15 +44,8 @@ import {
   Grid,
   Avatar
 } from '@mui/material'
-import {
-  Download,
-  Refresh,
-  Search,
-  FilterList,
-  Visibility,
-  TrendingUp,
-  TrendingDown,
-} from '@mui/icons-material'
+import React, { useState, useMemo } from 'react'
+
 import { Payment as PaymentType, PaymentStatus, PaymentFilters, PaymentSortBy } from '../../../types/models/payment.types'
 
 interface PaymentHistoryProps {

@@ -3,15 +3,16 @@
  * Main admin dashboard with overview, metrics, and real-time stats
  */
 
-import React from 'react'
 import { Container, Tabs, Tab, Box } from '@mui/material'
-import { AdminLayout } from '@/components/layout/AdminLayout'
+import React from 'react'
+
 import {
   AdminOverview,
   SystemMetrics,
   RealTimeStats,
   HealthMonitor,
 } from '@/components/features/admin/dashboard'
+import { AdminLayout } from '@/components/layout/AdminLayout'
 
 interface TabPanelProps {
   children?: React.ReactNode

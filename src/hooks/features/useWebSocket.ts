@@ -5,8 +5,9 @@
  */
 
 import { useState, useCallback, useEffect, useRef } from 'react'
-import WebSocketService from '../../services/websocket/socketClient'
+
 import { tokenService } from '../../services/auth/tokenService'
+import WebSocketService from '../../services/websocket/socketClient'
 import { WebSocketMessageType } from '../../types/models/message.types'
 
 export interface WebSocketMessage {

@@ -4,9 +4,10 @@
  * Redirects unauthenticated users to login page
  */
 
+import { Box, CircularProgress, Typography } from '@mui/material'
 import { FC, ReactNode } from 'react'
 import { Navigate, useLocation } from 'react-router-dom'
-import { Box, CircularProgress, Typography } from '@mui/material'
+
 import { useAuth } from '@/hooks/auth/useAuth'
 
 export interface AuthGuardProps {

@@ -1,7 +1,8 @@
-import React from 'react'
 import { Container } from '@mui/material'
-import { UserLayout } from '@/components/layout'
+import React from 'react'
+
 import { MediaGallery } from '@/components/features/media'
+import { UserLayout } from '@/components/layout'
 
 export const MediaGalleryPage: React.FC = () => {
   const mockMedia: any[] = []

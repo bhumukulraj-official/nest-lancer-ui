@@ -2,10 +2,11 @@
  * Webhook Logs Component
  */
 
-import React from 'react'
-import { Box, Paper, Typography, Chip, IconButton, Tooltip } from '@mui/material'
 import { Refresh, Visibility } from '@mui/icons-material'
+import { Box, Paper, Typography, Chip, IconButton, Tooltip } from '@mui/material'
 import { DataGrid, GridColDef } from '@mui/x-data-grid'
+import React from 'react'
+
 import { formatDate } from '@/utils/formatters/dateFormatter'
 
 const WebhookLogs: React.FC = () => {

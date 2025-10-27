@@ -3,12 +3,13 @@
  * Admin user management with filtering, sorting, and bulk actions
  */
 
-import React, { useState } from 'react'
-import { Box, Paper, Typography, Chip, IconButton, Tooltip } from '@mui/material'
 import { Edit, Delete, Block, CheckCircle } from '@mui/icons-material'
+import { Box, Paper, Typography, Chip, IconButton, Tooltip } from '@mui/material'
 import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid'
-import { formatDate } from '@/utils/formatters/dateFormatter'
+import React, { useState } from 'react'
+
 import { User, UserRole } from '@/types/models/user.types'
+import { formatDate } from '@/utils/formatters/dateFormatter'
 
 interface MockUser extends User {
   status?: string

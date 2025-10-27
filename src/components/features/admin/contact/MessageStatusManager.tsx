@@ -2,8 +2,8 @@
  * Message Status Manager Component
  */
 
-import React, { useState } from 'react'
 import { Box, Paper, Typography, Select, MenuItem, Button, Stack } from '@mui/material'
+import React, { useState } from 'react'
 
 const MessageStatusManager: React.FC = () => {
   const [status, setStatus] = useState('pending')

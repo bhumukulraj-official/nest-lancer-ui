@@ -4,7 +4,12 @@
  * Includes loading states, error handling, and export functionality
  */
 
-import { FC, ReactNode } from 'react'
+import {
+  Download,
+  Refresh,
+  Fullscreen,
+  Settings,
+} from '@mui/icons-material'
 import {
   Box,
   Paper,
@@ -16,12 +21,7 @@ import {
   Tooltip,
   Stack,
 } from '@mui/material'
-import {
-  Download,
-  Refresh,
-  Fullscreen,
-  Settings,
-} from '@mui/icons-material'
+import { FC, ReactNode } from 'react'
 
 interface ChartContainerProps extends BoxProps {
   // Chart content

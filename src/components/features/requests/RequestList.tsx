@@ -3,7 +3,11 @@
  * Request list component with filtering, sorting, and status-based organization
  */
 
-import React, { useState, useMemo } from 'react'
+import {
+  ViewList,
+  ViewModule,
+  Search,
+} from '@mui/icons-material'
 import {
   Box,
   Grid,
@@ -17,14 +21,12 @@ import {
   Tooltip,
   Card,
 } from '@mui/material'
-import {
-  ViewList,
-  ViewModule,
-  Search,
-} from '@mui/icons-material'
-import { RequestCard } from './RequestCard'
-import { Request } from '@/types/models/request.types'
+import React, { useState, useMemo } from 'react'
+
 import { Spinner } from '@/components/shared'
+import { Request } from '@/types/models/request.types'
+
+import { RequestCard } from './RequestCard'
 
 interface RequestListProps {
   requests: Request[]

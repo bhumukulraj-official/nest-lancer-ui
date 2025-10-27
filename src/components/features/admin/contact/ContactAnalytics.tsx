@@ -2,8 +2,8 @@
  * Contact Analytics Component
  */
 
-import React from 'react'
 import { Box, Grid, Paper, Typography, Divider } from '@mui/material'
+import React from 'react'
 
 const ContactAnalytics: React.FC = () => {
   const analytics = {

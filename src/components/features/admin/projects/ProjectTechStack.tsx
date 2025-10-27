@@ -3,7 +3,7 @@
  * Manages technology stack for a project
  */
 
-import React, { useState, useEffect } from 'react'
+import { Add, Delete, Edit } from '@mui/icons-material'
 import {
   Box,
   Card,
@@ -15,7 +15,7 @@ import {
   Autocomplete,
   Button,
 } from '@mui/material'
-import { Add, Delete, Edit } from '@mui/icons-material'
+import React, { useState, useEffect } from 'react'
 // interface Technology {
 //   id: string
 //   name: string

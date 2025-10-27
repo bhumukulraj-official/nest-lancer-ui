@@ -4,8 +4,8 @@
  * Includes virtual scrolling, column grouping, export functionality, and real-time data updates
  */
 
-import { FC } from 'react'
 import { DataGrid as MuiDataGrid, GridColDef, DataGridProps } from '@mui/x-data-grid'
+import { FC } from 'react'
 
 interface DataGridComponentProps extends Omit<DataGridProps, 'pagination'> {
   // Columns

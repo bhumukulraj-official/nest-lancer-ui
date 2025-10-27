@@ -4,8 +4,12 @@
  * Handles password reset completion and redirects to login
  */
 
-import { FC, useEffect, useState } from 'react'
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import {
+  Lock,
+  Visibility,
+  VisibilityOff,
+  CheckCircle,
+} from '@mui/icons-material'
 import {
   Box,
   TextField,
@@ -15,16 +19,13 @@ import {
   InputAdornment,
   IconButton,
 } from '@mui/material'
-import {
-  Lock,
-  Visibility,
-  VisibilityOff,
-  CheckCircle,
-} from '@mui/icons-material'
+import { FC, useEffect, useState } from 'react'
+import { useNavigate, useSearchParams } from 'react-router-dom'
+
 import { AuthLayout } from '@/components/layout/AuthLayout'
 import { LoadingButton } from '@/components/shared/Button'
-import { authApiService } from '@/services/auth/authApiService'
 import { useAuth } from '@/hooks/auth/useAuth'
+import { authApiService } from '@/services/auth/authApiService'
 
 interface ResetPasswordFormData {
   password: string

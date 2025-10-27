@@ -4,7 +4,14 @@
  * UI-only component - manages environment settings
  */
 
-import React, { useState } from 'react'
+import {
+  Add,
+  Edit,
+  Delete,
+  Save,
+  Lock,
+  Warning as WarningIcon,
+} from '@mui/icons-material'
 import {
   Box,
   Paper,
@@ -32,14 +39,8 @@ import {
   IconButton,
   Chip,
 } from '@mui/material'
-import {
-  Add,
-  Edit,
-  Delete,
-  Save,
-  Lock,
-  Warning as WarningIcon,
-} from '@mui/icons-material'
+import React, { useState } from 'react'
+
 import { LoadingButton } from '@/components/shared/Button'
 
 // Environment variable interface

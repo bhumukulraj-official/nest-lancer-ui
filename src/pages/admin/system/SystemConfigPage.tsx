@@ -3,11 +3,12 @@
  * Admin page for system configuration
  */
 
-import React from 'react'
 import { Container } from '@mui/material'
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { AdminLayout } from '@/components/layout/AdminLayout'
+
 import { SystemConfigForm } from '@/components/features/admin/system'
+import { AdminLayout } from '@/components/layout/AdminLayout'
 
 const SystemConfigPage: React.FC = () => {
   const navigate = useNavigate()

@@ -4,7 +4,6 @@
  * UI-only component - displays backend analytics data
  */
 
-import React from 'react'
 import {
   Box,
   Typography,
@@ -17,6 +16,8 @@ import {
   InputLabel,
   useTheme,
 } from '@mui/material'
+import React from 'react'
+
 import { LineChart, BarChart } from '@/components/shared/Chart'
 
 // Chart data interface

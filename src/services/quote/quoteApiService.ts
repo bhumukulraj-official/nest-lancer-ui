@@ -4,8 +4,6 @@
  * UI-only service - no business logic processing
  */
 
-import { apiClient } from '../api/client'
-import { QUOTE_ENDPOINTS } from '../api/endpoints'
 import type {
   Quote,
   QuoteCreateData,
@@ -26,6 +24,8 @@ import type {
   QuoteAcceptance,
   QuoteAnalytics
 } from '../../types/models/quote.types'
+import { apiClient } from '../api/client'
+import { QUOTE_ENDPOINTS } from '../api/endpoints'
 
 export class QuoteApiService {
   /**

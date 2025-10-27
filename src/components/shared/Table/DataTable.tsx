@@ -4,7 +4,6 @@
  * Includes sorting, filtering, pagination, row selection, and column resizing
  */
 
-import { useState, useMemo } from 'react'
 import {
   Table,
   TableBody,
@@ -21,6 +20,7 @@ import {
   alpha,
   useTheme,
 } from '@mui/material'
+import { useState, useMemo } from 'react'
 
 export interface Column<T> {
   id: keyof T | string

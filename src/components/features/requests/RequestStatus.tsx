@@ -3,9 +3,9 @@
  * Request status display with timeline and indicators
  */
 
-import React from 'react'
-import { Box, Typography, Stepper, Step, StepLabel, Chip, Card, CardContent } from '@mui/material'
 import { Done, Schedule, Pending as InProgress, Cancel } from '@mui/icons-material'
+import { Box, Typography, Stepper, Step, StepLabel, Chip, Card, CardContent } from '@mui/material'
+import React from 'react'
 
 interface RequestStatusProps {
   status: string

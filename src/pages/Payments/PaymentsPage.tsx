@@ -3,7 +3,15 @@
  * Main page for managing payments and transactions
  */
 
-import React, { useState, useEffect } from 'react'
+import {
+  Payment,
+  History,
+  Receipt,
+  Add,
+  TrendingUp,
+  AttachMoney,
+  CheckCircle,
+} from '@mui/icons-material'
 import {
   Box,
   Typography,
@@ -17,19 +25,12 @@ import {
   useTheme,
   useMediaQuery
 } from '@mui/material'
-import {
-  Payment,
-  History,
-  Receipt,
-  Add,
-  TrendingUp,
-  AttachMoney,
-  CheckCircle,
-} from '@mui/icons-material'
+import React, { useState, useEffect } from 'react'
+
 import { PaymentHistory, RazorpayCheckout } from '../../components/features/payments'
+import { useToast } from '../../hooks/ui/useToast'
 import { PaymentApiService } from '../../services/payment'
 import { Payment as PaymentType, PaymentFilters, PaymentStats } from '../../types/models/payment.types'
-import { useToast } from '../../hooks/ui/useToast'
 
 interface TabPanelProps {
   children?: React.ReactNode

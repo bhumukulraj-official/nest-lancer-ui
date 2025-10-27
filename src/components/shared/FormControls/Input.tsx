@@ -4,7 +4,13 @@
  * Supports controlled/uncontrolled inputs with React Hook Form integration
  */
 
-import React, { forwardRef, useState } from 'react'
+import {
+  Visibility,
+  VisibilityOff,
+  Clear,
+  Error as ErrorIcon,
+  CheckCircle,
+} from '@mui/icons-material'
 import {
   TextField,
   TextFieldProps,
@@ -14,13 +20,7 @@ import {
   alpha,
   useTheme,
 } from '@mui/material'
-import {
-  Visibility,
-  VisibilityOff,
-  Clear,
-  Error as ErrorIcon,
-  CheckCircle,
-} from '@mui/icons-material'
+import React, { forwardRef, useState } from 'react'
 
 // Extended input props
 export interface InputProps extends Omit<TextFieldProps, 'variant' | 'color'> {

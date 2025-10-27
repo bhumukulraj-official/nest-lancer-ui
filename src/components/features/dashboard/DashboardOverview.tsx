@@ -3,7 +3,12 @@
  * Main dashboard overview with welcome message and quick stats
  */
 
-import React from 'react'
+import {
+  Person,
+  TrendingUp,
+  Assignment,
+  Payment,
+} from '@mui/icons-material'
 import {
   Box,
   Typography,
@@ -15,12 +20,8 @@ import {
   Stack,
   useTheme,
 } from '@mui/material'
-import {
-  Person,
-  TrendingUp,
-  Assignment,
-  Payment,
-} from '@mui/icons-material'
+import React from 'react'
+
 import { useAuth } from '@/hooks/auth/useAuth'
 
 // Quick stats card component

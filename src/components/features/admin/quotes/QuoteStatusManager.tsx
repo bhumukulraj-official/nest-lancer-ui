@@ -3,8 +3,9 @@
  * Manages quote status changes and tracking
  */
 
-import React, { useState } from 'react'
 import { Box, Paper, Typography, Select, MenuItem, Button, Stack } from '@mui/material'
+import React, { useState } from 'react'
+
 import { formatDate } from '@/utils/formatters/dateFormatter'
 
 interface StatusUpdate {

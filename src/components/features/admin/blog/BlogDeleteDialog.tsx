@@ -2,8 +2,8 @@
  * Blog Delete Dialog Component
  */
 
-import React from 'react'
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Typography } from '@mui/material'
+import React from 'react'
 
 interface BlogDeleteDialogProps {
   open: boolean

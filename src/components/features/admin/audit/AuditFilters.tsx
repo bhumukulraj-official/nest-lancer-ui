@@ -2,8 +2,8 @@
  * Audit Filters Component
  */
 
-import React, { useState } from 'react'
 import { Box, Paper, Typography, Select, MenuItem, Button, TextField } from '@mui/material'
+import React, { useState } from 'react'
 
 const AuditFilters: React.FC = () => {
   const [filterType, setFilterType] = useState('all')

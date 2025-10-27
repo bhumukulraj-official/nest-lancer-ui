@@ -3,15 +3,11 @@
  * Project progress timeline with milestone tracking and status updates
  */
 
-import React from 'react'
 import {
-  Box,
-  Card,
-  CardContent,
-  Typography,
-  Chip,
-  LinearProgress,
-} from '@mui/material'
+  CheckCircle,
+  RadioButtonUnchecked,
+  Schedule,
+} from '@mui/icons-material'
 import {
   Timeline,
   TimelineItem,
@@ -21,10 +17,15 @@ import {
   TimelineDot,
 } from '@mui/lab'
 import {
-  CheckCircle,
-  RadioButtonUnchecked,
-  Schedule,
-} from '@mui/icons-material'
+  Box,
+  Card,
+  CardContent,
+  Typography,
+  Chip,
+  LinearProgress,
+} from '@mui/material'
+import React from 'react'
+
 import { formatDate } from '@/utils'
 
 interface Milestone {

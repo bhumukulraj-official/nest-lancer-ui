@@ -4,17 +4,6 @@
  * Includes office location, contact details, and social media links
  */
 
-import { FC } from 'react'
-import {
-  Box,
-  Typography,
-  Grid,
-  Card,
-  Stack,
-  IconButton,
-  Link,
-  Divider,
-} from '@mui/material'
 import {
   Email,
   Phone,
@@ -25,6 +14,17 @@ import {
   GitHub,
   Language,
 } from '@mui/icons-material'
+import {
+  Box,
+  Typography,
+  Grid,
+  Card,
+  Stack,
+  IconButton,
+  Link,
+  Divider,
+} from '@mui/material'
+import { FC } from 'react'
 
 export interface ContactInfoProps {
   variant?: 'grid' | 'cards' | 'compact'

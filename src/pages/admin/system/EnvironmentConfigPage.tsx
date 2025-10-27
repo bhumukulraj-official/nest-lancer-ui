@@ -3,10 +3,11 @@
  * Admin page for managing environment variables and configuration
  */
 
-import React from 'react'
 import { Container } from '@mui/material'
-import { AdminLayout } from '@/components/layout/AdminLayout'
+import React from 'react'
+
 import { EnvironmentConfig } from '@/components/features/admin/system'
+import { AdminLayout } from '@/components/layout/AdminLayout'
 
 const EnvironmentConfigPage: React.FC = () => {
   return (

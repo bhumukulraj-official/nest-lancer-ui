@@ -4,7 +4,11 @@
  * Supports tags, selections, filters, and interactive states
  */
 
-import React, { forwardRef } from 'react'
+import {
+  Check,
+  Add,
+  Close,
+} from '@mui/icons-material'
 import {
   Chip as MuiChip,
   ChipProps as MuiChipProps,
@@ -13,11 +17,7 @@ import {
   alpha,
   useTheme,
 } from '@mui/material'
-import {
-  Check,
-  Add,
-  Close,
-} from '@mui/icons-material'
+import React, { forwardRef } from 'react'
 
 // Extended chip props
 export interface ChipProps extends Omit<MuiChipProps, 'variant' | 'color' | 'icon' | 'avatar' | 'deleteIcon'> {

@@ -4,9 +4,10 @@
  * Handles redirection for unauthenticated users and insufficient permissions
  */
 
+import { Box, CircularProgress, Typography } from '@mui/material'
 import React from 'react'
 import { Navigate, useLocation } from 'react-router-dom'
-import { Box, CircularProgress, Typography } from '@mui/material'
+
 import { useAuth } from '@/hooks/auth/useAuth'
 
 // Protected route props

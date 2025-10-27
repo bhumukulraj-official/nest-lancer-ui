@@ -4,7 +4,16 @@
  * Includes form validation, submission handling, and Material-UI integration
  */
 
-import { FC, useState, ChangeEvent } from 'react'
+import {
+  Person,
+  Email,
+  Phone,
+  Business,
+  Language,
+  AttachFile,
+  Send,
+  Close,
+} from '@mui/icons-material'
 import {
   Box,
   TextField,
@@ -16,16 +25,8 @@ import {
   Chip,
   MenuItem,
 } from '@mui/material'
-import {
-  Person,
-  Email,
-  Phone,
-  Business,
-  Language,
-  AttachFile,
-  Send,
-  Close,
-} from '@mui/icons-material'
+import { FC, useState, ChangeEvent } from 'react'
+
 import { LoadingButton } from '@/components/shared/Button'
 import { ContactApiService } from '@/services/contact/contactApiService'
 import type { ContactMessageCreateData } from '@/types/models/contact.types'
@@ -43,11 +44,13 @@ interface ContactFormData {
 }
 
 export interface ContactFormProps {
+  onSubmit?: (data: ContactFormData) => void | Promise<void>
   onSuccess?: () => void
   onError?: (error: string) => void
 }
 
 export const ContactForm: FC<ContactFormProps> = ({
+  onSubmit,
   onSuccess,
   onError,
 }) => {
@@ -183,8 +186,13 @@ export const ContactForm: FC<ContactFormProps> = ({
         inquiryType: formData.inquiryType,
       }
 
-      // Submit contact form
-      await ContactApiService.createContactMessage(contactData)
+      // Call custom onSubmit if provided, otherwise use default API call
+      if (onSubmit) {
+        await onSubmit(formData)
+      } else {
+        // Submit contact form
+        await ContactApiService.createContactMessage(contactData)
+      }
 
       // Upload attachments if any
       if (attachments.length > 0) {

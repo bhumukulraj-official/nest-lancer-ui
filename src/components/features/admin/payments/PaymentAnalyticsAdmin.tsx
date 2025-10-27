@@ -3,8 +3,9 @@
  * Displays payment analytics and statistics for admin
  */
 
-import React from 'react'
 import { Box, Grid, Paper, Typography, Divider } from '@mui/material'
+import React from 'react'
+
 import { BarChart } from '@/components/shared/Chart/BarChart'
 
 const PaymentAnalyticsAdmin: React.FC = () => {

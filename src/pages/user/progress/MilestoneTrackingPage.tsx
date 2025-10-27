@@ -3,11 +3,12 @@
  * Page for tracking and managing project milestones
  */
 
+import { Container, Box, Typography, Button, Grid, Card, CardContent, Alert } from '@mui/material'
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { Container, Box, Typography, Button, Grid, Card, CardContent, Alert } from '@mui/material'
-import { UserLayout } from '@/components/layout'
+
 import { MilestoneCard, MilestoneForm } from '@/components/features/progress'
+import { UserLayout } from '@/components/layout'
 import { ProgressApiService } from '@/services/progress'
 
 export const MilestoneTrackingPage: React.FC = () => {

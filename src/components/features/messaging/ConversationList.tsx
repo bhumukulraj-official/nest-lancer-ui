@@ -3,7 +3,18 @@
  * Displays list of conversations with search and filtering
  */
 
-import React, { useState, useMemo } from 'react'
+import {
+  Search,
+  MoreVert,
+  Add,
+  Refresh,
+  Archive,
+  Delete,
+  MarkAsUnread,
+  NotificationsOff,
+  Notifications,
+  PersonAdd
+} from '@mui/icons-material'
 import {
   Box,
   List,
@@ -26,18 +37,8 @@ import {
   Button,
   InputAdornment
 } from '@mui/material'
-import {
-  Search,
-  MoreVert,
-  Add,
-  Refresh,
-  Archive,
-  Delete,
-  MarkAsUnread,
-  NotificationsOff,
-  Notifications,
-  PersonAdd
-} from '@mui/icons-material'
+import React, { useState, useMemo } from 'react'
+
 import type {
   Conversation,
   ConversationParticipant

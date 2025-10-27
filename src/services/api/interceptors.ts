@@ -5,9 +5,11 @@
  */
 
 import { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from 'axios'
-import { apiClient } from './client'
+
 import { tokenService } from '@/services/auth/tokenService'
 import { ApiError, ApiErrorResponse } from '@/types/api/error.types'
+
+import { apiClient } from './client'
 
 // Request interceptor - Add auth token to requests
 apiClient.interceptors.request.use(

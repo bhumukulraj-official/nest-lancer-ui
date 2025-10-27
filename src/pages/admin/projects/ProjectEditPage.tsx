@@ -3,11 +3,12 @@
  * Admin page for editing existing projects
  */
 
-import React from 'react'
 import { Container } from '@mui/material'
+import React from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { AdminLayout } from '@/components/layout/AdminLayout'
+
 import { ProjectEditForm } from '@/components/features/admin/projects'
+import { AdminLayout } from '@/components/layout/AdminLayout'
 
 const ProjectEditPage: React.FC = () => {
   const { id } = useParams<{ id: string }>()

@@ -3,12 +3,13 @@
  * Admin view for managing quotes
  */
 
-import React, { useState } from 'react'
-import { Box, Paper, Typography, Chip, IconButton, Tooltip, TextField } from '@mui/material'
 import { Edit, Delete, Visibility } from '@mui/icons-material'
+import { Box, Paper, Typography, Chip, IconButton, Tooltip, TextField } from '@mui/material'
 import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid'
-import { formatDate } from '@/utils/formatters/dateFormatter'
+import React, { useState } from 'react'
+
 import { formatCurrency } from '@/utils/formatters/currencyFormatter'
+import { formatDate } from '@/utils/formatters/dateFormatter'
 
 interface Quote {
   id: string

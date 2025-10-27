@@ -2,8 +2,8 @@
  * Media Visibility Manager Component
  */
 
-import React, { useState } from 'react'
 import { Box, Paper, Typography, Select, MenuItem, Button, Stack } from '@mui/material'
+import React, { useState } from 'react'
 
 const MediaVisibilityManager: React.FC = () => {
   const [visibility, setVisibility] = useState('public')

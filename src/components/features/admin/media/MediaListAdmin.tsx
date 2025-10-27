@@ -3,10 +3,11 @@
  * Admin view for managing media files
  */
 
-import React, { useState } from 'react'
-import { Box, Paper, Typography, Chip, IconButton, Tooltip, TextField, Button } from '@mui/material'
 import { Edit, Delete, Visibility, CloudUpload } from '@mui/icons-material'
+import { Box, Paper, Typography, Chip, IconButton, Tooltip, TextField, Button } from '@mui/material'
 import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid'
+import React, { useState } from 'react'
+
 import { formatDate } from '@/utils/formatters/dateFormatter'
 
 interface MediaFile {

@@ -3,7 +3,12 @@
  * Request creation form with project requirements and budget settings
  */
 
-import React, { useState } from 'react'
+import {
+  Save,
+  Cancel,
+  AttachMoney,
+  Assignment,
+} from '@mui/icons-material'
 import {
   Card,
   CardContent,
@@ -22,12 +27,8 @@ import {
   Select,
   Chip,
 } from '@mui/material'
-import {
-  Save,
-  Cancel,
-  AttachMoney,
-  Assignment,
-} from '@mui/icons-material'
+import React, { useState } from 'react'
+
 import { RequestFormData } from '@/types/forms/request.form.types'
 
 interface RequestFormProps {

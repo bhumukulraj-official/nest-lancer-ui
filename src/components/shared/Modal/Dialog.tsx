@@ -4,7 +4,14 @@
  * Supports confirmations, alerts, and form dialogs
  */
 
-import React, { forwardRef } from 'react'
+import {
+  Close,
+  Info,
+  Warning,
+  Error,
+  CheckCircle,
+  Help,
+} from '@mui/icons-material'
 import {
   Dialog as MuiDialog,
   DialogProps as MuiDialogProps,
@@ -18,14 +25,8 @@ import {
   useTheme,
   useMediaQuery,
 } from '@mui/material'
-import {
-  Close,
-  Info,
-  Warning,
-  Error,
-  CheckCircle,
-  Help,
-} from '@mui/icons-material'
+import React, { forwardRef } from 'react'
+
 import { Button } from '@/components/shared/Button/Button'
 
 // Dialog type

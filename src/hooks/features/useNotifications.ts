@@ -5,6 +5,7 @@
  */
 
 import { useState, useCallback, useEffect } from 'react'
+
 import { NotificationApiService } from '../../services/notification/notificationApiService'
 import type {
   Notification,

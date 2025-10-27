@@ -4,7 +4,6 @@
  * Provides the base structure for the entire application
  */
 
-import { FC, ReactNode } from 'react'
 import {
   Box,
   Container,
@@ -12,10 +11,11 @@ import {
   useMediaQuery,
   CssBaseline,
 } from '@mui/material'
+import { FC, ReactNode } from 'react'
 import { Outlet } from 'react-router-dom'
 
-import Header from './Header'
 import Footer from './Footer'
+import Header from './Header'
 import Sidebar from './Sidebar'
 
 interface AppLayoutProps {

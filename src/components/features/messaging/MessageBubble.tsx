@@ -3,7 +3,17 @@
  * Displays individual messages in chat interface
  */
 
-import React, { useState } from 'react'
+import {
+  MoreVert,
+  Reply,
+  Edit,
+  Delete,
+  Download,
+  ThumbUp,
+  Schedule,
+  CheckCircle,
+  Error
+} from '@mui/icons-material'
 import {
   Box,
   Typography,
@@ -18,17 +28,8 @@ import {
   CircularProgress,
   Alert
 } from '@mui/material'
-import {
-  MoreVert,
-  Reply,
-  Edit,
-  Delete,
-  Download,
-  ThumbUp,
-  Schedule,
-  CheckCircle,
-  Error
-} from '@mui/icons-material'
+import React, { useState } from 'react'
+
 import { Message, MessageStatus, MessageType } from '../../../types/models/message.types'
 
 interface MessageBubbleProps {

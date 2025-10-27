@@ -3,7 +3,15 @@
  * Main chat interface for conversations
  */
 
-import React, { useState, useEffect, useRef, useCallback } from 'react'
+import {
+  Send,
+  AttachFile,
+  EmojiEmotions,
+  Phone,
+  VideoCall,
+  Info,
+  Close
+} from '@mui/icons-material'
 import {
   Box,
   Paper,
@@ -17,19 +25,12 @@ import {
   Alert,
   Tooltip
 } from '@mui/material'
-import {
-  Send,
-  AttachFile,
-  EmojiEmotions,
-  Phone,
-  VideoCall,
-  Info,
-  Close
-} from '@mui/icons-material'
-import MessageBubble from './MessageBubble'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
+
+
+import { useAuth } from '../../../hooks/auth/useAuth'
 import { MessagingApiService } from '../../../services/messaging'
 import { WebSocketService } from '../../../services/websocket'
-import { useAuth } from '../../../hooks/auth/useAuth'
 import type {
   Message,
   Conversation,
@@ -37,6 +38,8 @@ import type {
   TypingIndicator
 } from '../../../types/models/message.types'
 import { MessageType } from '../../../types/models/message.types'
+
+import MessageBubble from './MessageBubble'
 
 interface ChatInterfaceProps {
   conversation: Conversation

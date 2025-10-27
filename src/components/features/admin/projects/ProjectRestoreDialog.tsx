@@ -3,7 +3,7 @@
  * Confirmation dialog for restoring deleted projects
  */
 
-import React, { useState } from 'react'
+import { Restore, CheckCircle } from '@mui/icons-material'
 import {
   Dialog,
   DialogTitle,
@@ -15,7 +15,8 @@ import {
   ListItem,
   ListItemText,
 } from '@mui/material'
-import { Restore, CheckCircle } from '@mui/icons-material'
+import React, { useState } from 'react'
+
 import { LoadingButton } from '@/components/shared/Button/LoadingButton'
 
 interface ProjectRestoreDialogProps {

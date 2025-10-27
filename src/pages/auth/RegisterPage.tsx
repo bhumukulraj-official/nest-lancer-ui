@@ -4,12 +4,13 @@
  * Redirects authenticated users and handles registration success
  */
 
+import { CheckCircle } from '@mui/icons-material'
+import { Box, Typography, Alert } from '@mui/material'
 import { FC, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Box, Typography, Alert } from '@mui/material'
-import { CheckCircle } from '@mui/icons-material'
-import { AuthLayout } from '@/components/layout/AuthLayout'
+
 import { RegisterForm } from '@/components/features/auth'
+import { AuthLayout } from '@/components/layout/AuthLayout'
 import { useAuth } from '@/hooks/auth/useAuth'
 
 export const RegisterPage: FC = () => {

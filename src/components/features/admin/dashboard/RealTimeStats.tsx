@@ -4,7 +4,11 @@
  * UI-only component - displays backend real-time data
  */
 
-import React, { useState, useEffect } from 'react'
+import {
+  TrendingUp,
+  TrendingDown,
+  Remove,
+} from '@mui/icons-material'
 import {
   Box,
   Typography,
@@ -15,11 +19,7 @@ import {
   Stack,
   useTheme,
 } from '@mui/material'
-import {
-  TrendingUp,
-  TrendingDown,
-  Remove,
-} from '@mui/icons-material'
+import React, { useState, useEffect } from 'react'
 
 // Real-time metric interface
 interface RealTimeMetric {

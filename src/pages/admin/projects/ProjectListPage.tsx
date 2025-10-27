@@ -3,8 +3,9 @@
  * Admin page for viewing and managing all projects
  */
 
-import React from 'react'
 import { Container } from '@mui/material'
+import React from 'react'
+
 import { AdminLayout } from '@/components/layout/AdminLayout'
 import { DataGrid } from '@/components/shared/Table/DataGrid'
 

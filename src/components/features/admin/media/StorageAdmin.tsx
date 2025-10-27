@@ -2,8 +2,8 @@
  * Storage Admin Component
  */
 
-import React from 'react'
 import { Box, Paper, Typography, Grid, LinearProgress, Divider } from '@mui/material'
+import React from 'react'
 
 const StorageAdmin: React.FC = () => {
   const storageData = {

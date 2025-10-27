@@ -4,8 +4,6 @@
  * UI-only service - no business logic processing
  */
 
-import { apiClient } from '../api/client'
-import { PROJECT_ENDPOINTS } from '../api/endpoints'
 import type {
   Project,
   ProjectCreateData,
@@ -17,6 +15,8 @@ import type {
   ProjectTechStack,
   ProjectCategory
 } from '../../types/models/project.types'
+import { apiClient } from '../api/client'
+import { PROJECT_ENDPOINTS } from '../api/endpoints'
 
 export class ProjectApiService {
   /**

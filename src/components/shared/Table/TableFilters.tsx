@@ -4,7 +4,7 @@
  * Includes multiple filter types, filter persistence, and clear all functionality
  */
 
-import { FC } from 'react'
+import { Clear, Search, FilterList } from '@mui/icons-material'
 import {
   Box,
   TextField,
@@ -16,7 +16,7 @@ import {
   Stack,
   IconButton,
 } from '@mui/material'
-import { Clear, Search, FilterList } from '@mui/icons-material'
+import { FC } from 'react'
 
 interface FilterOption {
   value: string | number

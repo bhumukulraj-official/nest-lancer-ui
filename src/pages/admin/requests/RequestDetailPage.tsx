@@ -3,11 +3,12 @@
  * Admin page for viewing detailed request information
  */
 
-import React from 'react'
 import { Container } from '@mui/material'
+import React from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { AdminLayout } from '@/components/layout/AdminLayout'
+
 import { RequestDetailAdmin } from '@/components/features/admin/requests'
+import { AdminLayout } from '@/components/layout/AdminLayout'
 
 const RequestDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>()

@@ -4,7 +4,6 @@
  * Includes proper grouping, accessibility, and validation
  */
 
-import { FC } from 'react'
 import {
   RadioGroup,
   RadioGroupProps,
@@ -14,6 +13,7 @@ import {
   Radio as MuiRadio,
   FormHelperText,
 } from '@mui/material'
+import { FC } from 'react'
 
 export interface RadioProps extends Omit<RadioGroupProps, 'onChange'> {
   label?: string

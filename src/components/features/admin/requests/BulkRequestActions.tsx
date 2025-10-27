@@ -3,7 +3,6 @@
  * Actions for managing multiple requests at once
  */
 
-import React, { useState } from 'react'
 import {
   Dialog,
   DialogTitle,
@@ -18,6 +17,8 @@ import {
   Chip,
   Box,
 } from '@mui/material'
+import React, { useState } from 'react'
+
 import { LoadingButton } from '@/components/shared/Button/LoadingButton'
 
 interface BulkRequestActionsProps {

@@ -3,7 +3,12 @@
  * Main page for portfolio management and display
  */
 
-import React, { useState } from 'react'
+import {
+  Edit,
+  Settings,
+  Visibility,
+  Share
+} from '@mui/icons-material'
 import {
   Box,
   Typography,
@@ -20,15 +25,11 @@ import {
   Tab,
   Stack
 } from '@mui/material'
-import {
-  Edit,
-  Settings,
-  Visibility,
-  Share
-} from '@mui/icons-material'
+import React, { useState } from 'react'
+
 import { PortfolioView } from '../../components/features/portfolio'
-import { PortfolioApiService } from '../../services/portfolio'
 import { useToast } from '../../hooks/ui/useToast'
+import { PortfolioApiService } from '../../services/portfolio'
 
 interface TabPanelProps {
   children?: React.ReactNode

@@ -3,7 +3,13 @@
  * Detailed system performance metrics and monitoring
  */
 
-import React from 'react'
+import {
+  CheckCircle,
+  Warning,
+  Error,
+  TrendingUp,
+  TrendingDown,
+} from '@mui/icons-material'
 import {
   Box,
   Typography,
@@ -19,13 +25,7 @@ import {
   ListItemIcon,
   Divider,
 } from '@mui/material'
-import {
-  CheckCircle,
-  Warning,
-  Error,
-  TrendingUp,
-  TrendingDown,
-} from '@mui/icons-material'
+import React from 'react'
 
 // Metric item interface
 interface MetricItem {

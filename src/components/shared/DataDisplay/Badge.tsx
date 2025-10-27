@@ -4,7 +4,14 @@
  * Supports status indicators, counts, and custom styling
  */
 
-import React, { forwardRef } from 'react'
+import {
+  Circle,
+  CheckCircle,
+  Error,
+  Warning,
+  Info,
+  Cancel,
+} from '@mui/icons-material'
 import {
   Badge as MuiBadge,
   BadgeProps as MuiBadgeProps,
@@ -14,14 +21,7 @@ import {
   alpha,
   useTheme,
 } from '@mui/material'
-import {
-  Circle,
-  CheckCircle,
-  Error,
-  Warning,
-  Info,
-  Cancel,
-} from '@mui/icons-material'
+import React, { forwardRef } from 'react'
 
 // Extended badge props
 export interface BadgeProps extends Omit<MuiBadgeProps, 'variant' | 'color'> {

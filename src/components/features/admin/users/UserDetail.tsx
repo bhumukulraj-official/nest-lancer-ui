@@ -3,9 +3,10 @@
  * Detailed user view with profile information and activity history
  */
 
-import React from 'react'
-import { Box, Paper, Typography, Chip, Grid, Avatar, Divider } from '@mui/material'
 import { Edit as EditIcon } from '@mui/icons-material'
+import { Box, Paper, Typography, Chip, Grid, Avatar, Divider } from '@mui/material'
+import React from 'react'
+
 import { LoadingButton } from '@/components/shared/Button/LoadingButton'
 import { User } from '@/types/models/user.types'
 import { formatDate } from '@/utils/formatters/dateFormatter'

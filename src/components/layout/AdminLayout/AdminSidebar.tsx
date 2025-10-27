@@ -2,7 +2,15 @@
  * Admin Sidebar
  */
 
-import React from 'react'
+import {
+  Dashboard,
+  People,
+  Folder,
+  RequestPage,
+  AttachMoney,
+  Assessment,
+  Settings,
+} from '@mui/icons-material'
 import {
   Drawer,
   Box,
@@ -15,15 +23,7 @@ import {
   Typography,
   useTheme,
 } from '@mui/material'
-import {
-  Dashboard,
-  People,
-  Folder,
-  RequestPage,
-  AttachMoney,
-  Assessment,
-  Settings,
-} from '@mui/icons-material'
+import React from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 
 interface AdminSidebarProps {

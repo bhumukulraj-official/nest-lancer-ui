@@ -4,7 +4,10 @@
  * Includes file validation, progress tracking, and preview
  */
 
-import React, { FC, useState } from 'react'
+import {
+  CloudUpload,
+  Close,
+} from '@mui/icons-material'
 import {
   Box,
   Typography,
@@ -13,10 +16,7 @@ import {
   Paper,
   IconButton,
 } from '@mui/material'
-import {
-  CloudUpload,
-  Close,
-} from '@mui/icons-material'
+import React, { FC, useState } from 'react'
 
 interface FileUploadProps {
   accept?: string

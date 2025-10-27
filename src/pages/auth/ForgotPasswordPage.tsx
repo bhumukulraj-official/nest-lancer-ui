@@ -6,8 +6,9 @@
 
 import { FC, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { AuthLayout } from '@/components/layout/AuthLayout'
+
 import { ForgotPasswordForm } from '@/components/features/auth'
+import { AuthLayout } from '@/components/layout/AuthLayout'
 import { useAuth } from '@/hooks/auth/useAuth'
 
 export const ForgotPasswordPage: FC = () => {

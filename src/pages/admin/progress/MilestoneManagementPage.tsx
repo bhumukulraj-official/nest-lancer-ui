@@ -3,10 +3,11 @@
  * Admin page for managing project milestones
  */
 
-import React from 'react'
 import { Container } from '@mui/material'
-import { AdminLayout } from '@/components/layout/AdminLayout'
+import React from 'react'
+
 import { MilestoneManager } from '@/components/features/admin/progress'
+import { AdminLayout } from '@/components/layout/AdminLayout'
 
 const MilestoneManagementPage: React.FC = () => {
   return (

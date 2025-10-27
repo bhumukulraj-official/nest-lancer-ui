@@ -3,7 +3,14 @@
  * Quote detail view with full pricing breakdown and terms
  */
 
-import React from 'react'
+import {
+  Edit,
+  Delete,
+  AttachMoney,
+  Assignment,
+  Description,
+  CheckCircle,
+} from '@mui/icons-material'
 import {
   Box,
   Card,
@@ -21,14 +28,8 @@ import {
   ListItem,
   ListItemText,
 } from '@mui/material'
-import {
-  Edit,
-  Delete,
-  AttachMoney,
-  Assignment,
-  Description,
-  CheckCircle,
-} from '@mui/icons-material'
+import React from 'react'
+
 import { Quote } from '@/types/models/quote.types'
 import { formatCurrency, formatDate } from '@/utils'
 

@@ -3,9 +3,10 @@
  * Manages project milestones
  */
 
-import React from 'react'
-import { Box, Paper, Typography, Chip, Button } from '@mui/material'
 import { Add, CheckCircle } from '@mui/icons-material'
+import { Box, Paper, Typography, Chip, Button } from '@mui/material'
+import React from 'react'
+
 import { formatDate } from '@/utils/formatters/dateFormatter'
 
 interface Milestone {

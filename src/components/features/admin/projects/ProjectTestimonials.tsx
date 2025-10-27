@@ -3,7 +3,7 @@
  * Manages testimonials for a project
  */
 
-import React, { useState } from 'react'
+import { Add, Delete, Edit, Verified } from '@mui/icons-material'
 import {
   Box,
   Card,
@@ -21,7 +21,8 @@ import {
   Avatar,
   Stack,
 } from '@mui/material'
-import { Add, Delete, Edit, Verified } from '@mui/icons-material'
+import React, { useState } from 'react'
+
 import { LoadingButton } from '@/components/shared/Button/LoadingButton'
 
 export interface Testimonial {

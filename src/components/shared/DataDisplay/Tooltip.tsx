@@ -4,11 +4,11 @@
  * Includes help text, additional information, and accessibility
  */
 
-import React, { FC } from 'react'
 import {
   Tooltip as MuiTooltip,
   TooltipProps as MuiTooltipProps,
 } from '@mui/material'
+import React, { FC } from 'react'
 
 export interface TooltipProps extends MuiTooltipProps {
   title: React.ReactNode

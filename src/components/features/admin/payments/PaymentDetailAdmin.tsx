@@ -3,7 +3,7 @@
  * Detailed admin view for managing individual payments
  */
 
-import React from 'react'
+import { ArrowBack, Print } from '@mui/icons-material'
 import {
   Box,
   Paper,
@@ -18,9 +18,10 @@ import {
   TableContainer,
   TableRow,
 } from '@mui/material'
-import { ArrowBack, Print } from '@mui/icons-material'
-import { formatDate } from '@/utils/formatters/dateFormatter'
+import React from 'react'
+
 import { formatCurrency } from '@/utils/formatters/currencyFormatter'
+import { formatDate } from '@/utils/formatters/dateFormatter'
 
 interface PaymentDetailAdminProps {
   paymentId?: string

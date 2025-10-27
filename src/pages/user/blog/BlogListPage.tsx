@@ -1,7 +1,8 @@
-import React from 'react'
 import { Container } from '@mui/material'
-import { UserLayout } from '@/components/layout'
+import React from 'react'
+
 import { BlogList } from '@/components/features/blog'
+import { UserLayout } from '@/components/layout'
 
 export const BlogListPage: React.FC = () => {
   const mockPosts: any[] = []

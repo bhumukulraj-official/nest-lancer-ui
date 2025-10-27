@@ -4,7 +4,11 @@
  * Supports various sizes, animations, and interactive features
  */
 
-import React, { forwardRef } from 'react'
+import {
+  Close,
+  Fullscreen,
+  FullscreenExit,
+} from '@mui/icons-material'
 import {
   Modal as MuiModal,
   ModalProps as MuiModalProps,
@@ -19,11 +23,8 @@ import {
   useTheme,
   useMediaQuery,
 } from '@mui/material'
-import {
-  Close,
-  Fullscreen,
-  FullscreenExit,
-} from '@mui/icons-material'
+import React, { forwardRef } from 'react'
+
 import { Button } from '@/components/shared/Button/Button'
 
 // Animation type

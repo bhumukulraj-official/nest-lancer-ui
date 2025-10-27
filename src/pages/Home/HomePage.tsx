@@ -4,7 +4,16 @@
  * Responsive design with mobile-first approach
  */
 
-import React from 'react'
+import {
+  RocketLaunch,
+  People,
+  Security,
+  Speed,
+  Support,
+  TrendingUp,
+  CheckCircle,
+  ArrowForward,
+} from '@mui/icons-material'
 import {
   Box,
   Container,
@@ -18,16 +27,7 @@ import {
   useMediaQuery,
   Chip,
 } from '@mui/material'
-import {
-  RocketLaunch,
-  People,
-  Security,
-  Speed,
-  Support,
-  TrendingUp,
-  CheckCircle,
-  ArrowForward,
-} from '@mui/icons-material'
+import React from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 
 // Hero section component

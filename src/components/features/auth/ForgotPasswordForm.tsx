@@ -4,7 +4,10 @@
  * Includes email validation and success state
  */
 
-import { FC, useState } from 'react'
+import {
+  Email,
+  CheckCircle,
+} from '@mui/icons-material'
 import {
   Box,
   TextField,
@@ -14,11 +17,9 @@ import {
   Alert,
   InputAdornment,
 } from '@mui/material'
-import {
-  Email,
-  CheckCircle,
-} from '@mui/icons-material'
+import { FC, useState } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
+
 import { LoadingButton } from '@/components/shared/Button'
 import { authApiService } from '@/services/auth/authApiService'
 

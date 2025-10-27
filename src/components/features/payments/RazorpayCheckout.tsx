@@ -3,7 +3,13 @@
  * Razorpay payment integration component
  */
 
-import React, { useState, useEffect } from 'react'
+import {
+  Payment,
+  Security,
+  CreditCard,
+  Smartphone,
+  AccountBalance,
+} from '@mui/icons-material'
 import {
   Box,
   Button,
@@ -19,15 +25,9 @@ import {
   DialogTitle,
   DialogContent,
 } from '@mui/material'
-import {
-  Payment,
-  Security,
-  CreditCard,
-  Smartphone,
-  AccountBalance,
-} from '@mui/icons-material'
-import { RazorpayUIService } from '../../../services/payment'
-import { PaymentApiService } from '../../../services/payment'
+import React, { useState, useEffect } from 'react'
+
+import { RazorpayUIService , PaymentApiService } from '../../../services/payment'
 import type {
   RazorpayConfig,
   RazorpayOrder,

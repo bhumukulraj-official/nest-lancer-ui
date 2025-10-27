@@ -3,9 +3,9 @@
  * Display system information and status
  */
 
-import React from 'react'
-import { Box, Paper, Typography, Grid, Chip, Divider } from '@mui/material'
 import { Info as InfoIcon } from '@mui/icons-material'
+import { Box, Paper, Typography, Grid, Chip, Divider } from '@mui/material'
+import React from 'react'
 
 interface SystemInfoProps {
   systemInfo: {

@@ -4,14 +4,15 @@
  * Handles authenticated and public routes with role-based access
  */
 
+import { Box, CircularProgress, Typography } from '@mui/material'
 import React, { Suspense } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { Box, CircularProgress, Typography } from '@mui/material'
 
 // Providers and Layout
-import { initializeAuth } from '@/stores/authStore'
-import { ErrorBoundary } from '@/components/shared/ErrorBoundaries'
 import { AppLayout } from '@/components/layout/AppLayout'
+import { UserLayout } from '@/components/layout/UserLayout'
+import { ErrorBoundary } from '@/components/shared/ErrorBoundaries'
+import { initializeAuth } from '@/stores/authStore'
 
 // Route Components
 import AuthRoutes from './AuthRoutes'
@@ -31,6 +32,44 @@ const BlogPage = React.lazy(() => import('@/pages/Blog/BlogPage'))
 const ContactPage = React.lazy(() => import('@/pages/Contact/ContactPage'))
 const AdminPage = React.lazy(() => import('@/pages/Admin/AdminPage'))
 const NotFoundPage = React.lazy(() => import('@/pages/NotFound/NotFoundPage'))
+
+// User Pages (Lazy loaded)
+const UserDashboardPage = React.lazy(() => import('@/pages/user/dashboard/UserDashboardPage'))
+const UserProjectsPage = React.lazy(() => import('@/pages/user/projects/ProjectListPage'))
+const UserRequestsPage = React.lazy(() => import('@/pages/user/requests/RequestListPage'))
+const UserQuotesPage = React.lazy(() => import('@/pages/user/quotes/QuoteListPage'))
+const UserPaymentsPage = React.lazy(() => import('@/pages/user/payments/PaymentHistoryPage'))
+const UserMessagingPage = React.lazy(() => import('@/pages/user/messaging/MessagingPage'))
+const UserSettingsPage = React.lazy(() => import('@/pages/user/profile/SettingsPage'))
+const UserProfilePage = React.lazy(() => import('@/pages/user/profile/ProfilePage'))
+const UserProfileEditPage = React.lazy(() => import('@/pages/user/profile/ProfileEditPage'))
+const UserMediaPage = React.lazy(() => import('@/pages/user/media/MediaGalleryPage'))
+const UserProgressPage = React.lazy(() => import('@/pages/user/progress/ProgressTimelinePage'))
+const UserNotificationsPage = React.lazy(() => import('@/pages/user/notifications/NotificationCenterPage'))
+const UserPortfolioPage = React.lazy(() => import('@/pages/user/portfolio/PortfolioPage'))
+const UserBlogPage = React.lazy(() => import('@/pages/user/blog/BlogListPage'))
+const UserContactPage = React.lazy(() => import('@/pages/user/contact/ContactPage'))
+
+// User Request Pages
+const UserRequestCreatePage = React.lazy(() => import('@/pages/user/requests/RequestCreatePage'))
+const UserRequestDetailPage = React.lazy(() => import('@/pages/user/requests/RequestDetailPage'))
+
+// User Quote Pages
+const UserQuoteDetailPage = React.lazy(() => import('@/pages/user/quotes/QuoteDetailPage'))
+const UserQuoteAcceptPage = React.lazy(() => import('@/pages/user/quotes/QuoteAcceptPage'))
+
+// User Project Pages
+const UserProjectDetailPage = React.lazy(() => import('@/pages/user/projects/ProjectDetailPage'))
+
+// User Media Pages
+const UserMediaUploadPage = React.lazy(() => import('@/pages/user/media/MediaUploadPage'))
+const UserMediaBrowserPage = React.lazy(() => import('@/pages/user/media/MediaBrowserPage'))
+
+// User Progress Pages
+const UserMilestoneTrackingPage = React.lazy(() => import('@/pages/user/progress/MilestoneTrackingPage'))
+
+// User Blog Pages
+const UserBlogPostPage = React.lazy(() => import('@/pages/user/blog/BlogPostPage'))
 
 // Loading component
 const PageLoader: React.FC = () => (
@@ -91,7 +130,67 @@ export const AppRoutes: React.FC = () => {
           
           {/* Authentication Routes */}
           <Route path="/auth/*" element={<AuthRoutes />} />
-          
+
+          {/* User Routes */}
+          <Route path="/user" element={
+            <ProtectedRoute>
+              <UserLayout />
+            </ProtectedRoute>
+          }>
+            {/* Dashboard */}
+            <Route index element={<Navigate to="/user/dashboard" replace />} />
+            <Route path="dashboard" element={<UserDashboardPage />} />
+
+            {/* Profile */}
+            <Route path="profile" element={<UserProfilePage />} />
+            <Route path="profile/edit" element={<UserProfileEditPage />} />
+
+            {/* Projects */}
+            <Route path="projects" element={<UserProjectsPage />} />
+            <Route path="projects/:id" element={<UserProjectDetailPage />} />
+
+            {/* Requests */}
+            <Route path="requests" element={<UserRequestsPage />} />
+            <Route path="requests/create" element={<UserRequestCreatePage />} />
+            <Route path="requests/:id" element={<UserRequestDetailPage />} />
+
+            {/* Quotes */}
+            <Route path="quotes" element={<UserQuotesPage />} />
+            <Route path="quotes/:id" element={<UserQuoteDetailPage />} />
+            <Route path="quotes/:id/accept" element={<UserQuoteAcceptPage />} />
+
+            {/* Payments */}
+            <Route path="payments" element={<UserPaymentsPage />} />
+
+            {/* Messaging */}
+            <Route path="messages" element={<UserMessagingPage />} />
+
+            {/* Media */}
+            <Route path="media" element={<UserMediaPage />} />
+            <Route path="media/upload" element={<UserMediaUploadPage />} />
+            <Route path="media/browser" element={<UserMediaBrowserPage />} />
+
+            {/* Progress */}
+            <Route path="progress" element={<UserProgressPage />} />
+            <Route path="progress/milestones" element={<UserMilestoneTrackingPage />} />
+
+            {/* Notifications */}
+            <Route path="notifications" element={<UserNotificationsPage />} />
+
+            {/* Portfolio */}
+            <Route path="portfolio" element={<UserPortfolioPage />} />
+
+            {/* Blog */}
+            <Route path="blog" element={<UserBlogPage />} />
+            <Route path="blog/:id" element={<UserBlogPostPage />} />
+
+            {/* Settings */}
+            <Route path="settings" element={<UserSettingsPage />} />
+
+            {/* Contact */}
+            <Route path="contact" element={<UserContactPage />} />
+          </Route>
+
           {/* Protected Application Routes */}
           <Route path="/app" element={
             <ProtectedRoute>

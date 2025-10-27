@@ -2,10 +2,11 @@
  * Audit Logs Component
  */
 
-import React, { useState } from 'react'
-import { Box, Paper, Typography, Chip, IconButton, Tooltip, TextField } from '@mui/material'
 import { Download, FilterList, Refresh } from '@mui/icons-material'
+import { Box, Paper, Typography, Chip, IconButton, Tooltip, TextField } from '@mui/material'
 import { DataGrid, GridColDef } from '@mui/x-data-grid'
+import React, { useState } from 'react'
+
 import { formatDate } from '@/utils/formatters/dateFormatter'
 
 const AuditLogs: React.FC = () => {

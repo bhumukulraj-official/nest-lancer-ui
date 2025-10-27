@@ -4,14 +4,15 @@
  * Includes responsive design and role-based features
  */
 
-import React, { FC, ReactNode } from 'react'
 import { Box, useTheme, useMediaQuery } from '@mui/material'
+import React, { FC, ReactNode } from 'react'
+
+import { UserContent } from './UserContent'
 import { UserHeader } from './UserHeader'
 import { UserSidebar } from './UserSidebar'
-import { UserContent } from './UserContent'
 
 interface UserLayoutProps {
-  children: ReactNode
+  children?: ReactNode
   showSidebar?: boolean
   showHeader?: boolean
   sidebarOpen?: boolean

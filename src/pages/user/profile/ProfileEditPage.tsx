@@ -3,12 +3,14 @@
  * User profile editing page with form and avatar upload
  */
 
-import React from 'react'
 import { Container, Typography } from '@mui/material'
-import { UserLayout } from '@/components/layout'
-import ProfileForm from '@/components/features/profile/ProfileForm'
-import AvatarUpload from '@/components/features/profile/AvatarUpload'
 import Grid from '@mui/material/Grid'
+import React from 'react'
+
+import AvatarUpload from '@/components/features/profile/AvatarUpload'
+import ProfileForm from '@/components/features/profile/ProfileForm'
+import { UserLayout } from '@/components/layout'
+
 
 export const ProfileEditPage: React.FC = () => {
   return (

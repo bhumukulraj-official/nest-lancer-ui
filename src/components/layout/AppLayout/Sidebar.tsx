@@ -4,7 +4,19 @@
  * Provides navigation for authenticated users with role-based menu items
  */
 
-import { FC, useState } from 'react'
+import {
+  Dashboard,
+  Person,
+  Work,
+  RequestPage,
+  Receipt,
+  Payment,
+  AdminPanelSettings,
+  ExpandLess,
+  ExpandMore,
+  ChevronLeft,
+  ChevronRight,
+} from '@mui/icons-material'
 import {
   Drawer,
   List,
@@ -20,21 +32,10 @@ import {
   IconButton,
   useTheme,
 } from '@mui/material'
-import {
-  Dashboard,
-  Person,
-  Work,
-  RequestPage,
-  Receipt,
-  Payment,
-  AdminPanelSettings,
-  ExpandLess,
-  ExpandMore,
-  ChevronLeft,
-  ChevronRight,
-} from '@mui/icons-material'
-import { useAuth } from '@/hooks/auth/useAuth'
+import { FC, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+
+import { useAuth } from '@/hooks/auth/useAuth'
 
 interface SidebarProps {
   width?: number

@@ -4,7 +4,10 @@
  * Includes custom separators, clickable items, and responsive design
  */
 
-import React, { FC } from 'react'
+import {
+  Home,
+  NavigateNext,
+} from '@mui/icons-material'
 import {
   Breadcrumbs as MuiBreadcrumbs,
   BreadcrumbsProps as MuiBreadcrumbsProps,
@@ -13,10 +16,7 @@ import {
   useTheme,
   alpha,
 } from '@mui/material'
-import {
-  Home,
-  NavigateNext,
-} from '@mui/icons-material'
+import React, { FC } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 interface BreadcrumbItem {

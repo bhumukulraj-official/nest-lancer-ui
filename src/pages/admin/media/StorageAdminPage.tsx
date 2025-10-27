@@ -3,10 +3,11 @@
  * Admin page for storage management
  */
 
-import React from 'react'
 import { Container } from '@mui/material'
-import { AdminLayout } from '@/components/layout/AdminLayout'
+import React from 'react'
+
 import { StorageAdmin } from '@/components/features/admin/media'
+import { AdminLayout } from '@/components/layout/AdminLayout'
 
 const StorageAdminPage: React.FC = () => {
   return (

@@ -2,9 +2,9 @@
  * Webhook Config Component
  */
 
-import React, { useState } from 'react'
-import { Box, Paper, Typography, TextField, Button, Stack, Switch, FormControlLabel, Divider } from '@mui/material'
 import { Save } from '@mui/icons-material'
+import { Box, Paper, Typography, TextField, Button, Stack, Switch, FormControlLabel, Divider } from '@mui/material'
+import React, { useState } from 'react'
 
 const WebhookConfig: React.FC = () => {
   const [url, setUrl] = useState('')

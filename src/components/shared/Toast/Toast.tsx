@@ -4,20 +4,6 @@
  * Provides success, error, warning, and info notifications
  */
 
-import React from 'react'
-import toast, { 
-  Toaster, 
-  ToastOptions, 
-  Toast as HotToast,
-  resolveValue,
-} from 'react-hot-toast'
-import {
-  Box,
-  Typography,
-  IconButton,
-  alpha,
-  useTheme,
-} from '@mui/material'
 import {
   CheckCircle,
   Error,
@@ -25,6 +11,20 @@ import {
   Info,
   Close,
 } from '@mui/icons-material'
+import {
+  Box,
+  Typography,
+  IconButton,
+  alpha,
+  useTheme,
+} from '@mui/material'
+import React from 'react'
+import toast, { 
+  Toaster, 
+  ToastOptions, 
+  Toast as HotToast,
+  resolveValue,
+} from 'react-hot-toast'
 
 // Toast type
 export type ToastType = 'success' | 'error' | 'warning' | 'info' | 'loading'
@@ -377,35 +377,40 @@ export interface ToastProviderProps {
   maxToasts?: number
   containerStyle?: React.CSSProperties
   toastOptions?: ToastOptions
+  children?: React.ReactNode
 }
 
 export const ToastProvider: React.FC<ToastProviderProps> = ({
   position = 'top-right',
   containerStyle,
   toastOptions,
+  children,
 }) => {
   return (
-    <Toaster
-      position={position}
-      toastOptions={{
-        duration: 4000,
-        style: {
-          background: 'transparent',
-          boxShadow: 'none',
-          padding: 0,
-        },
-        ...toastOptions,
-      }}
-      containerStyle={{
-        top: 20,
-        left: 20,
-        bottom: 20,
-        right: 20,
-        ...containerStyle,
-      }}
-      gutter={12}
-      reverseOrder={false}
-    />
+    <>
+      {children}
+      <Toaster
+        position={position}
+        toastOptions={{
+          duration: 4000,
+          style: {
+            background: 'transparent',
+            boxShadow: 'none',
+            padding: 0,
+          },
+          ...toastOptions,
+        }}
+        containerStyle={{
+          top: 20,
+          left: 20,
+          bottom: 20,
+          right: 20,
+          ...containerStyle,
+        }}
+        gutter={12}
+        reverseOrder={false}
+      />
+    </>
   )
 }
 

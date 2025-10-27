@@ -3,7 +3,6 @@
  * Confirmation dialog for deleting projects
  */
 
-import React, { useState } from 'react'
 import {
   Dialog,
   DialogTitle,
@@ -12,6 +11,8 @@ import {
   Typography,
   TextField,
 } from '@mui/material'
+import React, { useState } from 'react'
+
 import { LoadingButton } from '@/components/shared/Button/LoadingButton'
 
 interface ProjectDeleteDialogProps {

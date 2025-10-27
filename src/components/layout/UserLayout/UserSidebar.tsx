@@ -2,7 +2,14 @@
  * User Sidebar
  */
 
-import React from 'react'
+import {
+  Dashboard,
+  Folder,
+  Assignment as Request,
+  Payment,
+  Message,
+  Settings,
+} from '@mui/icons-material'
 import {
   Drawer,
   Box,
@@ -15,14 +22,7 @@ import {
   Typography,
   useTheme,
 } from '@mui/material'
-import {
-  Dashboard,
-  Folder,
-  Assignment as Request,
-  Payment,
-  Message,
-  Settings,
-} from '@mui/icons-material'
+import React from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 
 interface UserSidebarProps {

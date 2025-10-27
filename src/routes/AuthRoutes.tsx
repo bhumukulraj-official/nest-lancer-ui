@@ -4,13 +4,14 @@
  * Handles login, register, password reset, and email verification
  */
 
+import { Box, CircularProgress } from '@mui/material'
 import React, { Suspense } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { Box, CircularProgress } from '@mui/material'
+
+import { AuthLayout } from '@/components/layout/AuthLayout'
 import { useAuth } from '@/hooks/auth/useAuth'
 
 // Auth Layout
-import { AuthLayout } from '@/components/layout/AuthLayout'
 
 // Auth Page Components (Lazy loaded)
 const LoginPage = React.lazy(() => import('@/pages/auth/LoginPage'))

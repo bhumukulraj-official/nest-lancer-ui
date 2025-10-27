@@ -2,9 +2,9 @@
  * Media Detail Admin Component
  */
 
-import React from 'react'
-import { Box, Paper, Typography, Divider, Button, Stack } from '@mui/material'
 import { ArrowBack, Edit, Delete } from '@mui/icons-material'
+import { Box, Paper, Typography, Divider, Button, Stack } from '@mui/material'
+import React from 'react'
 
 interface MediaDetailAdminProps {
   mediaId?: string

@@ -1,5 +1,6 @@
-import React from 'react'
 import { Box, Typography, Container, Grid, Paper } from '@mui/material'
+import React from 'react'
+
 import { ContactForm, ContactInfo } from '@/components/features/contact'
 
 const ContactPage: React.FC = () => {

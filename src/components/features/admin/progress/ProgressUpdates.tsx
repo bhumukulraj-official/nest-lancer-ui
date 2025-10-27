@@ -3,8 +3,9 @@
  * Admin view for managing progress updates
  */
 
-import React from 'react'
 import { Box, Paper, Typography, Chip, List, ListItem, ListItemText, Divider } from '@mui/material'
+import React from 'react'
+
 import { formatDate } from '@/utils/formatters/dateFormatter'
 
 interface ProgressUpdate {

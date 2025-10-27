@@ -3,8 +3,9 @@
  * Main user dashboard with overview, stats, and activity feed
  */
 
-import React from 'react'
 import { Box, Container, Grid, Typography } from '@mui/material'
+import React from 'react'
+
 import { DashboardOverview, ActivityFeed, StatsCards } from '@/components/features/dashboard'
 
 export const DashboardPage: React.FC = () => {

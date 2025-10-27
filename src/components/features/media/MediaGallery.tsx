@@ -1,6 +1,6 @@
-import React from 'react'
-import { Box, Grid, Card, CardMedia, CardContent, IconButton, Typography } from '@mui/material'
 import { Delete, Visibility } from '@mui/icons-material'
+import { Box, Grid, Card, CardMedia, CardContent, IconButton, Typography } from '@mui/material'
+import React from 'react'
 
 interface MediaGalleryProps {
   media: Array<{ id: string; url: string; type: string; name?: string }>

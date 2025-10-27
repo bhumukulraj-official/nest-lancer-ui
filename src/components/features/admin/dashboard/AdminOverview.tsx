@@ -3,7 +3,12 @@
  * Admin dashboard overview with system metrics and user statistics
  */
 
-import React from 'react'
+import {
+  People,
+  Assignment,
+  Payment,
+  Speed,
+} from '@mui/icons-material'
 import {
   Box,
   Typography,
@@ -15,12 +20,8 @@ import {
   Stack,
   useTheme,
 } from '@mui/material'
-import {
-  People,
-  Assignment,
-  Payment,
-  Speed,
-} from '@mui/icons-material'
+import React from 'react'
+
 import { useAuth } from '@/hooks/auth/useAuth'
 
 // Admin stat card component

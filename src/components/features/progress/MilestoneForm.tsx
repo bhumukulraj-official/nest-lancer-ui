@@ -3,9 +3,9 @@
  * Milestone creation form with milestone details and timeline estimation
  */
 
-import React, { useState } from 'react'
-import { Box, TextField, Button, Grid, Stack, Divider } from '@mui/material'
 import { Save, Cancel } from '@mui/icons-material'
+import { Box, TextField, Button, Grid, Stack, Divider } from '@mui/material'
+import React, { useState } from 'react'
 
 interface MilestoneFormProps {
   onSubmit: (data: any) => void

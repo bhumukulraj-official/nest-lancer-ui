@@ -3,10 +3,11 @@
  * Admin page for viewing and managing all users
  */
 
-import React from 'react'
 import { Container } from '@mui/material'
-import { AdminLayout } from '@/components/layout/AdminLayout'
+import React from 'react'
+
 import { UserList } from '@/components/features/admin/users'
+import { AdminLayout } from '@/components/layout/AdminLayout'
 
 const UserListPage: React.FC = () => {
   return (

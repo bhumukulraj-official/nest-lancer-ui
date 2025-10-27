@@ -3,10 +3,11 @@
  * Admin page for webhook monitoring
  */
 
-import React from 'react'
 import { Container } from '@mui/material'
-import { AdminLayout } from '@/components/layout/AdminLayout'
+import React from 'react'
+
 import { WebhookMonitoring } from '@/components/features/admin/webhooks'
+import { AdminLayout } from '@/components/layout/AdminLayout'
 
 const WebhookMonitoringPage: React.FC = () => {
   return (

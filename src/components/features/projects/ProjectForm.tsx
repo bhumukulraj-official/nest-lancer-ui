@@ -3,7 +3,6 @@
  * Form for creating and editing projects
  */
 
-import React, { useState, useEffect } from 'react'
 import {
   Box,
   TextField,
@@ -24,9 +23,11 @@ import {
   CardContent,
   CardHeader
 } from '@mui/material'
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
+import React, { useState, useEffect } from 'react'
+
 import { Project, ProjectCreateData, ProjectUpdateData, ProjectVisibility, ProjectCategory } from '../../../types/models/project.types'
 
 interface ProjectFormProps {

@@ -3,7 +3,7 @@
  * Detailed admin view for managing individual quotes
  */
 
-import React from 'react'
+import { Edit, Delete, ArrowBack } from '@mui/icons-material'
 import {
   Box,
   Paper,
@@ -14,9 +14,10 @@ import {
   Button,
   Stack,
 } from '@mui/material'
-import { Edit, Delete, ArrowBack } from '@mui/icons-material'
-import { formatDate } from '@/utils/formatters/dateFormatter'
+import React from 'react'
+
 import { formatCurrency } from '@/utils/formatters/currencyFormatter'
+import { formatDate } from '@/utils/formatters/dateFormatter'
 
 interface QuoteDetailAdminProps {
   quoteId?: string

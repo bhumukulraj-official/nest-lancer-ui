@@ -4,18 +4,6 @@
  * UI-only component - displays backend system health data
  */
 
-import React, { useState, useEffect } from 'react'
-import {
-  Box,
-  Typography,
-  Card,
-  CardContent,
-  Grid,
-  Chip,
-  Stack,
-  LinearProgress,
-  Alert,
-} from '@mui/material'
 import {
   CheckCircle,
   Warning,
@@ -27,6 +15,19 @@ import {
   Speed,
   Cloud,
 } from '@mui/icons-material'
+import {
+  Box,
+  Typography,
+  Card,
+  CardContent,
+  Grid,
+  Chip,
+  Stack,
+  LinearProgress,
+  Alert,
+} from '@mui/material'
+import React, { useState, useEffect } from 'react'
+
 import { LoadingButton } from '@/components/shared/Button'
 
 // Service health interface

@@ -4,8 +4,6 @@
  * UI-only service - no business logic processing
  */
 
-import { apiClient } from '../api/client'
-import { CONTACT_ENDPOINTS } from '../api/endpoints'
 import type {
   ContactMessage,
   ContactMessageCreateData,
@@ -25,6 +23,8 @@ import type {
   ContactSettings,
   ContactTemplate
 } from '../../types/models/contact.types'
+import { apiClient } from '../api/client'
+import { CONTACT_ENDPOINTS } from '../api/endpoints'
 
 export class ContactApiService {
   /**

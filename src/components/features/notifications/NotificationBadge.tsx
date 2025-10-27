@@ -1,5 +1,5 @@
-import React from 'react'
 import { Badge } from '@mui/material'
+import React from 'react'
 
 export const NotificationBadge: React.FC<{ count: number; max?: number; color?: 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success'; children?: React.ReactNode }> = ({ count, max = 99, color = 'error', children }) => {
   return (

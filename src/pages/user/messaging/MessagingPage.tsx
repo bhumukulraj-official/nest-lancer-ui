@@ -3,7 +3,10 @@
  * Main page for messaging and chat functionality
  */
 
-import React, { useState, useEffect } from 'react'
+import {
+  Message,
+  Add,
+} from '@mui/icons-material'
 import {
   Box,
   Typography,
@@ -19,10 +22,7 @@ import {
   Alert,
   CircularProgress
 } from '@mui/material'
-import {
-  Message,
-  Add,
-} from '@mui/icons-material'
+import React, { useState, useEffect } from 'react'
 // import { ChatInterface, ConversationList } from '../../components/features/messaging'
 // import { MessagingApiService } from '../../services/messaging'
 // import { WebSocketService } from '../../services/websocket'

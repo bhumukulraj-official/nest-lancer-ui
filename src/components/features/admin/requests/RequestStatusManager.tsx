@@ -3,8 +3,8 @@
  * Manage request status and workflow
  */
 
-import React from 'react'
 import { Box, Paper, Typography, FormControl, InputLabel, Select, MenuItem } from '@mui/material'
+import React from 'react'
 
 interface RequestStatusManagerProps {
   request: any

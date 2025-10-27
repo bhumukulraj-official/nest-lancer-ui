@@ -3,10 +3,11 @@
  * Admin page for viewing and managing all payments
  */
 
-import React from 'react'
 import { Container } from '@mui/material'
-import { AdminLayout } from '@/components/layout/AdminLayout'
+import React from 'react'
+
 import { PaymentListAdmin } from '@/components/features/admin/payments'
+import { AdminLayout } from '@/components/layout/AdminLayout'
 
 const PaymentListPage: React.FC = () => {
   return (

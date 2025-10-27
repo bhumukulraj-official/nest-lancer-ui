@@ -5,6 +5,7 @@
  */
 
 import { useCallback } from 'react'
+
 import { useUIStore, ModalState } from '@/stores/uiStore'
 
 // Modal hook return type

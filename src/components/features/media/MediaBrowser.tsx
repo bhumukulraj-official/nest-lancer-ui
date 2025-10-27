@@ -1,5 +1,5 @@
-import React from 'react'
 import { Box, Typography, Select, MenuItem, FormControl, InputLabel, Grid } from '@mui/material'
+import React from 'react'
 
 export const MediaBrowser: React.FC<{ media: any[]; onSelect?: (id: string) => void }> = ({ media, onSelect }) => {
   return (

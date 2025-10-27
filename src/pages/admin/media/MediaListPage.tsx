@@ -3,10 +3,11 @@
  * Admin page for managing media files
  */
 
-import React from 'react'
 import { Container } from '@mui/material'
-import { AdminLayout } from '@/components/layout/AdminLayout'
+import React from 'react'
+
 import { MediaListAdmin } from '@/components/features/admin/media'
+import { AdminLayout } from '@/components/layout/AdminLayout'
 
 const MediaListPage: React.FC = () => {
   return (

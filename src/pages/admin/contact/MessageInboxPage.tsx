@@ -3,10 +3,11 @@
  * Admin page for managing message inbox
  */
 
-import React from 'react'
 import { Container } from '@mui/material'
-import { AdminLayout } from '@/components/layout/AdminLayout'
+import React from 'react'
+
 import { MessageInbox } from '@/components/features/admin/contact'
+import { AdminLayout } from '@/components/layout/AdminLayout'
 
 const MessageInboxPage: React.FC = () => {
   return (

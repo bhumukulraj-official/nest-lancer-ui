@@ -3,7 +3,17 @@
  * Request detail view with full information and management options
  */
 
-import React from 'react'
+import {
+  Edit,
+  Delete,
+  Visibility,
+  AttachFile,
+  Person,
+  AttachMoney,
+  Schedule,
+  Assignment,
+  Description,
+} from '@mui/icons-material'
 import {
   Box,
   Card,
@@ -19,17 +29,8 @@ import {
   Avatar,
   LinearProgress,
 } from '@mui/material'
-import {
-  Edit,
-  Delete,
-  Visibility,
-  AttachFile,
-  Person,
-  AttachMoney,
-  Schedule,
-  Assignment,
-  Description,
-} from '@mui/icons-material'
+import React from 'react'
+
 import { Request } from '@/types/models/request.types'
 import { formatCurrency, formatDate } from '@/utils'
 

@@ -36,7 +36,7 @@ export interface FormActions<T = any> {
   reset: (values?: Partial<T>) => void
   validate: () => boolean
   validateField: (field: keyof T) => boolean
-  handleSubmit: (onSubmit: (values: T) => void | Promise<void>) => (e?: React.FormEvent) => Promise<void>
+  handleSubmit: (onSubmit?: (values: T) => void | Promise<void>) => (e?: React.FormEvent) => Promise<void>
   handleChange: (field: keyof T) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void
   handleBlur: (field: keyof T) => (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void
   getFieldProps: (field: keyof T) => {

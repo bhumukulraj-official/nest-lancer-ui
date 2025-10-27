@@ -4,7 +4,6 @@
  * Includes tab panels, lazy loading, and keyboard navigation
  */
 
-import { FC, ReactNode } from 'react'
 import {
   Tabs as MuiTabs,
   TabsProps as MuiTabsProps,
@@ -14,6 +13,7 @@ import {
   useTheme,
   useMediaQuery,
 } from '@mui/material'
+import { FC, ReactNode } from 'react'
 
 interface TabItem {
   label: string

@@ -1,7 +1,8 @@
-import React from 'react'
 import { Container } from '@mui/material'
-import { UserLayout } from '@/components/layout'
+import React from 'react'
+
 import { NotificationCenter } from '@/components/features/notifications'
+import { UserLayout } from '@/components/layout'
 
 export const NotificationCenterPage: React.FC = () => {
   const mockNotifications: any[] = []

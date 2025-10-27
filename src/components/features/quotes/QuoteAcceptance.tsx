@@ -3,7 +3,10 @@
  * Quote acceptance component with terms review and payment integration
  */
 
-import React, { useState } from 'react'
+import {
+  CheckCircle,
+  Payment,
+} from '@mui/icons-material'
 import {
   Box,
   Card,
@@ -17,10 +20,8 @@ import {
   FormControlLabel,
   Grid,
 } from '@mui/material'
-import {
-  CheckCircle,
-  Payment,
-} from '@mui/icons-material'
+import React, { useState } from 'react'
+
 import { Quote } from '@/types/models/quote.types'
 import { formatCurrency } from '@/utils'
 

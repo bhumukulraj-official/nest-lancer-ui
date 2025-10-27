@@ -4,7 +4,6 @@
  * Supports tooltips, badges, and various interactive states
  */
 
-import React, { forwardRef } from 'react'
 import {
   IconButton as MuiIconButton,
   IconButtonProps as MuiIconButtonProps,
@@ -15,6 +14,7 @@ import {
   alpha,
   useTheme,
 } from '@mui/material'
+import React, { forwardRef } from 'react'
 
 // Extended icon button props
 export interface IconButtonProps extends Omit<MuiIconButtonProps, 'color'> {

@@ -3,8 +3,8 @@
  * Placeholder profile page - to be implemented
  */
 
-import React from 'react'
 import { Box, Typography } from '@mui/material'
+import React from 'react'
 
 export const ProfilePage: React.FC = () => {
   return (

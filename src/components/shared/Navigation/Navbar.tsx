@@ -4,7 +4,15 @@
  * Includes logo, navigation links, user menu, and mobile hamburger menu
  */
 
-import { FC, useState } from 'react'
+import {
+  Menu as MenuIcon,
+  AccountCircle,
+  Notifications,
+  Settings,
+  Logout,
+  Dashboard,
+  Person,
+} from '@mui/icons-material'
 import {
   AppBar,
   Toolbar,
@@ -20,17 +28,10 @@ import {
   useTheme,
   useMediaQuery,
 } from '@mui/material'
-import {
-  Menu as MenuIcon,
-  AccountCircle,
-  Notifications,
-  Settings,
-  Logout,
-  Dashboard,
-  Person,
-} from '@mui/icons-material'
-import { useAuth } from '@/hooks/auth/useAuth'
+import { FC, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+
+import { useAuth } from '@/hooks/auth/useAuth'
 
 interface NavbarProps {
   // Navigation items

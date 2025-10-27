@@ -5,6 +5,7 @@
  */
 
 import { useState, useCallback, useEffect } from 'react'
+
 import { MessagingApiService } from '../../services/messaging/messagingApiService'
 import type {
   Message,

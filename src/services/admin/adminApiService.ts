@@ -4,8 +4,6 @@
  * UI-only service - no business logic processing
  */
 
-import { apiClient } from '../api/client'
-import { ADMIN_ENDPOINTS } from '../api/endpoints'
 import type {
   AdminDashboard,
   AdminStats,
@@ -29,6 +27,8 @@ import type {
   AdminBackup,
   AdminMaintenance
 } from '../../types/models/admin.types'
+import { apiClient } from '../api/client'
+import { ADMIN_ENDPOINTS } from '../api/endpoints'
 
 export class AdminApiService {
   /**

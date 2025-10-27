@@ -7,10 +7,10 @@
 import { createTheme } from '@mui/material/styles'
 
 // Import theme modules
-import { lightPalette, darkPalette } from './palette'
-import typographyOptions from './typography'
 import breakpointsOptions from './breakpoints'
+import { lightPalette, darkPalette } from './palette'
 import baseShadows, { darkShadows } from './shadows'
+import typographyOptions from './typography'
 
 // Re-export individual modules
 export * from './palette'

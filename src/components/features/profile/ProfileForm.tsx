@@ -3,20 +3,6 @@
  * Profile editing form for personal information, skills, and portfolio
  */
 
-import React, { useState, useEffect } from 'react'
-import {
-  TextField,
-  Button,
-  Grid,
-  Typography,
-  Chip,
-  Stack,
-  Alert,
-  CircularProgress,
-  Card,
-  CardContent,
-  CardHeader,
-} from '@mui/material'
 import {
   Save,
   Cancel,
@@ -31,6 +17,21 @@ import {
   Email,
   Phone,
 } from '@mui/icons-material'
+import {
+  TextField,
+  Button,
+  Grid,
+  Typography,
+  Chip,
+  Stack,
+  Alert,
+  CircularProgress,
+  Card,
+  CardContent,
+  CardHeader,
+} from '@mui/material'
+import React, { useState, useEffect } from 'react'
+
 import { useAuth } from '@/hooks/auth/useAuth'
 import { UserApiService } from '@/services/user'
 

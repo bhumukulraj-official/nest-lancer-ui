@@ -3,10 +3,11 @@
  * User settings page for preferences and account management
  */
 
-import React from 'react'
 import { Container, Typography } from '@mui/material'
-import { UserLayout } from '@/components/layout'
+import React from 'react'
+
 import SettingsForm from '@/components/features/profile/SettingsForm'
+import { UserLayout } from '@/components/layout'
 
 export const SettingsPage: React.FC = () => {
   return (

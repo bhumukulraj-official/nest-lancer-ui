@@ -3,7 +3,7 @@
  * Main page for managing projects
  */
 
-import React, { useState, useEffect } from 'react'
+import { Add } from '@mui/icons-material'
 import {
   Box,
   Typography,
@@ -14,11 +14,12 @@ import {
   useTheme,
   useMediaQuery
 } from '@mui/material'
-import { Add } from '@mui/icons-material'
+import React, { useState, useEffect } from 'react'
+
 import { ProjectList, ProjectForm } from '../../components/features/projects'
+import { useToast } from '../../hooks/ui/useToast'
 import { ProjectApiService } from '../../services/project'
 import { Project, ProjectCreateData, ProjectUpdateData, ProjectFilters } from '../../types/models/project.types'
-import { useToast } from '../../hooks/ui/useToast'
 
 const ProjectsPage: React.FC = () => {
   const theme = useTheme()

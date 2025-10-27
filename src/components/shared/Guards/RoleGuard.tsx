@@ -4,10 +4,11 @@
  * Renders content based on user role permissions
  */
 
+import { Block, ArrowBack } from '@mui/icons-material'
+import { Box, Typography, Button } from '@mui/material'
 import { FC, ReactNode } from 'react'
 import { Navigate, useLocation } from 'react-router-dom'
-import { Box, Typography, Button } from '@mui/material'
-import { Block, ArrowBack } from '@mui/icons-material'
+
 import { useAuth } from '@/hooks/auth/useAuth'
 
 export interface RoleGuardProps {

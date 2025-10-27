@@ -4,7 +4,6 @@
  * Supports various variants, sizes, and interactive states
  */
 
-import React, { forwardRef } from 'react'
 import {
   Button as MuiButton,
   ButtonProps as MuiButtonProps,
@@ -13,6 +12,7 @@ import {
   alpha,
   useTheme,
 } from '@mui/material'
+import React, { forwardRef } from 'react'
 
 // Extended button props
 export interface ButtonProps extends Omit<MuiButtonProps, 'color' | 'variant'> {

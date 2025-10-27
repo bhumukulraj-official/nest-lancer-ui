@@ -4,7 +4,12 @@
  * UI-only component - displays backend health data
  */
 
-import React, { useState, useEffect } from 'react'
+import {
+  CheckCircle,
+  Warning,
+  Error,
+  Refresh,
+} from '@mui/icons-material'
 import {
   Box,
   Typography,
@@ -15,12 +20,8 @@ import {
   Stack,
   Alert,
 } from '@mui/material'
-import {
-  CheckCircle,
-  Warning,
-  Error,
-  Refresh,
-} from '@mui/icons-material'
+import React, { useState, useEffect } from 'react'
+
 import { LoadingButton } from '@/components/shared/Button'
 
 // Service health interface

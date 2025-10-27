@@ -3,11 +3,12 @@
  * User profile view page displaying user information and portfolio
  */
 
-import React from 'react'
 import { Container, Typography, Box, Avatar, Grid, Card, CardContent, Chip, Stack } from '@mui/material'
+import React from 'react'
+
 import { UserLayout } from '@/components/layout'
-import { UserApiService } from '@/services/user'
 import { useAuth } from '@/hooks/auth/useAuth'
+import { UserApiService } from '@/services/user'
 
 export const ProfilePage: React.FC = () => {
   const { user } = useAuth()

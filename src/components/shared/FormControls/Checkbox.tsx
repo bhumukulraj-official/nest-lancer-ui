@@ -4,7 +4,13 @@
  * Supports controlled/uncontrolled state with custom styling and validation
  */
 
-import React, { forwardRef } from 'react'
+import {
+  CheckBox,
+  CheckBoxOutlineBlank,
+  IndeterminateCheckBox,
+  Error as ErrorIcon,
+  CheckCircle,
+} from '@mui/icons-material'
 import {
   Checkbox as MuiCheckbox,
   FormControl,
@@ -18,13 +24,7 @@ import {
   useTheme,
   CheckboxProps as MuiCheckboxProps,
 } from '@mui/material'
-import {
-  CheckBox,
-  CheckBoxOutlineBlank,
-  IndeterminateCheckBox,
-  Error as ErrorIcon,
-  CheckCircle,
-} from '@mui/icons-material'
+import React, { forwardRef } from 'react'
 
 // Extended checkbox props
 export interface CheckboxProps extends Omit<MuiCheckboxProps, 'color'> {

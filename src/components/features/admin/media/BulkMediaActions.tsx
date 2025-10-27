@@ -2,8 +2,8 @@
  * Bulk Media Actions Component
  */
 
-import React from 'react'
 import { Box, Button, Stack } from '@mui/material'
+import React from 'react'
 
 interface BulkMediaActionsProps {
   selectedMedia: string[]

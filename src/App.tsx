@@ -3,17 +3,17 @@
  * Root application component with theme provider, routing setup, and global providers
  */
 
-import { FC } from 'react'
 import { ThemeProvider, CssBaseline } from '@mui/material'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { BrowserRouter } from 'react-router-dom'
+import { FC } from 'react'
 import { Toaster } from 'react-hot-toast'
+import { BrowserRouter } from 'react-router-dom'
 
-import { defaultTheme } from '@/styles/theme'
-import { envConfig, isDevelopment } from '@/config'
 import ErrorBoundary from '@/components/shared/ErrorBoundaries/ErrorBoundary'
+import { envConfig, isDevelopment } from '@/config'
 import AppRoutes from '@/routes/AppRoutes'
+import { defaultTheme } from '@/styles/theme'
 
 // Create React Query client
 const queryClient = new QueryClient({

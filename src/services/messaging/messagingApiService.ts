@@ -4,8 +4,6 @@
  * UI-only service - no business logic processing
  */
 
-import { apiClient } from '../api/client'
-import { MESSAGE_ENDPOINTS } from '../api/endpoints'
 import type {
   Message,
   Conversation,
@@ -24,6 +22,8 @@ import type {
   MessageSearchResult as SearchResult,
   ConversationInvite
 } from '../../types/models/message.types'
+import { apiClient } from '../api/client'
+import { MESSAGE_ENDPOINTS } from '../api/endpoints'
 
 export class MessagingApiService {
   /**

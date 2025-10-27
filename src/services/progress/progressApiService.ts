@@ -4,8 +4,6 @@
  * UI-only service - no business logic processing
  */
 
-import { apiClient } from '../api/client'
-import { PROGRESS_ENDPOINTS } from '../api/endpoints'
 import type {
   Progress,
   ProgressCreateData,
@@ -26,6 +24,8 @@ import type {
   ProgressComment,
   ProgressAttachment
 } from '../../types/models/progress.types'
+import { apiClient } from '../api/client'
+import { PROGRESS_ENDPOINTS } from '../api/endpoints'
 
 export class ProgressApiService {
   /**

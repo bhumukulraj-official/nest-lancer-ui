@@ -4,8 +4,6 @@
  * UI-only service - no business logic processing
  */
 
-import { apiClient } from '../api/client'
-import { PORTFOLIO_ENDPOINTS } from '../api/endpoints'
 import type {
   Portfolio,
   PortfolioProject,
@@ -26,6 +24,8 @@ import type {
   PortfolioTheme,
   PortfolioSettings
 } from '../../types/models/portfolio.types'
+import { apiClient } from '../api/client'
+import { PORTFOLIO_ENDPOINTS } from '../api/endpoints'
 
 export class PortfolioApiService {
   /**

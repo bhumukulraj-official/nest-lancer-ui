@@ -3,8 +3,9 @@
  * Main admin dashboard with system metrics and user management
  */
 
-import React from 'react'
 import { Container, Grid } from '@mui/material'
+import React from 'react'
+
 import {
   AdminOverview,
   SystemMetrics,

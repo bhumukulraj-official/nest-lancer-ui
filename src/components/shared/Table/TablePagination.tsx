@@ -4,8 +4,8 @@
  * Includes page size selection, total count display, page navigation, and accessibility features
  */
 
-import React, { FC } from 'react'
 import { TablePagination as MuiTablePagination } from '@mui/material'
+import React, { FC } from 'react'
 
 interface TablePaginationComponentProps {
   count: number

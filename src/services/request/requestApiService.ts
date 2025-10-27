@@ -4,8 +4,6 @@
  * UI-only service - no business logic processing
  */
 
-import { apiClient } from '../api/client'
-import { REQUEST_ENDPOINTS } from '../api/endpoints'
 import type {
   Request,
   RequestCreateData,
@@ -23,6 +21,8 @@ import type {
   RequestFeedback,
   RequestAnalytics
 } from '../../types/models/request.types'
+import { apiClient } from '../api/client'
+import { REQUEST_ENDPOINTS } from '../api/endpoints'
 
 export class RequestApiService {
   /**

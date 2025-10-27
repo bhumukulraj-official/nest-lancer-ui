@@ -3,11 +3,12 @@
  * Admin page for managing payment refunds
  */
 
+import { Container } from '@mui/material'
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { Container } from '@mui/material'
-import { AdminLayout } from '@/components/layout/AdminLayout'
+
 import { RefundManager } from '@/components/features/admin/payments'
+import { AdminLayout } from '@/components/layout/AdminLayout'
 
 const RefundManagementPage: React.FC = () => {
   const { id } = useParams<{ id: string }>()

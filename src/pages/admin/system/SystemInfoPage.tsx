@@ -3,10 +3,11 @@
  * Admin page for viewing system information
  */
 
-import React from 'react'
 import { Container } from '@mui/material'
-import { AdminLayout } from '@/components/layout/AdminLayout'
+import React from 'react'
+
 import { SystemInfo } from '@/components/features/admin/system'
+import { AdminLayout } from '@/components/layout/AdminLayout'
 
 const SystemInfoPage: React.FC = () => {
   // Mock data - replace with actual API call

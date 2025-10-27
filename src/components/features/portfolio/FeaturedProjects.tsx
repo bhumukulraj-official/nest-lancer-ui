@@ -3,7 +3,14 @@
  * Displays featured projects in a grid layout
  */
 
-import React from 'react'
+import {
+  Visibility,
+  GitHub,
+  Launch,
+  Star,
+  Code,
+  CalendarToday
+} from '@mui/icons-material'
 import {
   Box,
   Typography,
@@ -18,14 +25,8 @@ import {
   IconButton,
   Tooltip
 } from '@mui/material'
-import {
-  Visibility,
-  GitHub,
-  Launch,
-  Star,
-  Code,
-  CalendarToday
-} from '@mui/icons-material'
+import React from 'react'
+
 import type { PortfolioProject } from '../../../types/models/portfolio.types'
 
 interface FeaturedProjectsProps {

@@ -4,7 +4,11 @@
  * Supports images, initials, icons, and status indicators
  */
 
-import React, { forwardRef, useState } from 'react'
+import {
+  Person,
+  Group,
+  Business,
+} from '@mui/icons-material'
 import {
   Avatar as MuiAvatar,
   AvatarProps as MuiAvatarProps,
@@ -15,11 +19,7 @@ import {
   alpha,
   useTheme,
 } from '@mui/material'
-import {
-  Person,
-  Group,
-  Business,
-} from '@mui/icons-material'
+import React, { forwardRef, useState } from 'react'
 
 // Avatar size type
 export type AvatarSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number

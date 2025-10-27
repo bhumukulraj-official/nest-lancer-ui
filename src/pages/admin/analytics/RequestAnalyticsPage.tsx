@@ -3,10 +3,11 @@
  * Admin page for request analytics and statistics
  */
 
-import React from 'react'
 import { Container } from '@mui/material'
-import { AdminLayout } from '@/components/layout/AdminLayout'
+import React from 'react'
+
 import { RequestAnalytics } from '@/components/features/admin/analytics'
+import { AdminLayout } from '@/components/layout/AdminLayout'
 
 const RequestAnalyticsPage: React.FC = () => {
   return (

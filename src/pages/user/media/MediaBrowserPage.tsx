@@ -3,11 +3,12 @@
  * Page for browsing, organizing, and managing media files
  */
 
-import React, { useState } from 'react'
-import { Container, Box, Typography, Button, Card, CardContent, TextField, InputAdornment, IconButton, Alert } from '@mui/material'
 import { Search, Upload, Clear, Delete } from '@mui/icons-material'
-import { UserLayout } from '@/components/layout'
+import { Container, Box, Typography, Button, Card, CardContent, TextField, InputAdornment, IconButton, Alert } from '@mui/material'
+import React, { useState } from 'react'
+
 import { MediaBrowser } from '@/components/features/media'
+import { UserLayout } from '@/components/layout'
 import { MediaApiService } from '@/services/media'
 
 export const MediaBrowserPage: React.FC = () => {

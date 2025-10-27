@@ -4,7 +4,6 @@
  * Includes validation, formatting, and responsive design
  */
 
-import { forwardRef } from 'react'
 import {
   TextField,
   TextFieldProps,
@@ -12,6 +11,7 @@ import {
   Typography,
   useTheme,
 } from '@mui/material'
+import { forwardRef } from 'react'
 
 export interface TextAreaProps extends Omit<TextFieldProps, 'multiline'> {
   variant?: 'outlined' | 'filled' | 'standard'

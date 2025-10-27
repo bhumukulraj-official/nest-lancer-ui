@@ -4,8 +4,6 @@
  * UI-only service - no business logic processing
  */
 
-import { apiClient } from '../api/client'
-import { MEDIA_ENDPOINTS } from '../api/endpoints'
 import type {
   Media,
   MediaCreateData,
@@ -20,6 +18,8 @@ import type {
   MediaProcessing,
   MediaTransformation
 } from '../../types/models/media.types'
+import { apiClient } from '../api/client'
+import { MEDIA_ENDPOINTS } from '../api/endpoints'
 
 export class MediaApiService {
   /**

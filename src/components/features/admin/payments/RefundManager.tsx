@@ -3,11 +3,12 @@
  * Manages payment refunds and refund tracking
  */
 
-import React, { useState } from 'react'
-import { Box, Paper, Typography, TextField, Button, Stack, Divider, Typography as MuiTypography } from '@mui/material'
 import { Receipt } from '@mui/icons-material'
-import { formatDate } from '@/utils/formatters/dateFormatter'
+import { Box, Paper, Typography, TextField, Button, Stack, Divider, Typography as MuiTypography } from '@mui/material'
+import React, { useState } from 'react'
+
 import { formatCurrency } from '@/utils/formatters/currencyFormatter'
+import { formatDate } from '@/utils/formatters/dateFormatter'
 
 interface Refund {
   id: string

@@ -4,8 +4,14 @@
  * Displayed when ErrorBoundary catches an error
  */
 
-import { FC, useState } from 'react'
-import { ErrorInfo } from 'react'
+import {
+  ErrorOutline,
+  Refresh,
+  ExpandMore,
+  ExpandLess,
+  BugReport,
+  Home,
+} from '@mui/icons-material'
 import {
   Box,
   Typography,
@@ -16,14 +22,7 @@ import {
   Alert,
   Divider,
 } from '@mui/material'
-import {
-  ErrorOutline,
-  Refresh,
-  ExpandMore,
-  ExpandLess,
-  BugReport,
-  Home,
-} from '@mui/icons-material'
+import { FC, useState , ErrorInfo } from 'react'
 
 interface ErrorFallbackProps {
   error: Error | null

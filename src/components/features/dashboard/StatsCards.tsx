@@ -3,7 +3,14 @@
  * Detailed statistics cards for dashboard metrics
  */
 
-import React from 'react'
+import {
+  TrendingUp,
+  TrendingDown,
+  Assignment,
+  Payment,
+  Schedule,
+  CheckCircle,
+} from '@mui/icons-material'
 import {
   Box,
   Typography,
@@ -14,14 +21,7 @@ import {
   Stack,
   useTheme,
 } from '@mui/material'
-import {
-  TrendingUp,
-  TrendingDown,
-  Assignment,
-  Payment,
-  Schedule,
-  CheckCircle,
-} from '@mui/icons-material'
+import React from 'react'
 
 // Stats card interface
 interface StatsCardProps {

@@ -4,7 +4,6 @@
  * Uses MUI Skeleton with proper spacing and animation effects
  */
 
-import { FC } from 'react'
 import {
   Box,
   Skeleton as MuiSkeleton,
@@ -12,6 +11,7 @@ import {
   CardContent,
   Grid,
 } from '@mui/material'
+import { FC } from 'react'
 
 interface SkeletonProps {
   variant?: 'text' | 'rectangular' | 'rounded' | 'circular'

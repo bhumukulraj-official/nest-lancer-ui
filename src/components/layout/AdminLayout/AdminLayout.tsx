@@ -3,11 +3,12 @@
  * Admin dashboard layout with sidebar navigation, header, and content area
  */
 
-import React, { FC, ReactNode } from 'react'
 import { Box, useTheme, useMediaQuery } from '@mui/material'
+import React, { FC, ReactNode } from 'react'
+
+import { AdminContent } from './AdminContent'
 import { AdminHeader } from './AdminHeader'
 import { AdminSidebar } from './AdminSidebar'
-import { AdminContent } from './AdminContent'
 
 interface AdminLayoutProps {
   children: ReactNode

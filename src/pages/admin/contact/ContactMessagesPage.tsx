@@ -3,10 +3,11 @@
  * Admin page for viewing contact messages
  */
 
-import React from 'react'
 import { Container } from '@mui/material'
-import { AdminLayout } from '@/components/layout/AdminLayout'
+import React from 'react'
+
 import { ContactMessages } from '@/components/features/admin/contact'
+import { AdminLayout } from '@/components/layout/AdminLayout'
 
 const ContactMessagesPage: React.FC = () => {
   return (

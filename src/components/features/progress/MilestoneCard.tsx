@@ -3,9 +3,10 @@
  * Milestone display card with progress information and status indicators
  */
 
-import React from 'react'
-import { Card, CardContent, Typography, Chip, Box, LinearProgress, IconButton } from '@mui/material'
 import { Edit, Delete } from '@mui/icons-material'
+import { Card, CardContent, Typography, Chip, Box, LinearProgress, IconButton } from '@mui/material'
+import React from 'react'
+
 import { formatDate } from '@/utils'
 
 interface MilestoneCardProps {

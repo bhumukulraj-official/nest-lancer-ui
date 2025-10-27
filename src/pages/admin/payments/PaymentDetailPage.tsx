@@ -3,11 +3,12 @@
  * Admin page for viewing individual payment details
  */
 
+import { Container } from '@mui/material'
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { Container } from '@mui/material'
-import { AdminLayout } from '@/components/layout/AdminLayout'
+
 import { PaymentDetailAdmin } from '@/components/features/admin/payments'
+import { AdminLayout } from '@/components/layout/AdminLayout'
 
 const PaymentDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>()

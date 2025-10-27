@@ -3,10 +3,11 @@
  * Admin page for managing API keys
  */
 
-import React from 'react'
 import { Container } from '@mui/material'
-import { AdminLayout } from '@/components/layout/AdminLayout'
+import React from 'react'
+
 import { ApiKeyManager } from '@/components/features/admin/system'
+import { AdminLayout } from '@/components/layout/AdminLayout'
 
 const ApiKeyManagementPage: React.FC = () => {
   return (

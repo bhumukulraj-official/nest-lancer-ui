@@ -3,7 +3,14 @@
  * Quote display card with pricing information, timeline, and status
  */
 
-import React from 'react'
+import {
+  Visibility,
+  Edit,
+  Delete,
+  CheckCircle,
+  AttachMoney,
+  Schedule,
+} from '@mui/icons-material'
 import {
   Card,
   CardContent,
@@ -16,14 +23,8 @@ import {
   Grid,
   Divider,
 } from '@mui/material'
-import {
-  Visibility,
-  Edit,
-  Delete,
-  CheckCircle,
-  AttachMoney,
-  Schedule,
-} from '@mui/icons-material'
+import React from 'react'
+
 import { Quote } from '@/types/models/quote.types'
 import { formatCurrency, formatDate } from '@/utils'
 

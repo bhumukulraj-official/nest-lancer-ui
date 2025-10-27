@@ -4,7 +4,10 @@
  * Handles promises, loading indicators, and success/error states
  */
 
-import React, { forwardRef, useState, useCallback } from 'react'
+import {
+  Check,
+  Error as ErrorIcon,
+} from '@mui/icons-material'
 import {
   Button,
   ButtonProps,
@@ -13,10 +16,7 @@ import {
   Fade,
   useTheme,
 } from '@mui/material'
-import {
-  Check,
-  Error as ErrorIcon,
-} from '@mui/icons-material'
+import React, { forwardRef, useState, useCallback } from 'react'
 
 // Loading button props
 export interface LoadingButtonProps extends Omit<ButtonProps, 'onClick'> {

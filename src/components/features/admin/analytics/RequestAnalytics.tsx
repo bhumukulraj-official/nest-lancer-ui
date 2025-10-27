@@ -4,7 +4,12 @@
  * UI-only component - displays backend analytics data
  */
 
-import React, { useState, useEffect } from 'react'
+import {
+  Assignment,
+  Pending,
+  CheckCircle,
+  Cancel,
+} from '@mui/icons-material'
 import {
   Box,
   Typography,
@@ -14,12 +19,8 @@ import {
   Chip,
   Stack,
 } from '@mui/material'
-import {
-  Assignment,
-  Pending,
-  CheckCircle,
-  Cancel,
-} from '@mui/icons-material'
+import React, { useState, useEffect } from 'react'
+
 import { ChartWithControls } from './AnalyticsCharts'
 import type { ChartDataPoint } from './AnalyticsCharts'
 

@@ -5,6 +5,7 @@
  */
 
 import { useCallback } from 'react'
+
 import { useNotificationStore, Toast, NotificationType } from '@/stores/notificationStore'
 
 // Toast hook return type

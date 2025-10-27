@@ -4,8 +4,6 @@
  * UI-only service - no business logic processing
  */
 
-import { apiClient } from '../api/client'
-import { PAYMENT_ENDPOINTS } from '../api/endpoints'
 import type {
   Payment,
   PaymentCreateData,
@@ -22,6 +20,8 @@ import type {
   RazorpayOrder,
   PaymentAnalytics
 } from '../../types/models/payment.types'
+import { apiClient } from '../api/client'
+import { PAYMENT_ENDPOINTS } from '../api/endpoints'
 
 export class PaymentApiService {
   /**

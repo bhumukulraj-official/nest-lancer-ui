@@ -2,8 +2,8 @@
  * Admin Content
  */
 
-import { FC, ReactNode } from 'react'
 import { Container } from '@mui/material'
+import { FC, ReactNode } from 'react'
 
 interface AdminContentProps {
   children: ReactNode

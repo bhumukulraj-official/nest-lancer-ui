@@ -3,7 +3,11 @@
  * Avatar upload component with Cloudinary integration and image cropping
  */
 
-import React, { useState, useRef } from 'react'
+import {
+  CameraAlt,
+  CloudUpload,
+  Delete,
+} from '@mui/icons-material'
 import {
   Box,
   Avatar,
@@ -16,11 +20,8 @@ import {
   CardContent,
   Stack,
 } from '@mui/material'
-import {
-  CameraAlt,
-  CloudUpload,
-  Delete,
-} from '@mui/icons-material'
+import React, { useState, useRef } from 'react'
+
 import { CloudinaryUIService } from '@/services/media'
 
 interface AvatarUploadProps {

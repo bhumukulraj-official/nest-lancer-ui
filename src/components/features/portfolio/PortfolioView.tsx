@@ -3,7 +3,23 @@
  * Main portfolio display component
  */
 
-import React, { useState, useEffect } from 'react'
+import {
+  Language,
+  GitHub,
+  LinkedIn,
+  Twitter,
+  School,
+  Work,
+  Star,
+  Code,
+  Palette,
+  Psychology,
+  Translate,
+  EmojiEvents,
+  ThumbUp,
+  Edit,
+  Settings
+} from '@mui/icons-material'
 import {
   Box,
   Typography,
@@ -23,24 +39,9 @@ import {
   Tooltip,
   LinearProgress
 } from '@mui/material'
-import {
-  Language,
-  GitHub,
-  LinkedIn,
-  Twitter,
-  School,
-  Work,
-  Star,
-  Code,
-  Palette,
-  Psychology,
-  Translate,
-  EmojiEvents,
-  ThumbUp,
-  Edit,
-  Settings
-} from '@mui/icons-material'
-import FeaturedProjects from './FeaturedProjects'
+import React, { useState, useEffect } from 'react'
+
+
 import { PortfolioApiService } from '../../../services/portfolio'
 import type {
   Portfolio,
@@ -53,6 +54,8 @@ import type {
   PortfolioStats
 } from '../../../types/models/portfolio.types'
 import { SkillCategory, SkillLevel } from '../../../types/models/portfolio.types'
+
+import FeaturedProjects from './FeaturedProjects'
 
 interface TabPanelProps {
   children?: React.ReactNode

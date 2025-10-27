@@ -3,12 +3,13 @@
  * Admin page for comprehensive project management
  */
 
-import React from 'react'
-import { Container, Box, Typography, Button } from '@mui/material'
-import { useNavigate } from 'react-router-dom'
 import { Add as AddIcon } from '@mui/icons-material'
-import { AdminLayout } from '@/components/layout/AdminLayout'
+import { Container, Box, Typography, Button } from '@mui/material'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import { BulkProjectActions } from '@/components/features/admin/projects'
+import { AdminLayout } from '@/components/layout/AdminLayout'
 
 const ProjectManagementPage: React.FC = () => {
   const navigate = useNavigate()

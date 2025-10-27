@@ -1,6 +1,6 @@
-import React from 'react'
-import { Box, Typography, IconButton, Chip } from '@mui/material'
 import { Delete, CheckCircle } from '@mui/icons-material'
+import { Box, Typography, IconButton, Chip } from '@mui/material'
+import React from 'react'
 
 export const NotificationItem: React.FC<{ notification: any; onDelete?: (id: string) => void; onMarkRead?: (id: string) => void }> = ({ notification, onDelete, onMarkRead }) => {
   return (

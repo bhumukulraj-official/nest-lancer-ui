@@ -3,12 +3,12 @@
  * Form for editing user information and roles
  */
 
-import React, { useState } from 'react'
 import { Box, Paper, Typography, Grid, FormControl, InputLabel, Select, MenuItem } from '@mui/material'
+import React, { useState } from 'react'
+
 import { LoadingButton } from '@/components/shared/Button/LoadingButton'
 import { Input } from '@/components/shared/FormControls/Input'
-import { User } from '@/types/models/user.types'
-import { UserRole } from '@/types/models/user.types'
+import { User , UserRole } from '@/types/models/user.types'
 
 interface UserEditFormProps {
   user: User

@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import { Box, TextField, Button, Stack, Avatar, Typography, Divider } from '@mui/material'
 import { Send } from '@mui/icons-material'
+import { Box, TextField, Button, Stack, Avatar, Typography, Divider } from '@mui/material'
+import React, { useState } from 'react'
 
 export const BlogComments: React.FC<{ comments: any[]; onSubmitComment?: (text: string) => void }> = ({ comments = [], onSubmitComment }) => {
   const [newComment, setNewComment] = useState('')

@@ -5,6 +5,7 @@
  */
 
 import { NavigateFunction } from 'react-router-dom'
+
 import { ROUTES } from '../../constants/routes.constants'
 
 export interface NavigationOptions {

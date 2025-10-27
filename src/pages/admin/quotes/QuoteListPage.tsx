@@ -3,10 +3,11 @@
  * Admin page for viewing and managing all quotes
  */
 
-import React from 'react'
 import { Container } from '@mui/material'
-import { AdminLayout } from '@/components/layout/AdminLayout'
+import React from 'react'
+
 import { QuoteListAdmin } from '@/components/features/admin/quotes'
+import { AdminLayout } from '@/components/layout/AdminLayout'
 
 const QuoteListPage: React.FC = () => {
   return (

@@ -3,7 +3,12 @@
  * User settings form for notifications, privacy, and account preferences
  */
 
-import React, { useState, useEffect } from 'react'
+import {
+  Save,
+  Notifications,
+  Lock,
+  Security,
+} from '@mui/icons-material'
 import {
   Box,
   Card,
@@ -18,14 +23,10 @@ import {
   Stack,
   CircularProgress,
 } from '@mui/material'
-import {
-  Save,
-  Notifications,
-  Lock,
-  Security,
-} from '@mui/icons-material'
-import { UserApiService } from '@/services/user'
+import React, { useState, useEffect } from 'react'
+
 import { useAuth } from '@/hooks/auth/useAuth'
+import { UserApiService } from '@/services/user'
 
 interface SettingsFormProps {
   onSave?: (settings: any) => void

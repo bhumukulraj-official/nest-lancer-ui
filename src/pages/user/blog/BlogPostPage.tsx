@@ -1,9 +1,10 @@
+import { Container , Grid } from '@mui/material'
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { Container } from '@mui/material'
-import { UserLayout } from '@/components/layout'
+
 import { BlogPost, BlogComments } from '@/components/features/blog'
-import { Grid } from '@mui/material'
+import { UserLayout } from '@/components/layout'
+
 
 export const BlogPostPage: React.FC = () => {
   const { id } = useParams<{ id: string }>()

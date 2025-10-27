@@ -3,7 +3,7 @@
  * File upload component with Cloudinary integration, drag-and-drop functionality, and progress tracking
  */
 
-import React, { useState, useRef } from 'react'
+import { CloudUpload, Delete, CloudDone } from '@mui/icons-material'
 import {
   Box,
   Card,
@@ -16,7 +16,8 @@ import {
   IconButton,
   Chip,
 } from '@mui/material'
-import { CloudUpload, Delete, CloudDone } from '@mui/icons-material'
+import React, { useState, useRef } from 'react'
+
 import { CloudinaryUIService } from '@/services/media'
 
 interface MediaUploadProps {

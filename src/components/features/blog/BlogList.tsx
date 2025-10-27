@@ -1,5 +1,6 @@
-import React from 'react'
 import { Grid, Typography, TextField, Pagination, Box } from '@mui/material'
+import React from 'react'
+
 import { BlogCard } from './BlogCard'
 
 export const BlogList: React.FC<{ posts: any[]; onViewPost?: (id: string) => void; loading?: boolean }> = ({ posts, onViewPost }) => {

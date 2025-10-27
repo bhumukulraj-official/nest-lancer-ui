@@ -4,8 +4,6 @@
  * UI-only service - no business logic processing
  */
 
-import { apiClient } from '../api/client'
-import { NOTIFICATION_ENDPOINTS } from '../api/endpoints'
 import type {
   Notification,
   NotificationCreateData,
@@ -24,6 +22,8 @@ import type {
   NotificationDelivery,
   NotificationReadReceipt
 } from '../../types/models/notification.types'
+import { apiClient } from '../api/client'
+import { NOTIFICATION_ENDPOINTS } from '../api/endpoints'
 
 export class NotificationApiService {
   /**

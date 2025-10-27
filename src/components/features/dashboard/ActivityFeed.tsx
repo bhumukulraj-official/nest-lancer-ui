@@ -3,7 +3,15 @@
  * Recent activity feed showing user's recent actions and updates
  */
 
-import React from 'react'
+import {
+  Assignment,
+  Payment,
+  Person,
+  Message,
+  CheckCircle,
+  Schedule,
+  TrendingUp,
+} from '@mui/icons-material'
 import {
   Box,
   Typography,
@@ -18,15 +26,7 @@ import {
   Divider,
   Stack,
 } from '@mui/material'
-import {
-  Assignment,
-  Payment,
-  Person,
-  Message,
-  CheckCircle,
-  Schedule,
-  TrendingUp,
-} from '@mui/icons-material'
+import React from 'react'
 
 // Activity item interface
 interface ActivityItem {

@@ -3,7 +3,6 @@
  * Handles bulk operations on multiple quotes
  */
 
-import React, { useState } from 'react'
 import {
   Box,
   Typography,
@@ -18,6 +17,7 @@ import {
   ListItemText,
   Checkbox,
 } from '@mui/material'
+import React, { useState } from 'react'
 
 interface BulkQuoteActionsProps {
   selectedQuotes: string[]

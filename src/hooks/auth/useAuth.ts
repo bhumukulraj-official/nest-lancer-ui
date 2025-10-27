@@ -5,8 +5,9 @@
  */
 
 import { useCallback } from 'react'
-import { useAuthStore, User } from '@/stores/authStore'
+
 import { tokenService } from '@/services/auth/tokenService'
+import { useAuthStore, User } from '@/stores/authStore'
 import { useNotificationStore } from '@/stores/notificationStore'
 
 // Auth hook return type

@@ -3,7 +3,14 @@
  * Request display card with status indicators and timeline
  */
 
-import React from 'react'
+import {
+  Visibility,
+  Edit,
+  Delete,
+  Schedule,
+  AttachMoney,
+  Person,
+} from '@mui/icons-material'
 import {
   Card,
   CardContent,
@@ -15,14 +22,8 @@ import {
   Tooltip,
   LinearProgress,
 } from '@mui/material'
-import {
-  Visibility,
-  Edit,
-  Delete,
-  Schedule,
-  AttachMoney,
-  Person,
-} from '@mui/icons-material'
+import React from 'react'
+
 import { Request } from '@/types/models/request.types'
 import { formatCurrency, formatDate } from '@/utils'
 

@@ -4,7 +4,12 @@
  * Supports single/multi-select with autocomplete functionality
  */
 
-import React, { forwardRef, useState, useMemo } from 'react'
+import {
+  ExpandMore,
+  Clear,
+  Check,
+  Error as ErrorIcon,
+} from '@mui/icons-material'
 import {
   TextField,
   Autocomplete,
@@ -15,12 +20,7 @@ import {
   useTheme,
   AutocompleteProps,
 } from '@mui/material'
-import {
-  ExpandMore,
-  Clear,
-  Check,
-  Error as ErrorIcon,
-} from '@mui/icons-material'
+import React, { forwardRef, useState, useMemo } from 'react'
 
 // Option interface
 export interface SelectOption {

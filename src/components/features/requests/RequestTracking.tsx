@@ -3,15 +3,12 @@
  * Request tracking timeline with status updates and progress monitoring
  */
 
-import React from 'react'
 import {
-  Box,
-  Card,
-  CardContent,
-  Typography,
-  Avatar,
-  Chip,
-} from '@mui/material'
+  CheckCircle,
+  Pending,
+  Pending as InProgress,
+  Cancel,
+} from '@mui/icons-material'
 import {
   Timeline,
   TimelineItem,
@@ -21,11 +18,15 @@ import {
   TimelineDot,
 } from '@mui/lab'
 import {
-  CheckCircle,
-  Pending,
-  Pending as InProgress,
-  Cancel,
-} from '@mui/icons-material'
+  Box,
+  Card,
+  CardContent,
+  Typography,
+  Avatar,
+  Chip,
+} from '@mui/material'
+import React from 'react'
+
 import { formatDate } from '@/utils'
 
 interface TrackingEvent {

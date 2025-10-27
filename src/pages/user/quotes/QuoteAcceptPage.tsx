@@ -3,13 +3,14 @@
  * Page for accepting quotes with payment integration
  */
 
+import { Container, Box, Typography, Button, Card, CardContent, Divider, Alert } from '@mui/material'
 import React, { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { Container, Box, Typography, Button, Card, CardContent, Divider, Alert } from '@mui/material'
-import { UserLayout } from '@/components/layout'
+
 import { QuoteAcceptance } from '@/components/features/quotes'
-import { QuoteApiService } from '@/services/quote'
+import { UserLayout } from '@/components/layout'
 import { useAuth } from '@/hooks/auth/useAuth'
+import { QuoteApiService } from '@/services/quote'
 
 export const QuoteAcceptPage: React.FC = () => {
   const { id } = useParams<{ id: string }>()

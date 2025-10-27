@@ -4,7 +4,12 @@
  * UI-only component - displays backend rate limit data
  */
 
-import React, { useState, useEffect } from 'react'
+import {
+  Speed,
+  Warning,
+  CheckCircle,
+  Error,
+} from '@mui/icons-material'
 import {
   Box,
   Typography,
@@ -15,12 +20,8 @@ import {
   Stack,
   Alert,
 } from '@mui/material'
-import {
-  Speed,
-  Warning,
-  CheckCircle,
-  Error,
-} from '@mui/icons-material'
+import React, { useState, useEffect } from 'react'
+
 import { ChartWithControls } from './AnalyticsCharts'
 import type { ChartDataPoint } from './AnalyticsCharts'
 

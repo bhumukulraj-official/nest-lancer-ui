@@ -3,7 +3,10 @@
  * Quote creation form UI that captures inputs for pricing and terms
  */
 
-import React, { useState } from 'react'
+import {
+  Save,
+  Cancel,
+} from '@mui/icons-material'
 import {
   Card,
   CardContent,
@@ -18,10 +21,8 @@ import {
   Divider,
   Chip,
 } from '@mui/material'
-import {
-  Save,
-  Cancel,
-} from '@mui/icons-material'
+import React, { useState } from 'react'
+
 import { QuoteFormData } from '@/types/forms/quote.form.types'
 
 interface QuoteFormProps {

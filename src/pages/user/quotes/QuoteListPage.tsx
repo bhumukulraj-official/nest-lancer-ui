@@ -1,7 +1,8 @@
-import React from 'react'
 import { Container } from '@mui/material'
-import { UserLayout } from '@/components/layout'
+import React from 'react'
+
 import { QuoteList } from '@/components/features/quotes'
+import { UserLayout } from '@/components/layout'
 
 export const QuoteListPage: React.FC = () => {
   const mockQuotes: any[] = []

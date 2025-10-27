@@ -4,8 +4,6 @@
  * UI-only service - no business logic processing
  */
 
-import { apiClient } from '../api/client'
-import { USER_ENDPOINTS } from '../api/endpoints'
 import type {
   UserProfile,
   ProfileUpdateData,
@@ -19,6 +17,8 @@ import type {
   ProfilePortfolio,
   ProfileTestimonial
 } from '../../types/models/user.types'
+import { apiClient } from '../api/client'
+import { USER_ENDPOINTS } from '../api/endpoints'
 
 export class ProfileApiService {
   /**

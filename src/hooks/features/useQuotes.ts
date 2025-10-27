@@ -5,6 +5,7 @@
  */
 
 import { useState, useCallback, useEffect } from 'react'
+
 import { QuoteApiService } from '../../services/quote/quoteApiService'
 import type {
   Quote,

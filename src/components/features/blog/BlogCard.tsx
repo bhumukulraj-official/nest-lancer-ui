@@ -1,6 +1,6 @@
-import React from 'react'
-import { Card, CardContent, CardMedia, Typography, Avatar, Box, IconButton } from '@mui/material'
 import { Share, Bookmark, Comment } from '@mui/icons-material'
+import { Card, CardContent, CardMedia, Typography, Avatar, Box, IconButton } from '@mui/material'
+import React from 'react'
 
 export const BlogCard: React.FC<{ post: any; onView?: (id: string) => void }> = ({ post, onView }) => {
   return (

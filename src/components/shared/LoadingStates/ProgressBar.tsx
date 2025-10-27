@@ -4,7 +4,6 @@
  * Includes determinate/indeterminate states and custom styling
  */
 
-import { FC } from 'react'
 import {
   LinearProgress,
   LinearProgressProps,
@@ -13,6 +12,7 @@ import {
   alpha,
   useTheme,
 } from '@mui/material'
+import { FC } from 'react'
 
 export interface ProgressBarProps extends LinearProgressProps {
   value?: number

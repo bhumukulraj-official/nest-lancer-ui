@@ -3,10 +3,11 @@
  * Admin page for rate limit monitoring and analytics
  */
 
-import React from 'react'
 import { Container } from '@mui/material'
-import { AdminLayout } from '@/components/layout/AdminLayout'
+import React from 'react'
+
 import { RateLimitAnalytics } from '@/components/features/admin/analytics'
+import { AdminLayout } from '@/components/layout/AdminLayout'
 
 const RateLimitAnalyticsPage: React.FC = () => {
   return (

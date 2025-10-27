@@ -3,11 +3,12 @@
  * Admin page for editing user information
  */
 
-import React, { useEffect } from 'react'
 import { Container, Box } from '@mui/material'
+import React, { useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { AdminLayout } from '@/components/layout/AdminLayout'
+
 import { UserEditForm } from '@/components/features/admin/users'
+import { AdminLayout } from '@/components/layout/AdminLayout'
 import { useAdminUsers } from '@/hooks/admin/useAdminUsers'
 import { User } from '@/types/models/user.types'
 

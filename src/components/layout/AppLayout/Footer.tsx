@@ -4,7 +4,14 @@
  * Includes social media links, legal pages, and contact information
  */
 
-import { FC } from 'react'
+import {
+  GitHub,
+  LinkedIn,
+  Twitter,
+  Email,
+  Phone,
+  LocationOn,
+} from '@mui/icons-material'
 import {
   Box,
   Container,
@@ -16,14 +23,7 @@ import {
   useTheme,
   useMediaQuery,
 } from '@mui/material'
-import {
-  GitHub,
-  LinkedIn,
-  Twitter,
-  Email,
-  Phone,
-  LocationOn,
-} from '@mui/icons-material'
+import { FC } from 'react'
 
 const Footer: FC = () => {
   const theme = useTheme()

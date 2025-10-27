@@ -3,10 +3,11 @@
  * Admin page for viewing audit logs
  */
 
-import React from 'react'
 import { Container } from '@mui/material'
-import { AdminLayout } from '@/components/layout/AdminLayout'
+import React from 'react'
+
 import { AuditLogs } from '@/components/features/admin/audit'
+import { AdminLayout } from '@/components/layout/AdminLayout'
 
 const AuditLogsPage: React.FC = () => {
   return (

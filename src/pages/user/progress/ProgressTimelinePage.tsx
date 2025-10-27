@@ -1,7 +1,8 @@
-import React from 'react'
 import { Container } from '@mui/material'
-import { UserLayout } from '@/components/layout'
+import React from 'react'
+
 import { ProgressTimeline } from '@/components/features/progress'
+import { UserLayout } from '@/components/layout'
 
 export const ProgressTimelinePage: React.FC = () => {
   const mockMilestones: any[] = []
