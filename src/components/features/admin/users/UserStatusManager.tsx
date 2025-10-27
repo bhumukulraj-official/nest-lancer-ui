@@ -5,7 +5,6 @@
 
 import React from 'react'
 import { Box, Paper, Typography, Chip, Switch, FormControlLabel } from '@mui/material'
-import { LoadingButton } from '@/components/shared/Button/LoadingButton'
 import { User } from '@/types/models/user.types'
 
 interface UserStatusManagerProps {
@@ -14,7 +13,7 @@ interface UserStatusManagerProps {
 }
 
 const UserStatusManager: React.FC<UserStatusManagerProps> = ({ user, onStatusChange }) => {
-  const isActive = user.status === 'active'
+  const isActive = user.isActive
 
   const handleToggle = () => {
     onStatusChange(!isActive)

@@ -13,7 +13,6 @@ import {
   Grid,
   Chip,
   Stack,
-  LinearProgress,
   useTheme,
 } from '@mui/material'
 import {
@@ -41,13 +40,11 @@ interface RealTimeStatCardProps {
 const RealTimeStatCard: React.FC<RealTimeStatCardProps> = ({ metric, isLive }) => {
   const theme = useTheme()
   
-  const getChange = () => metric.value - metric.previousValue
   const getChangePercent = () => {
     if (metric.previousValue === 0) return 0
     return ((metric.value - metric.previousValue) / metric.previousValue) * 100
   }
   
-  const change = getChange()
   const changePercent = getChangePercent()
   
   const getTrendIcon = () => {
@@ -209,7 +206,7 @@ const LiveActivityFeed: React.FC = () => {
 // Main real-time stats component
 export const RealTimeStats: React.FC = () => {
   const [metrics, setMetrics] = useState<RealTimeMetric[]>([])
-  const [isLive, setIsLive] = useState(true)
+  const [isLive] = useState(true)
   
   useEffect(() => {
     // Mock real-time data - in real app, this would come from WebSocket

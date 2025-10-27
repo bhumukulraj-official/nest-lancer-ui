@@ -2,7 +2,7 @@
  * Webhook Logs Component
  */
 
-import React, { useState } from 'react'
+import React from 'react'
 import { Box, Paper, Typography, Chip, IconButton, Tooltip } from '@mui/material'
 import { Refresh, Visibility } from '@mui/icons-material'
 import { DataGrid, GridColDef } from '@mui/x-data-grid'

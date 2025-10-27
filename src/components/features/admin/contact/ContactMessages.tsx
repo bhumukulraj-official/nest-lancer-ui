@@ -2,16 +2,18 @@
  * Contact Messages Component
  */
 
-import React, { useState } from 'react'
-import { Box, Paper, Typography, Chip, IconButton, Tooltip } from '@mui/material'
+import React from 'react'
+import { Box, Paper, Typography, IconButton, Tooltip } from '@mui/material'
 import { Visibility, Reply, Delete } from '@mui/icons-material'
 import { DataGrid, GridColDef } from '@mui/x-data-grid'
 import { formatDate } from '@/utils/formatters/dateFormatter'
 
 const ContactMessages: React.FC = () => {
-  const [selectedRows, setSelectedRows] = useState<string[]>([])
-
   const messages: any[] = []
+
+  const handleRowSelection = () => {
+    // Handle row selection if needed
+  }
 
   const columns: GridColDef[] = [
     { field: 'name', headerName: 'Name', flex: 1 },
@@ -60,7 +62,7 @@ const ContactMessages: React.FC = () => {
           rows={messages}
           columns={columns}
           checkboxSelection
-          onRowSelectionModelChange={setSelectedRows}
+          onRowSelectionModelChange={handleRowSelection}
           autoHeight
         />
       </Paper>

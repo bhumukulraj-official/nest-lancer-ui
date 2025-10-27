@@ -5,7 +5,7 @@
 
 import React, { useState } from 'react'
 import { Box, Paper, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, IconButton, Chip, Button, Dialog, DialogTitle, DialogContent, DialogActions, TextField } from '@mui/material'
-import { Add, Copy, Delete, Visibility, VisibilityOff } from '@mui/icons-material'
+import { Add, ContentCopy, Delete, Visibility, VisibilityOff } from '@mui/icons-material'
 import { LoadingButton } from '@/components/shared/Button/LoadingButton'
 
 interface ApiKey {
@@ -102,7 +102,7 @@ const ApiKeyManager: React.FC = () => {
                   <TableCell>{key.createdAt}</TableCell>
                   <TableCell>
                     <IconButton size="small" onClick={() => handleCopyKey(key.key)}>
-                      <Copy fontSize="small" />
+                      <ContentCopy fontSize="small" />
                     </IconButton>
                     <IconButton size="small" onClick={() => handleDeleteKey(key.id)}>
                       <Delete fontSize="small" color="error" />

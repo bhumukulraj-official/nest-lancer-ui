@@ -45,7 +45,6 @@ export const AnalyticsChart: React.FC<AnalyticsChartProps> = ({
   color,
   height = 300,
   showTooltip = true,
-  dateRange,
 }) => {
   const theme = useTheme()
   
@@ -55,7 +54,6 @@ export const AnalyticsChart: React.FC<AnalyticsChartProps> = ({
   const chartData = data.map(point => ({
     name: point.label,
     value: point.value,
-    date: point.date,
   }))
   
   return (
@@ -69,18 +67,16 @@ export const AnalyticsChart: React.FC<AnalyticsChartProps> = ({
         {type === 'line' && (
           <LineChart
             data={chartData}
-            dataKey="value"
+            lines={[{ dataKey: 'value', color: chartColor }]}
             height={height}
-            color={chartColor}
             showTooltip={showTooltip}
           />
         )}
         {type === 'bar' && (
           <BarChart
             data={chartData}
-            dataKey="value"
+            bars={[{ dataKey: 'value', color: chartColor }]}
             height={height}
-            color={chartColor}
             showTooltip={showTooltip}
           />
         )}
@@ -113,7 +109,7 @@ export const ChartWithControls: React.FC<ChartWithControlsProps> = ({
 }) => {
   const [selectedRange, setSelectedRange] = React.useState('30d')
   
-  const handleRangeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleRangeChange = (event: any) => {
     const newRange = event.target.value
     setSelectedRange(newRange)
     onDateRangeChange?.(newRange)
@@ -168,18 +164,13 @@ export interface MultiSeriesChartProps {
     color?: string
   }>
   height?: number
-  dateRange?: string
 }
 
 export const MultiSeriesChart: React.FC<MultiSeriesChartProps> = ({
   title,
   series,
   height = 300,
-  dateRange,
 }) => {
-  const theme = useTheme()
-  const colors = [theme.palette.primary.main, theme.palette.secondary.main, theme.palette.success.main]
-  
   return (
     <Card>
       <CardContent>

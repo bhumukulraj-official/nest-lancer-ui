@@ -16,15 +16,14 @@ const PaymentAnalyticsAdmin: React.FC = () => {
     successRate: 98.5,
   }
 
-  const chartData = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-    datasets: [
-      {
-        label: 'Revenue',
-        data: [20000, 25000, 22000, 28000, 27000, 30000],
-      },
-    ],
-  }
+  const chartData = [
+    { name: 'Jan', value: 20000 },
+    { name: 'Feb', value: 25000 },
+    { name: 'Mar', value: 22000 },
+    { name: 'Apr', value: 28000 },
+    { name: 'May', value: 27000 },
+    { name: 'Jun', value: 30000 },
+  ]
 
   return (
     <Box>
@@ -83,7 +82,7 @@ const PaymentAnalyticsAdmin: React.FC = () => {
             <Typography variant="h6" gutterBottom>
               Revenue Trend
             </Typography>
-            <BarChart data={chartData} />
+            <BarChart data={chartData} bars={[{ dataKey: 'value' }]} />
           </Paper>
         </Grid>
       </Grid>

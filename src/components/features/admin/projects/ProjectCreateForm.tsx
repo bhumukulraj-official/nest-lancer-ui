@@ -7,7 +7,6 @@ import React, { useState } from 'react'
 import { Box, Paper, Typography, Grid, FormControl, InputLabel, Select, MenuItem, Chip, TextField, Button } from '@mui/material'
 import { LoadingButton } from '@/components/shared/Button/LoadingButton'
 import { Input } from '@/components/shared/FormControls/Input'
-import { Select as CustomSelect } from '@/components/shared/FormControls/Select'
 import { Add as AddIcon } from '@mui/icons-material'
 
 interface ProjectCreateFormProps {

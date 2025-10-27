@@ -16,19 +16,14 @@ const ProgressAnalytics: React.FC = () => {
     completionRate: 80,
   }
 
-  const chartData = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-    datasets: [
-      {
-        label: 'Projects Completed',
-        data: [15, 18, 20, 22, 20, 25],
-      },
-      {
-        label: 'Projects in Progress',
-        data: [10, 12, 15, 18, 15, 20],
-      },
-    ],
-  }
+  const chartData = [
+    { name: 'Jan', completed: 15, inProgress: 10 },
+    { name: 'Feb', completed: 18, inProgress: 12 },
+    { name: 'Mar', completed: 20, inProgress: 15 },
+    { name: 'Apr', completed: 22, inProgress: 18 },
+    { name: 'May', completed: 20, inProgress: 15 },
+    { name: 'Jun', completed: 25, inProgress: 20 },
+  ]
 
   return (
     <Box>
@@ -85,7 +80,13 @@ const ProgressAnalytics: React.FC = () => {
             <Typography variant="h6" gutterBottom>
               Project Status Trend
             </Typography>
-            <LineChart data={chartData} />
+            <LineChart
+              data={chartData}
+              lines={[
+                { dataKey: 'completed', name: 'Projects Completed' },
+                { dataKey: 'inProgress', name: 'Projects in Progress' }
+              ]}
+            />
           </Paper>
         </Grid>
       </Grid>

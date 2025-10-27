@@ -4,9 +4,9 @@
  */
 
 import React, { useState } from 'react'
-import { Box, Paper, Typography, Button, Dialog, DialogTitle, DialogContent, DialogActions, MenuItem, Select, FormControl, InputLabel } from '@mui/material'
+import { Button, Dialog, DialogTitle, DialogContent, DialogActions, MenuItem, Select, FormControl, InputLabel } from '@mui/material'
 import { LoadingButton } from '@/components/shared/Button/LoadingButton'
-import { User } from '@/types/models/user.types'
+import { Typography } from '@mui/material'
 
 interface BulkUserActionsProps {
   selectedUsers: string[]

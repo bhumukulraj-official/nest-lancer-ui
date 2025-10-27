@@ -21,7 +21,6 @@ interface QuoteStatusManagerProps {
 }
 
 const QuoteStatusManager: React.FC<QuoteStatusManagerProps> = ({
-  quoteId,
   currentStatus = 'pending',
 }) => {
   const [status, setStatus] = useState(currentStatus)

@@ -4,7 +4,7 @@
  */
 
 import React from 'react'
-import { Container, Box } from '@mui/material'
+import { Container } from '@mui/material'
 import { useParams, useNavigate } from 'react-router-dom'
 import { AdminLayout } from '@/components/layout/AdminLayout'
 import { RequestDetailAdmin } from '@/components/features/admin/requests'

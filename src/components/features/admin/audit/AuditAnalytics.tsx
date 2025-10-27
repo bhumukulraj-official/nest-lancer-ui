@@ -13,15 +13,15 @@ const AuditAnalytics: React.FC = () => {
     errorLogs: 12,
   }
 
-  const chartData = {
-    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-    datasets: [
-      {
-        label: 'Daily Logs',
-        data: [20, 35, 30, 45, 40, 50, 45],
-      },
-    ],
-  }
+  const chartData = [
+    { name: 'Mon', value: 20 },
+    { name: 'Tue', value: 35 },
+    { name: 'Wed', value: 30 },
+    { name: 'Thu', value: 45 },
+    { name: 'Fri', value: 40 },
+    { name: 'Sat', value: 50 },
+    { name: 'Sun', value: 45 },
+  ]
 
   return (
     <Box>
@@ -67,7 +67,7 @@ const AuditAnalytics: React.FC = () => {
             <Typography variant="h6" gutterBottom>
               Activity Trend
             </Typography>
-            <LineChart data={chartData} />
+            <LineChart data={chartData} lines={[{ dataKey: 'value' }]} />
           </Paper>
         </Grid>
       </Grid>

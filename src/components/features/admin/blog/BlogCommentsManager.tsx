@@ -3,7 +3,7 @@
  */
 
 import React from 'react'
-import { Box, Paper, Typography, List, ListItem, ListItemText, Checkbox, Divider } from '@mui/material'
+import { Box, Paper, Typography } from '@mui/material'
 
 const BlogCommentsManager: React.FC = () => {
   const comments: any[] = []

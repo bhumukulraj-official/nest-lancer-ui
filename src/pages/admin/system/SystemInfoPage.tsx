@@ -30,9 +30,9 @@ const SystemInfoPage: React.FC = () => {
       cores: 8,
     },
     services: {
-      database: 'online',
-      cache: 'online',
-      queue: 'online',
+      database: 'online' as const,
+      cache: 'online' as const,
+      queue: 'online' as const,
     },
   }
 

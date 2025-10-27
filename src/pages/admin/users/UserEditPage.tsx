@@ -3,23 +3,30 @@
  * Admin page for editing user information
  */
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Container, Box } from '@mui/material'
 import { useParams, useNavigate } from 'react-router-dom'
 import { AdminLayout } from '@/components/layout/AdminLayout'
 import { UserEditForm } from '@/components/features/admin/users'
-import { useUsersQuery } from '@/hooks/admin/useAdminUsers'
+import { useAdminUsers } from '@/hooks/admin/useAdminUsers'
 import { User } from '@/types/models/user.types'
 
 const UserEditPage: React.FC = () => {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
-  const { data: user } = useUsersQuery({ id })
+  const { currentUser: user, fetchUser, updateUser, loading } = useAdminUsers({ autoFetch: false })
+
+  useEffect(() => {
+    if (id) {
+      fetchUser(id)
+    }
+  }, [id, fetchUser])
 
   const handleSubmit = async (data: Partial<User>) => {
     try {
-      // Call API to update user
-      console.log('Update user:', data)
+      if (id) {
+        await updateUser(id, data as any)
+      }
       navigate('/admin/users')
     } catch (error) {
       console.error('Error updating user:', error)
@@ -30,7 +37,7 @@ const UserEditPage: React.FC = () => {
     navigate('/admin/users')
   }
 
-  if (!user) {
+  if (loading || !user) {
     return (
       <AdminLayout>
         <Container maxWidth="xl" sx={{ py: 3 }}>

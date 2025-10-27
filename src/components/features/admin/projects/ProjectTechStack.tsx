@@ -16,14 +16,12 @@ import {
   Button,
 } from '@mui/material'
 import { Add, Delete, Edit } from '@mui/icons-material'
-import { LoadingButton } from '@/components/shared/Button/LoadingButton'
-
-interface Technology {
-  id: string
-  name: string
-  category: string
-  level: 'beginner' | 'intermediate' | 'advanced' | 'expert'
-}
+// interface Technology {
+//   id: string
+//   name: string
+//   category: string
+//   level: 'beginner' | 'intermediate' | 'advanced' | 'expert'
+// }
 
 interface ProjectTechStackProps {
   projectId?: string
@@ -74,12 +72,10 @@ const commonTechnologies = [
 ]
 
 const ProjectTechStack: React.FC<ProjectTechStackProps> = ({
-  projectId,
   technologies = [],
   onUpdate,
 }) => {
   const [inputValue, setInputValue] = useState('')
-  const [loading, setLoading] = useState(false)
   const [techList, setTechList] = useState<string[]>(technologies)
 
   useEffect(() => {

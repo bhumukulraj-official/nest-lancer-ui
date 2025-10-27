@@ -5,7 +5,7 @@
 
 import React, { useState } from 'react'
 import { Box, Paper, Typography, TextField, Button, Stack, Divider, Typography as MuiTypography } from '@mui/material'
-import { Receipt, ArrowBack } from '@mui/icons-material'
+import { Receipt } from '@mui/icons-material'
 import { formatDate } from '@/utils/formatters/dateFormatter'
 import { formatCurrency } from '@/utils/formatters/currencyFormatter'
 

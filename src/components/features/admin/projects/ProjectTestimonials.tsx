@@ -21,7 +21,7 @@ import {
   Avatar,
   Stack,
 } from '@mui/material'
-import { Add, Delete, Edit, Star, Verified } from '@mui/icons-material'
+import { Add, Delete, Edit, Verified } from '@mui/icons-material'
 import { LoadingButton } from '@/components/shared/Button/LoadingButton'
 
 export interface Testimonial {
@@ -42,7 +42,6 @@ interface ProjectTestimonialsProps {
 }
 
 const ProjectTestimonials: React.FC<ProjectTestimonialsProps> = ({
-  projectId,
   testimonials = [],
   onUpdate,
 }) => {

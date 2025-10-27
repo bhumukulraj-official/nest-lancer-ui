@@ -3,8 +3,7 @@
  */
 
 import React, { useState } from 'react'
-import { Box, Paper, Typography, Select, MenuItem, Button, Stack, TextField } from '@mui/material'
-import { DatePicker } from '@mui/x-date-pickers/DatePicker'
+import { Box, Paper, Typography, Select, MenuItem, Button, TextField } from '@mui/material'
 
 const AuditFilters: React.FC = () => {
   const [filterType, setFilterType] = useState('all')

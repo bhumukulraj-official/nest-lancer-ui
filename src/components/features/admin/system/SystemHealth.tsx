@@ -14,27 +14,18 @@ import {
   Chip,
   Stack,
   LinearProgress,
-  List,
-  ListItem,
-  ListItemText,
-  ListItemIcon,
   Alert,
-  Divider,
-  Paper,
-  useTheme,
-  CircularProgress,
 } from '@mui/material'
 import {
   CheckCircle,
   Warning,
   Error,
   Refresh,
-  Database,
+  Dataset,
   Storage,
   Memory,
   Speed,
   Cloud,
-  Security,
 } from '@mui/icons-material'
 import { LoadingButton } from '@/components/shared/Button'
 
@@ -73,8 +64,6 @@ interface PerformanceMetric {
 
 // Service health card component
 const ServiceHealthCard: React.FC<{ service: ServiceHealthData }> = ({ service }) => {
-  const theme = useTheme()
-  
   const getStatusColor = () => {
     switch (service.status) {
       case 'healthy':
@@ -192,11 +181,13 @@ const ResourceUsageCard: React.FC<{ resource: SystemResource }> = ({ resource })
     const icons = {
       'CPU': <Speed sx={{ fontSize: 20 }} />,
       'Memory': <Memory sx={{ fontSize: 20 }} />,
-      'Database': <Database sx={{ fontSize: 20 }} />,
+      'Database': <Dataset sx={{ fontSize: 20 }} />,
       'Storage': <Storage sx={{ fontSize: 20 }} />,
     }
     return icons[resource.name as keyof typeof icons] || <Cloud sx={{ fontSize: 20 }} />
   }
+  
+  const statusColor = getStatusColor()
   
   return (
     <Card sx={{ height: '100%' }}>
@@ -215,9 +206,9 @@ const ResourceUsageCard: React.FC<{ resource: SystemResource }> = ({ resource })
                 {resource.used} / {resource.total} {resource.unit}
               </Typography>
               <Chip
-                label={resource.percentage.toFixed(1)}%
+                label={`${resource.percentage.toFixed(1)}%`}
                 size="small"
-                color={getStatusColor() as any}
+                color={statusColor as any}
               />
             </Stack>
             <LinearProgress
@@ -229,7 +220,7 @@ const ResourceUsageCard: React.FC<{ resource: SystemResource }> = ({ resource })
                 bgcolor: 'grey.200',
                 '& .MuiLinearProgress-bar': {
                   borderRadius: 5,
-                  bgcolor: `${getStatusColor()}.main`,
+                  bgcolor: `${statusColor}.main`,
                 },
               }}
             />
@@ -242,19 +233,6 @@ const ResourceUsageCard: React.FC<{ resource: SystemResource }> = ({ resource })
 
 // Performance metric card component
 const PerformanceMetricCard: React.FC<{ metric: PerformanceMetric }> = ({ metric }) => {
-  const getStatusColor = () => {
-    switch (metric.status) {
-      case 'healthy':
-        return 'success'
-      case 'warning':
-        return 'warning'
-      case 'critical':
-        return 'error'
-      default:
-        return 'default'
-    }
-  }
-  
   return (
     <Card sx={{ height: '100%' }}>
       <CardContent>
@@ -297,7 +275,6 @@ const PerformanceMetricCard: React.FC<{ metric: PerformanceMetric }> = ({ metric
 
 // Main system health component
 export const SystemHealth: React.FC = () => {
-  const theme = useTheme()
   const [services, setServices] = useState<ServiceHealthData[]>([])
   const [resources, setResources] = useState<SystemResource[]>([])
   const [performanceMetrics, setPerformanceMetrics] = useState<PerformanceMetric[]>([])

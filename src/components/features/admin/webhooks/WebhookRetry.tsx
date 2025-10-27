@@ -3,7 +3,7 @@
  */
 
 import React from 'react'
-import { Box, Paper, Typography, Button, Stack, List, ListItem, ListItemText, IconButton } from '@mui/material'
+import { Box, Paper, Typography, Button, List, ListItem, ListItemText, IconButton } from '@mui/material'
 import { Refresh } from '@mui/icons-material'
 
 const WebhookRetry: React.FC = () => {

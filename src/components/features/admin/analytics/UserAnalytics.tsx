@@ -13,20 +13,13 @@ import {
   Grid,
   Chip,
   Stack,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
 } from '@mui/material'
 import {
   People,
   TrendingUp,
   AccountCircle,
 } from '@mui/icons-material'
-import { AnalyticsChart, ChartWithControls } from './AnalyticsCharts'
+import { ChartWithControls } from './AnalyticsCharts'
 import type { ChartDataPoint } from './AnalyticsCharts'
 
 // User analytics interface

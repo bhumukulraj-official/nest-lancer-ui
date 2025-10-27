@@ -19,9 +19,12 @@ interface MediaFile {
 }
 
 const MediaListAdmin: React.FC = () => {
-  const [selectedRows, setSelectedRows] = useState<string[]>([])
   const [searchTerm, setSearchTerm] = useState('')
-  
+
+  const handleRowSelection = () => {
+    // Handle row selection if needed
+  }
+
   // Mock data
   const mediaFiles: MediaFile[] = []
 
@@ -70,7 +73,7 @@ const MediaListAdmin: React.FC = () => {
       headerName: 'Actions',
       width: 150,
       sortable: false,
-      renderCell: (params: GridRenderCellParams) => (
+      renderCell: () => (
         <Box>
           <Tooltip title="View">
             <IconButton size="small">
@@ -115,7 +118,7 @@ const MediaListAdmin: React.FC = () => {
           rows={mediaFiles}
           columns={columns}
           checkboxSelection
-          onRowSelectionModelChange={setSelectedRows}
+          onRowSelectionModelChange={handleRowSelection}
           disableRowSelectionOnClick
           autoHeight
           pageSizeOptions={[10, 25, 50]}

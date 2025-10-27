@@ -10,7 +10,7 @@ interface MediaDetailAdminProps {
   mediaId?: string
 }
 
-const MediaDetailAdmin: React.FC<MediaDetailAdminProps> = ({ mediaId }) => {
+const MediaDetailAdmin: React.FC<MediaDetailAdminProps> = () => {
   return (
     <Box>
       <Stack direction="row" spacing={2} sx={{ mb: 3 }}>

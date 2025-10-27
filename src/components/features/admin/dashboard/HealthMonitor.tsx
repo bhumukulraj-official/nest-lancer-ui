@@ -13,14 +13,7 @@ import {
   Grid,
   Chip,
   Stack,
-  LinearProgress,
-  List,
-  ListItem,
-  ListItemText,
-  ListItemIcon,
   Alert,
-  Divider,
-  useTheme,
 } from '@mui/material'
 import {
   CheckCircle,
@@ -52,8 +45,6 @@ interface AlertItem {
 
 // Service health card component
 const ServiceHealthCard: React.FC<{ service: ServiceHealth }> = ({ service }) => {
-  const theme = useTheme()
-  
   const getStatusColor = () => {
     switch (service.status) {
       case 'healthy':
@@ -155,7 +146,6 @@ const ServiceHealthCard: React.FC<{ service: ServiceHealth }> = ({ service }) =>
 
 // Main health monitor component
 export const HealthMonitor: React.FC = () => {
-  const theme = useTheme()
   const [services, setServices] = useState<ServiceHealth[]>([])
   const [alerts, setAlerts] = useState<AlertItem[]>([])
   const [lastRefresh, setLastRefresh] = useState<Date>(new Date())
@@ -314,7 +304,7 @@ export const HealthMonitor: React.FC = () => {
             Active Alerts
           </Typography>
           <Stack spacing={2}>
-            {unresolvedAlerts.map((alert, index) => (
+            {unresolvedAlerts.map((alert) => (
               <Alert key={alert.id} severity={alert.severity as any}>
                 {alert.message}
                 <Typography variant="caption" display="block" sx={{ mt: 0.5 }}>

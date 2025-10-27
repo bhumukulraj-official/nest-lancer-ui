@@ -20,8 +20,13 @@ import {
   Cancel,
   TrendingUp,
 } from '@mui/icons-material'
-import { AnalyticsChart, ChartWithControls } from './AnalyticsCharts'
-import type { ChartDataPoint } from './AnalyticsCharts'
+import { ChartWithControls } from './AnalyticsCharts'
+
+interface ChartDataPoint {
+  label: string
+  value: number
+  date?: string
+}
 
 interface QuoteAnalytics {
   totalQuotes: number

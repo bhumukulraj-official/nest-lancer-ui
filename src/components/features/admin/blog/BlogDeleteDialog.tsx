@@ -12,7 +12,7 @@ interface BlogDeleteDialogProps {
   blogId?: string
 }
 
-const BlogDeleteDialog: React.FC<BlogDeleteDialogProps> = ({ open, onClose, onConfirm, blogId }) => {
+const BlogDeleteDialog: React.FC<BlogDeleteDialogProps> = ({ open, onClose, onConfirm }) => {
   return (
     <Dialog open={open} onClose={onClose}>
       <DialogTitle>Delete Blog Post</DialogTitle>

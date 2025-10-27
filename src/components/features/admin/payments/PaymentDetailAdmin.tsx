@@ -8,7 +8,6 @@ import {
   Box,
   Paper,
   Typography,
-  Chip,
   Grid,
   Divider,
   Button,
@@ -19,7 +18,7 @@ import {
   TableContainer,
   TableRow,
 } from '@mui/material'
-import { Edit, Delete, ArrowBack, Print } from '@mui/icons-material'
+import { ArrowBack, Print } from '@mui/icons-material'
 import { formatDate } from '@/utils/formatters/dateFormatter'
 import { formatCurrency } from '@/utils/formatters/currencyFormatter'
 

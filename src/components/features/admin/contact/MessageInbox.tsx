@@ -4,7 +4,6 @@
 
 import React from 'react'
 import { Box, Paper, Typography, List, ListItem, ListItemText, Chip, Divider } from '@mui/material'
-import { formatDate } from '@/utils/formatters/dateFormatter'
 
 const MessageInbox: React.FC = () => {
   const messages: any[] = []

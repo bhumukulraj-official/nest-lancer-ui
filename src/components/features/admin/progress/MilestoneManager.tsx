@@ -4,7 +4,7 @@
  */
 
 import React from 'react'
-import { Box, Paper, Typography, Chip, Button, Stack, Divider } from '@mui/material'
+import { Box, Paper, Typography, Chip, Button } from '@mui/material'
 import { Add, CheckCircle } from '@mui/icons-material'
 import { formatDate } from '@/utils/formatters/dateFormatter'
 

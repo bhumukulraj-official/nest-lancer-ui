@@ -5,7 +5,7 @@
 
 import React, { useState } from 'react'
 import { Box, Paper, Typography, Chip, IconButton, Tooltip, TextField } from '@mui/material'
-import { Edit, Delete, Visibility, CheckCircle } from '@mui/icons-material'
+import { Edit, Delete, Visibility } from '@mui/icons-material'
 import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid'
 import { formatDate } from '@/utils/formatters/dateFormatter'
 import { formatCurrency } from '@/utils/formatters/currencyFormatter'
@@ -20,14 +20,14 @@ interface Quote {
 }
 
 const QuoteListAdmin: React.FC = () => {
-  const [selectedRows, setSelectedRows] = useState<string[]>([])
   const [searchTerm, setSearchTerm] = useState('')
   
   // Mock data - replace with actual API call
   const quotes: Quote[] = []
 
-  const handleRowSelection = (selection: string[]) => {
-    setSelectedRows(selection)
+  const handleRowSelection = (selectionModel: any) => {
+    // Handle row selection if needed
+    console.log('Selected rows:', selectionModel)
   }
 
   const handleView = (quote: Quote) => {

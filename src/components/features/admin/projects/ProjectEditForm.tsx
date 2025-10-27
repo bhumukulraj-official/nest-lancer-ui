@@ -43,7 +43,11 @@ const ProjectEditForm: React.FC<ProjectEditFormProps> = ({ project, onSubmit, on
     e.preventDefault()
     setLoading(true)
     try {
-      await onSubmit(formData)
+      const submitData = {
+        ...formData,
+        budget: parseFloat(formData.budget) || 0,
+      }
+      await onSubmit(submitData)
     } catch (error) {
       console.error('Error updating project:', error)
     } finally {
